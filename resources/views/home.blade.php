@@ -6,7 +6,9 @@
             <div class="row">
                 <div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
                     <h2>Cześć!</h2>
-                    <h3>05 Sierpnia 2023 godz. 16.00 - Stalowa Wola, Polska</h3>
+                    <h3>05 Sierpnia 2023 godz. 16.00</h3>
+                    <h3>Klasztor: Zakonu Braci Mniejszych Kapucynów, Stalowa Wola</h3>
+                    <h3>Sala: </h3>
                     <p>We invited you to celebrate our wedding</p>
                 </div>
             </div>

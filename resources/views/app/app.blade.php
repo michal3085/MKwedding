@@ -74,7 +74,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-xs-2">
-                    <div id="fh5co-logo"><a href="index.html">Wedding<strong>.</strong></a></div>
+                    <div id="fh5co-logo"><a href="index.html">Wesele<strong>.</strong></a></div>
                 </div>
                 <div class="col-xs-10 text-right menu-1">
                     <ul>
@@ -113,8 +113,8 @@
                 <div class="col-md-8 col-md-offset-2 text-center">
                     <div class="display-t">
                         <div class="display-tc animate-box" data-animate-effect="fadeIn">
-                            <h1>Joefrey &amp; Sheila</h1>
-                            <h2>We Are Getting Married</h2>
+                            <h1>Maciek & Karolina</h1>
+                            <h2>Pobieramy się za:</h2>
                             <div class="simply-countdown simply-countdown-one"></div>
                             <p><a href="#" class="btn btn-default btn-sm">Save the date</a></p>
                         </div>
@@ -185,9 +185,6 @@
 
     // default example
     simplyCountdown('.simply-countdown-one', {
-        year: d.getFullYear(),
-        month: d.getMonth() + 1,
-        day: d.getDate()
     });
 
     //jQuery example
