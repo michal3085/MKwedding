@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\GuestsController;
 use App\Http\Controllers\MainController;
 use Illuminate\Support\Facades\Route;
 
@@ -19,3 +20,5 @@ use Illuminate\Support\Facades\Route;
 //});
 
 Route::get('/', [MainController::class, 'index'])->name('home');
+Route::post('/confirm/me/', [GuestsController::class, 'confirmGuest'])->name('guest.confirm');
+Route::get('/confirmed/thank/you', [GuestsController::class, 'confirmedInfo'])->name('confirmed');

@@ -47,17 +47,18 @@
             </div>
             <div class="row animate-box">
                 <div class="col-md-10 col-md-offset-1">
-                    <form class="form-inline">
+                    <form action="{{ route('guest.confirm') }}" class="form-inline" method="POST">
+                        @csrf
                         <div class="col-md-4 col-sm-4">
                             <div class="form-group">
                                 <label for="name" class="sr-only">Imię</label>
-                                <input type="name" class="form-control" id="name" placeholder="Imię">
+                                <input  class="form-control" id="name" name="name" placeholder="Imię">
                             </div>
                         </div>
                         <div class="col-md-4 col-sm-4">
                             <div class="form-group">
-                                <label for="email" class="sr-only">Nazwisko</label>
-                                <input type="email" class="form-control" id="email" placeholder="Nazwisko">
+                                <label for="surname" class="sr-only">Nazwisko</label>
+                                <input  class="form-control" id="surname" name="surname" placeholder="Nazwisko">
                             </div>
                         </div>
                         <div class="col-md-4 col-sm-4">
