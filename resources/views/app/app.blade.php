@@ -41,27 +41,27 @@
     <link href="https://fonts.googleapis.com/css?family=Sacramento" rel="stylesheet">
 
     <!-- Animate.css -->
-    <link rel="stylesheet" href="css/animate.css">
+    <link rel="stylesheet" href="{{ asset('css/animate.css') }}">
     <!-- Icomoon Icon Fonts-->
-    <link rel="stylesheet" href="css/icomoon.css">
+    <link rel="stylesheet" href="{{asset('css/icomoon.css')}}">
     <!-- Bootstrap  -->
-    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="{{asset('css/bootstrap.css')}}">
 
     <!-- Magnific Popup -->
-    <link rel="stylesheet" href="css/magnific-popup.css">
+    <link rel="stylesheet" href="{{asset('css/magnific-popup.css')}}">
 
     <!-- Owl Carousel  -->
-    <link rel="stylesheet" href="css/owl.carousel.min.css">
-    <link rel="stylesheet" href="css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="{{asset('css/owl.carousel.min.css')}}">
+    <link rel="stylesheet" href="{{asset('css/owl.theme.default.min.css')}}">
 
     <!-- Theme style  -->
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="{{asset('css/style.css')}}">
 
     <!-- Modernizr JS -->
-    <script src="js/modernizr-2.6.2.min.js"></script>
+    <script src="{{asset('js/modernizr-2.6.2.min.js')}}"></script>
     <!-- FOR IE9 below -->
     <!--[if lt IE 9]>
-    <script src="js/respond.min.js"></script>
+    <script src="{{asset('js/respond.min.js')}}"></script>
     <![endif]-->
 
 </head>
@@ -105,25 +105,6 @@
 
         </div>
     </nav>
-
-    <header id="fh5co-header" class="fh5co-cover" role="banner" style="background-image:url(images/img_bg_2.jpg);" data-stellar-background-ratio="0.5">
-        <div class="overlay"></div>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8 col-md-offset-2 text-center">
-                    <div class="display-t">
-                        <div class="display-tc animate-box" data-animate-effect="fadeIn">
-                            <h1>Maciek & Karolina</h1>
-                            <h2>Pobieramy się za:</h2>
-                            <div class="simply-countdown simply-countdown-one"></div>
-                            <p><a href="#" class="btn btn-default btn-sm">Save the date</a></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </header>
-
 {{-- CONTENT START HERE --}}
         @yield('content')
 {{-- CONTENT END HERE --}}
@@ -134,7 +115,8 @@
             <div class="row copyright">
                 <div class="col-md-12 text-center">
                     <p>
-                        <small class="block">Michał Broszkiewicz</small>
+                        <small class="block">Programmed by: Michał Broszkiewicz</small>
+                        <small class="block">Template made by:</small>
                         <small class="block">&copy; 2016 Free HTML5. All Rights Reserved.</small>
                         <small class="block">Designed by <a href="http://freehtml5.co/" target="_blank">FREEHTML5.co</a> Demo Images: <a href="http://unsplash.co/" target="_blank">Unsplash</a></small>
                     </p>
@@ -158,28 +140,28 @@
 </div>
 
 <!-- jQuery -->
-<script src="js/jquery.min.js"></script>
+<script src="{{asset('js/jquery.min.js')}}"></script>
 <!-- jQuery Easing -->
-<script src="js/jquery.easing.1.3.js"></script>
+<script src="{{asset('js/jquery.easing.1.3.js')}}"></script>
 <!-- Bootstrap -->
-<script src="js/bootstrap.min.js"></script>
+<script src="{{asset('js/bootstrap.min.js')}}"></script>
 <!-- Waypoints -->
-<script src="js/jquery.waypoints.min.js"></script>
+<script src="{{asset('js/jquery.waypoints.min.js')}}"></script>
 <!-- Carousel -->
-<script src="js/owl.carousel.min.js"></script>
+<script src="{{asset('js/owl.carousel.min.js')}}"></script>
 <!-- countTo -->
-<script src="js/jquery.countTo.js"></script>
+<script src="{{asset('js/jquery.countTo.js')}}"></script>
 
 <!-- Stellar -->
-<script src="js/jquery.stellar.min.js"></script>
+<script src="{{asset('js/jquery.stellar.min.js')}}"></script>
 <!-- Magnific Popup -->
-<script src="js/jquery.magnific-popup.min.js"></script>
-<script src="js/magnific-popup-options.js"></script>
+<script src="{{asset('js/jquery.magnific-popup.min.js')}}"></script>
+<script src="{{asset('js/magnific-popup-options.js')}}"></script>
 
 <!-- // <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/0.0.1/prism.min.js"></script> -->
-<script src="js/simplyCountdown.js"></script>
+<script src="{{asset('js/simplyCountdown.js')}}"></script>
 <!-- Main -->
-<script src="js/main.js"></script>
+<script src="{{asset('js/main.js')}}"></script>
 
 <script>
     var d = new Date(new Date().getTime() + 200 * 120 * 120 * 2000);

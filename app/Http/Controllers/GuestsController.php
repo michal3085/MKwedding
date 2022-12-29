@@ -22,6 +22,6 @@ class GuestsController extends Controller
 
     public function confirmedInfo()
     {
-        //
+        return view('confirmed');
     }
 }
