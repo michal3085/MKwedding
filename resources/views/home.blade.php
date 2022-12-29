@@ -23,10 +23,10 @@
             <div class="row">
                 <div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
                     <h2>Cześć!</h2>
+                    <p>Nasz Ślub i Wesele odbędą się w:</p>
                     <h3>05 Sierpnia 2023 godz. 16.00</h3>
                     <h3>Klasztor: Zakonu Braci Mniejszych Kapucynów, Stalowa Wola</h3>
-                    <h3>Sala: </h3>
-                    <p>We invited you to celebrate our wedding</p>
+                    <h3>Sala: Hotel Duo Spa w Janowie Lubelskim</h3>
                 </div>
             </div>
             <div class="couple-wrap animate-box">
