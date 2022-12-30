@@ -36,7 +36,7 @@
                     </div>
                     <div class="desc-groom">
                         <h3>Maciej Cuch</h3>
-                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove</p>
+                        <p>Brusów, Lubelskie</p>
                     </div>
                 </div>
                 <p class="heart text-center"><i class="icon-heart2"></i></p>
@@ -46,7 +46,7 @@
                     </div>
                     <div class="desc-bride">
                         <h3>Karolina Nieradka</h3>
-                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove</p>
+                        <p>Pysznica, Podkarpackie</p>
                     </div>
                 </div>
             </div>
