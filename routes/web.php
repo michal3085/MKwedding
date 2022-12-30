@@ -22,3 +22,4 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [MainController::class, 'index'])->name('home');
 Route::post('/confirm/me/', [GuestsController::class, 'confirmGuest'])->name('guest.confirm');
 Route::get('/confirmed/thank/you', [GuestsController::class, 'confirmedInfo'])->name('confirmed');
+Route::post('/guest/{id}/data/save', [GuestsController::class, 'guestDataSave'])->name('guest.data.save');

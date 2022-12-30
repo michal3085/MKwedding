@@ -74,7 +74,7 @@
         <div class="container">
             <div class="row">
                 <div class="col-xs-2">
-                    <div id="fh5co-logo"><a href="index.html">Wesele<strong>.</strong></a></div>
+                    <div id="fh5co-logo"><a style="font-size: 60px" href="index.html">Wesele<strong>.</strong></a></div>
                 </div>
                 <div class="col-xs-10 text-right menu-1">
                     <ul>
@@ -175,7 +175,10 @@
         year: d.getFullYear(),
         month: d.getMonth() + 1,
         day: d.getDate(),
-        enableUtc: false
+        enableUtc: false,
+        haurs: 16,
+        minutes: 0,
+        seconds: 0
     });
 </script>
 

@@ -16,26 +16,62 @@
                     <a href="{{ route('home') }}"><button type="" class="btn btn-default btn-block">Powrót do strony głównej</button></a>
                 </div>
             </div>
-            <hr>
+                <hr>
+            <form action="{{ route('guest.data.save', ['id' => $gid]) }}" method="POST">
+                @csrf
                 <div class="form-group">
                     <label for="exampleFormControlSelect1">Potrzebujesz noclegu?</label>
-                    <select class="form-control" id="exampleFormControlSelect1">
-                        <option>TAK</option>
-                        <option>NIE</option>
+                    <select class="form-control" name="hotel" id="exampleFormControlSelect1">
+                        @if(isset($data))
+                            @if ($data->hotel == 1)
+                                <option selected>TAK</option>
+                                <option>NIE</option>
+                            @endif
+                                @if ($data->hotel == 0)
+                                    <option>TAK</option>
+                                    <option selected>NIE</option>
+                                @endif
+                        @else
+                            <option value="1">TAK</option>
+                            <option value="0" selected>NIE</option>
+                        @endif
                     </select>
                 </div>
                 <div class="form-group">
                     <label for="exampleFormControlSelect2">Transport z:</label>
-                    <select multiple class="form-control" id="exampleFormControlSelect2">
+                    <select multiple class="form-control" name="transport" id="exampleFormControlSelect2">
+                        @if(isset($data))
+                            @if ($data->transport == 0)
+                                <option selected>Nie potrzebuję</option>
+                                <option>Ryki</option>
+                                <option>Stalowa Wola</option>
+                            @endif
+                            @if($data->trans_from == 'Ryki')
+                                    <option>Nie potrzebuję</option>
+                                    <option selected>Ryki</option>
+                                    <option>Stalowa Wola</option>
+                            @endif
+                                @if($data->trans_from == 'Stalowa Wola')
+                                    <option>Nie potrzebuję</option>
+                                    <option>Ryki</option>
+                                    <option selected>Stalowa Wola</option>
+                                @endif
+                        @endif
+                        @if(!isset($data))
                         <option>Nie potrzebuję</option>
                         <option>Ryki</option>
                         <option>Stalowa Wola</option>
+                            @endif
                     </select>
                 </div>
                 <div class="form-group">
                     <label for="exampleFormControlTextarea1">Informacje o alergiach/Uwagi:</label>
-                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    <textarea class="form-control" name="allergies" id="exampleFormControlTextarea1" rows="3">@if (isset($data)){{ $data->allergies }}@endif
+                    </textarea>
                 </div>
+            <div class="col-md-10 col-md-offset-1">
+                <button type="" class="btn btn-default btn-block" style="background-color: #F14E95">Wyślij</button>
+            </div>
             </form>
         </div>
 @endsection
