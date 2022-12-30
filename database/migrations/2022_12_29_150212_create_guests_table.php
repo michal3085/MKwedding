@@ -22,6 +22,7 @@ class CreateGuestsTable extends Migration
             $table->string('trans_from')->nullable();
             $table->integer('hotel')->nullable();
             $table->longText('allergies')->nullable();
+            $table->integer('vege')->nullable();
             $table->timestamps();
         });
     }

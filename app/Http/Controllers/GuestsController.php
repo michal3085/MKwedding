@@ -43,6 +43,11 @@ class GuestsController extends Controller
             $guest->transport = 1;
             $guest->trans_from = $request->transport;
         }
+        if ($request->vege == "TAK") {
+            $guest->vege = 1;
+        } else {
+            $guest->vege = 0;
+        }
         $guest->allergies = $request->allergies;
         $guest->save();
 

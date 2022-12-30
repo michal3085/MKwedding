@@ -7,6 +7,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
+                    @if (isset($status) && $status == "data_saved")
+                        <div class="alert alert-success" role="alert">
+                            Super! zapisaliśmy Twoje uwagi, jeżeli chcesz coś zmienić w przyszłości wypełnij formularz na stronie głównej jeszcze raz i popraw dane.
+                        </div>
+                    @endif
                     <h2>Dziękujemy!</h2>
                     <h3>Widzimy się 05 Sierpnia 2023 o godz. 16.00</h3>
                     <p>Jeżeli chcesz nas poinformować o alergiach, masz jakieś uwagi</p>
@@ -62,6 +67,24 @@
                         <option>Ryki</option>
                         <option>Stalowa Wola</option>
                             @endif
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="exampleFormControlSelect1">Menu wegańskie?</label>
+                    <select class="form-control" name="vege" id="exampleFormControlSelect1">
+                        @if(isset($data))
+                            @if ($data->vege == 1)
+                                <option selected>TAK</option>
+                                <option>NIE</option>
+                            @endif
+                            @if ($data->vege == 0)
+                                <option>TAK</option>
+                                <option selected>NIE</option>
+                            @endif
+                        @else
+                            <option value="1">TAK</option>
+                            <option value="0" selected>NIE</option>
+                        @endif
                     </select>
                 </div>
                 <div class="form-group">
