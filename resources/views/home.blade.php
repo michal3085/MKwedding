@@ -69,19 +69,128 @@
                         <div class="col-md-4 col-sm-4">
                             <div class="form-group">
                                 <label for="name" class="sr-only">Imię</label>
-                                <input  class="form-control" id="name" name="name" placeholder="Imię">
+                                <input  class="form-control" id="name" name="name" placeholder="Imię" required>
                             </div>
                         </div>
                         <div class="col-md-4 col-sm-4">
                             <div class="form-group">
                                 <label for="surname" class="sr-only">Nazwisko</label>
-                                <input  class="form-control" id="surname" name="surname" placeholder="Nazwisko">
+                                <input  class="form-control" id="surname" name="surname" placeholder="Nazwisko" required>
                             </div>
                         </div>
                         <div class="col-md-4 col-sm-4">
                             <button type="submit" class="btn btn-default btn-block">Biorę udział!</button>
                         </div>
                     </form>
+                </div>
+            </div>
+        </div>
+    </div>
+{{--    SLUB --}}
+    <div id="fh5co-event" class="fh5co-bg" style="background-image:url({{asset('images/klasztor.jpg')}});">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
+{{--                    <span>Our Special Events</span>--}}
+                    <h2>Ceremonia</h2>
+                </div>
+            </div>
+            <div class="row">
+                <div class="display-t">
+                    <div class="display-tc">
+                        <div class="col-md-10 col-md-offset-1">
+                            <div class="col-md-6 col-sm-6 text-center">
+                                <div class="event-wrap animate-box">
+                                    <h3>Ślub</h3>
+                                    <div class="event-col">
+                                        <i class="icon-clock"></i>
+                                        <span>o godz.: 16:00</span>
+                                        <span>do godz.: 17:00</span>
+                                    </div>
+                                    <div class="event-col">
+                                        <i class="icon-calendar"></i>
+                                        <span>Sobota 05</span>
+                                        <span>Sierpnia, 2023</span>
+                                    </div>
+                                    <p>Ceremonia zaślubin odbędzie się w Klasztorze Zakonu Braci Mniejszych Kapucynów w Stalowej Woli</p>
+                                    <p><a href="https://www.google.com/maps/place/Klasztor+Zakonu+Braci+Mniejszych+Kapucyn%C3%B3w/@50.5865475,22.0463182,15z/data=!4m5!3m4!1s0x0:0xdba68f4f81b6bd20!8m2!3d50.5865319!4d22.0464231">ul. Klasztorna 27, 37-450 Stalowa Wola<a/></p>
+                                </div>
+                            </div>
+{{--                            <div class="col-md-6 col-sm-6 text-center">--}}
+{{--                                <div class="event-wrap animate-box">--}}
+{{--                                    <h3>Wesele</h3>--}}
+{{--                                    <div class="event-col">--}}
+{{--                                        <i class="icon-clock"></i>--}}
+{{--                                        <span>od godz.: 17:30</span>--}}
+{{--                                        <span>do godz.: 5:00</span>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="event-col">--}}
+{{--                                        <i class="icon-calendar"></i>--}}
+{{--                                        <span>Sobota 05</span>--}}
+{{--                                        <span>Sierpnia, 2023</span>--}}
+{{--                                    </div>--}}
+{{--                                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
+{{--  SALA WESELNA  --}}
+    <div id="fh5co-event" class="fh5co-bg" style="background-image:url({{asset('images/sala_weselna.jpg')}});">
+        <div class="overlay"></div>
+        <div class="container">
+            <div class="row">
+                <div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
+                    {{--                    <span>Our Special Events</span>--}}
+{{--                    <h2>Ceremonia</h2>--}}
+                </div>
+            </div>
+            <div class="row">
+                <div class="display-t">
+                    <div class="display-tc">
+                        <div class="col-md-10 col-md-offset-1">
+{{--                            <div class="col-md-6 col-sm-6 text-center">--}}
+{{--                                <div class="event-wrap animate-box">--}}
+{{--                                    <h3>Ślub</h3>--}}
+{{--                                    <div class="event-col">--}}
+{{--                                        <i class="icon-clock"></i>--}}
+{{--                                        <span>o godz.: 16:00</span>--}}
+{{--                                        <span>do godz.: 17:00</span>--}}
+{{--                                    </div>--}}
+{{--                                    <div class="event-col">--}}
+{{--                                        <i class="icon-calendar"></i>--}}
+{{--                                        <span>Sobota 05</span>--}}
+{{--                                        <span>Sierpnia, 2023</span>--}}
+{{--                                    </div>--}}
+{{--                                    <p>Ceremonia zaślubin odbędzie się w Klasztorze Zakonu Braci Mniejszych Kapucynów w Stalowej Woli</p>--}}
+{{--                                    <p><a href="https://www.google.com/maps/place/Klasztor+Zakonu+Braci+Mniejszych+Kapucyn%C3%B3w/@50.5865475,22.0463182,15z/data=!4m5!3m4!1s0x0:0xdba68f4f81b6bd20!8m2!3d50.5865319!4d22.0464231">Klasztorna 27, 37-450 Stalowa Wola<a/></p>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+                            <div class="col-md-6 col-sm-6 text-center">
+                                <div class="event-wrap animate-box">
+                                    <h3>Wesele</h3>
+                                    <div class="event-col">
+                                        <i class="icon-clock"></i>
+                                        <span>od godz.: 17:30</span>
+                                        <span>do godz.: 5:00</span>
+                                    </div>
+                                    <div class="event-col">
+                                        <i class="icon-calendar"></i>
+                                        <span>Sobota 05</span>
+                                        <span>Sierpnia, 2023</span>
+                                    </div>
+                                    <p>Na przyjęcie weselne zapraszamy Państwa do Rezydencji Sosnowa w Janowie Lubelskim</p>
+                                    <p><a href="https://www.google.com/maps/place/Rezydencja+Sosnowa/@50.687751,22.4021869,15z/data=!4m8!3m7!1s0x0:0x38da81c0e7c7e32a!5m2!4m1!1i2!8m2!3d50.687751!4d22.4021869">ul. Turystyczna 8d, 23-300 Janów Lubelski</a></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

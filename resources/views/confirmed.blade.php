@@ -13,7 +13,7 @@
                         <p>Jeżeli masz zaproszenie, nie przejmuj się. Być może Twoje dane nie zostały jeszcze wprowadzone.</p>
                     </div>
                     <div class="col-md-10 col-md-offset-1">
-                        <a href="{{ route('home') }}"><button type="" class="btn btn-default btn-block">Powrót do strony głównej</button></a>
+                        <a href="{{ route('main') }}"><button type="" class="btn btn-default btn-block">Powrót do strony głównej</button></a>
                     </div>
                 </div>
             @else
@@ -31,7 +31,7 @@
                     <p>lub potrzebujesz transportu to wypełnij poniższy formularz!</p>
                 </div>
                 <div class="col-md-10 col-md-offset-1">
-                    <a href="{{ route('home') }}"><button type="" class="btn btn-default btn-block">Powrót do strony głównej</button></a>
+                    <a href="{{ route('main') }}"><button type="" class="btn btn-default btn-block">Powrót do strony głównej</button></a>
                 </div>
             </div>
                 <hr>
