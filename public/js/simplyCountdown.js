@@ -118,15 +118,15 @@
                 year: 2023,
                 month: 8,
                 day: 5,
-                hours: 0,
+                hours: 19,
                 minutes: 0,
                 seconds: 0,
                 words: {
-                    days: 'day',
-                    hours: 'hour',
-                    minutes: 'minute',
-                    seconds: 'second',
-                    pluralLetter: 's'
+                    days: 'dni',
+                    hours: 'godzin',
+                    minutes: 'minut',
+                    seconds: 'sekund',
+                    pluralLetter: ''
                 },
                 plural: true,
                 inline: false,

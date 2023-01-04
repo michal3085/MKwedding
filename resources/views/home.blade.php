@@ -26,7 +26,7 @@
                     <p>Nasz Ślub i Wesele odbędą się w:</p>
                     <h3>05 Sierpnia 2023 godz. 16.00</h3>
                     <h3>Klasztor: Zakonu Braci Mniejszych Kapucynów, Stalowa Wola</h3>
-                    <h3>Sala: Hotel Duo Spa w Janowie Lubelskim</h3>
+                    <h3>Sala: Rezydencja Sosnowa w Janowie Lubelskim</h3>
                 </div>
             </div>
             <div class="couple-wrap animate-box">
@@ -86,6 +86,10 @@
             </div>
         </div>
     </div>
+    .
+    <div class="wrapper">
+        <div class="divider div-transparent div-dot"></div>
+    </div>
 {{--    SLUB --}}
     <div id="fh5co-event" class="fh5co-bg" style="background-image:url({{asset('images/klasztor.jpg')}});">
         <div class="overlay"></div>
@@ -114,7 +118,7 @@
                                         <span>Sierpnia, 2023</span>
                                     </div>
                                     <p>Ceremonia zaślubin odbędzie się w Klasztorze Zakonu Braci Mniejszych Kapucynów w Stalowej Woli</p>
-                                    <p><a href="https://www.google.com/maps/place/Klasztor+Zakonu+Braci+Mniejszych+Kapucyn%C3%B3w/@50.5865475,22.0463182,15z/data=!4m5!3m4!1s0x0:0xdba68f4f81b6bd20!8m2!3d50.5865319!4d22.0464231">ul. Klasztorna 27, 37-450 Stalowa Wola<a/></p>
+                                    <p><a href="https://www.google.com/maps/place/Klasztor+Zakonu+Braci+Mniejszych+Kapucyn%C3%B3w/@50.5865475,22.0463182,15z/data=!4m5!3m4!1s0x0:0xdba68f4f81b6bd20!8m2!3d50.5865319!4d22.0464231">ul. Klasztorna 27, 37-450 Stalowa Wola<br>(Kliknij aby wyświetlić mapę)<a/></p>
                                 </div>
                             </div>
 {{--                            <div class="col-md-6 col-sm-6 text-center">--}}
@@ -140,7 +144,9 @@
         </div>
     </div>
     <br>
-    <br>
+    <div class="wrapper">
+        <div class="divider div-transparent div-dot"></div>
+    </div>
 {{--  SALA WESELNA  --}}
     <div id="fh5co-event" class="fh5co-bg" style="background-image:url({{asset('images/sala_weselna.jpg')}});">
         <div class="overlay"></div>
@@ -186,7 +192,7 @@
                                         <span>Sierpnia, 2023</span>
                                     </div>
                                     <p>Na przyjęcie weselne zapraszamy Państwa do Rezydencji Sosnowa w Janowie Lubelskim</p>
-                                    <p><a href="https://www.google.com/maps/place/Rezydencja+Sosnowa/@50.687751,22.4021869,15z/data=!4m8!3m7!1s0x0:0x38da81c0e7c7e32a!5m2!4m1!1i2!8m2!3d50.687751!4d22.4021869">ul. Turystyczna 8d, 23-300 Janów Lubelski</a></p>
+                                    <p><a href="https://www.google.com/maps/place/Rezydencja+Sosnowa/@50.687751,22.4021869,15z/data=!4m8!3m7!1s0x0:0x38da81c0e7c7e32a!5m2!4m1!1i2!8m2!3d50.687751!4d22.4021869">ul. Turystyczna 8d, 23-300 Janów Lubelski<br>(Kliknij aby wyświetlić mapę)</a></p>
                                 </div>
                             </div>
                         </div>
