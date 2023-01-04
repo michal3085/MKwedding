@@ -61,7 +61,7 @@ return [
 
     /*
     |--------------------------------------------------------------------------
-    | Throttle settings (only when throttle is true)
+    | Throttle settings (only when throttle is true).
     |--------------------------------------------------------------------------
     |
     */
