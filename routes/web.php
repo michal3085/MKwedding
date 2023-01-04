@@ -18,12 +18,14 @@ use Illuminate\Support\Facades\Route;
 //Route::get('/', function () {
 //    return view('welcome');
 //});
+Route::group(['middleware' => 'under-construction'], function () {
+    Route::get('/', [MainController::class, 'index'])->name('main');
+    Route::post('/confirm/me/', [GuestsController::class, 'confirmGuest'])->name('guest.confirm');
+    Route::get('/confirmed/thank/you', [GuestsController::class, 'confirmedInfo'])->name('confirmed');
+    Route::post('/guest/{id}/data/save', [GuestsController::class, 'guestDataSave'])->name('guest.data.save');
 
-Route::get('/', [MainController::class, 'index'])->name('main');
-Route::post('/confirm/me/', [GuestsController::class, 'confirmGuest'])->name('guest.confirm');
-Route::get('/confirmed/thank/you', [GuestsController::class, 'confirmedInfo'])->name('confirmed');
-Route::post('/guest/{id}/data/save', [GuestsController::class, 'guestDataSave'])->name('guest.data.save');
+    Auth::routes();
 
-Auth::routes();
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+});
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
