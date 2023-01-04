@@ -143,11 +143,12 @@
             </div>
         </div>
     </div>
+{{--  SALA WESELNA  --}}
     <br>
+    .
     <div class="wrapper">
         <div class="divider div-transparent div-dot"></div>
     </div>
-{{--  SALA WESELNA  --}}
     <div id="fh5co-event" class="fh5co-bg" style="background-image:url({{asset('images/sala_weselna.jpg')}});">
         <div class="overlay"></div>
         <div class="container">
