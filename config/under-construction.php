@@ -32,17 +32,17 @@ return [
     /*
      * Back button translation.
      */
-    'back-button' => 'back',
+    'back-button' => 'wróć',
 
     /*
     * Show button translation.
     */
-    'show-button' => 'show',
+    'show-button' => 'pokaż',
 
     /*
      * Hide button translation.
      */
-    'hide-button' => 'hide',
+    'hide-button' => 'ukryj',
 
     /*
      * Show loader.
@@ -84,12 +84,12 @@ return [
     /*
      * Attempts left message.
      */
-    'attempts_message' => 'Attempts left: %i',
+    'attempts_message' => 'Pozostało prób: %i',
 
     /*
      * Too many attempts message.
      */
-    'seconds_message' => 'Too many attempts please try again in %i seconds.',
+    'seconds_message' => 'Zbyt wiele nieudanych prób spróbuj za %i sekund.',
 
     /*
      * Set the number of minutes to disable login.
