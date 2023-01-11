@@ -37,7 +37,7 @@
                     </div>
                     <div class="desc-groom">
                         <h3>Maciej Cuch</h3>
-                        <p>Brusów, Lubelskie</p>
+                        <p>Brusów, Lubelskie<br>796 304 910</p>
                     </div>
                 </div>
                 <p class="heart text-center"><i class="icon-heart2"></i></p>
@@ -47,7 +47,7 @@
                     </div>
                     <div class="desc-bride">
                         <h3>Karolina Nieradka</h3>
-                        <p>Pysznica, Podkarpackie</p>
+                        <p>Pysznica, Podkarpackie<br>663 618 912</p>
                     </div>
                 </div>
             </div>
