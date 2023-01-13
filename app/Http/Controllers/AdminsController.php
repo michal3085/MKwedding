@@ -7,6 +7,6 @@ use Illuminate\Http\Request;
 class AdminsController extends Controller
 {
     public function index() {
-        return 'admin';
+        return view('admin.app');
     }
 }
