@@ -31,6 +31,7 @@ Route::group(['middleware' => 'under-construction'], function () {
 
     Route::middleware('auth')->group(function () {
         Route::get('/panel/', [AdminsController::class, 'index'])->name('admin');
+        Route::post('/panel/add/guest/', [AdminsController::class, 'addGuest'])->name('add.guest');
     });
 });
 
