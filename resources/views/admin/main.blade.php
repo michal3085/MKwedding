@@ -105,11 +105,11 @@
                                             </div>
                                         </form>
                                         <hr>
+                                        <br>
                                         <div class="d-sm-flex justify-content-between align-items-start">
                                             <div>
-                                                <h4 class="card-title card-title-dash">Pending Requests</h4>
-                                                <p class="card-subtitle card-subtitle-dash">You have 50+ new
-                                                    requests</p>
+                                                <h4 class="card-title card-title-dash">Wasi Goście:</h4>
+                                                <p class="card-subtitle card-subtitle-dash"><p class="wysiwyg-text-align-center">"Icon made by&nbsp;<a target="_blank" href="https://www.flaticon.com/authors/pixel-perfect">Pixel perfect</a>&nbsp;from&nbsp;<a target="_blank" href="http://www.flaticon.com/">www.flaticon.com</a>"</p></p>
                                             </div>
                                         </div>
                                         <div class="table-responsive  mt-1">
@@ -130,7 +130,7 @@
                                                                 <img src="{{asset('/admin/images/couple.png')}}" alt="">
                                                                 <div>
                                                                     <h6>{{ $guest->name }} {{ $guest->surname }}</h6>
-                                                                    <p>{{ Str::limit($guest->allergies, 20, $end="...") }}</p>
+                                                                    <p>{{ Str::limit($guest->allergies, 30, $end="...") }}</p>
                                                                 </div>
                                                             </div>
                                                         </td>
