@@ -16,7 +16,17 @@ class AdminsController extends Controller
         return view('admin.main')->with('guests', $guests);
     }
 
+    /*
+     * Add new guest to guests table.
+     */
     public function addGuest(Request $request) {
-        //
+        $new_guest = new Guest();
+
+        $new_guest->name    = $request->name;
+        $new_guest->surname = $request->surname;
+        $new_guest->confirmed = 0;
+        $new_guest->save();
+
+        return redirect()->back();
     }
 }
