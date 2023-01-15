@@ -35,6 +35,5 @@ Route::group(['middleware' => 'under-construction'], function () {
         Route::post('/panel/add/guest/', [AdminsController::class, 'addGuest'])->name('add.guest');
     });
 });
-if (App::isProduction()) { URL::forceScheme('https'); };
 
 
