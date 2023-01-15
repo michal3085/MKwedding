@@ -12,7 +12,6 @@ class AdminsController extends Controller
      */
     public function index() {
         $guests = Guest::latest()->paginate(20);
-
         return view('admin.main')->with('guests', $guests);
     }
 
