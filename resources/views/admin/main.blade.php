@@ -167,8 +167,7 @@
                                                             </td>
                                                         @else
                                                             <td>
-                                                                <div class="badge badge-opacity-warning">Nie
-                                                                    Potwierdzony
+                                                                <div class="badge badge-opacity-warning">Niepotwierdzony
                                                                 </div>
                                                             </td>
                                                         @endif
