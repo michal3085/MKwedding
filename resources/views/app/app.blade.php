@@ -77,9 +77,8 @@
                 <div class="col-xs-2">
                     <div id="fh5co-logo"><a style="font-size: 60px" href="index.html">Wesele<strong>.</strong></a></div>
                 </div>
-{{--                Menu odblokowac i oprogramować --}}
-{{--                <div class="col-xs-10 text-right menu-1">--}}
-{{--                    <ul>--}}
+                <div class="col-xs-10 text-right menu-1">
+                    <ul>
 {{--                        <li class="active"><a href="index.html">Home</a></li>--}}
 {{--                        <li><a href="about.html">Story</a></li>--}}
 {{--                        <li class="has-dropdown">--}}
@@ -100,9 +99,9 @@
 {{--                                <li><a href="#">jQuery</a></li>--}}
 {{--                            </ul>--}}
 {{--                        </li>--}}
-{{--                        <li><a href="contact.html">Contact</a></li>--}}
-{{--                    </ul>--}}
-{{--                </div>--}}
+                        <li><a href="{{ route('admin') }}">Panel</a></li>
+                    </ul>
+                </div>
             </div>
 
         </div>
