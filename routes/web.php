@@ -3,6 +3,7 @@
 use App\Http\Controllers\AdminsController;
 use App\Http\Controllers\GuestsController;
 use App\Http\Controllers\MainController;
+use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -34,6 +35,6 @@ Route::group(['middleware' => 'under-construction'], function () {
         Route::post('/panel/add/guest/', [AdminsController::class, 'addGuest'])->name('add.guest');
     });
 });
+if (App::isProduction()) { URL::forceScheme('https'); };
 
-URL::forceScheme('https');
 
