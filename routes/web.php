@@ -35,3 +35,5 @@ Route::group(['middleware' => 'under-construction'], function () {
     });
 });
 
+URL::forceScheme('https');
+
