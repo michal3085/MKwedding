@@ -139,7 +139,7 @@
                                                             @if($guest->vege == 1)
                                                                 <img src="{{asset('/admin/images/vegetable.png')}}" alt="" style="height: 30px; width: 30px;">
                                                             @else
-                                                                <img src="{{asset('/admin/images/meat.png')}}" alt="" style="height: 30px; width: 30px;">
+{{--                                                                <img src="{{asset('/admin/images/meat.png')}}" alt="" style="height: 30px; width: 30px;">--}}
                                                             @endif
                                                         </td>
                                                         <td>
