@@ -80,30 +80,32 @@
                             <div class="col-12 grid-margin stretch-card">
                                 <div class="card card-rounded">
                                     <div class="card-body">
-                                        <form action="{{ route('add.guest') }}" class="form-inline" method="POST">
-                                            @csrf
-                                            <div class="col-md-4 col-sm-4" style="float: left">
-                                                <div class="form-group">
-                                                    <label for="name" class="sr-only">Imię</label>
-                                                    <input class="form-control" id="name" name="name" placeholder="Imię"
-                                                           required>
+                                        <div class="row">
+                                            <form action="{{ route('add.guest') }}" class="form-inline" method="POST">
+                                                @csrf
+                                                <div class="col-md-4 col-sm-4" style="float: left">
+                                                    <div class="form-group">
+                                                        <label for="name" class="sr-only">Imię</label>
+                                                        <input class="form-control" id="name" name="name" placeholder="Imię"
+                                                               required>
+                                                    </div>
                                                 </div>
-                                            </div>
 
-                                            <div class="col-md-4 col-sm-4" style="float: left">
-                                                <div class="form-group">
-                                                    <label for="surname" class="sr-only">Nazwisko</label>
-                                                    <input class="form-control" id="surname" name="surname"
-                                                           placeholder="Nazwisko" required>
+                                                <div class="col-md-4 col-sm-4" style="float: left">
+                                                    <div class="form-group">
+                                                        <label for="surname" class="sr-only">Nazwisko</label>
+                                                        <input class="form-control" id="surname" name="surname"
+                                                               placeholder="Nazwisko" required>
+                                                    </div>
                                                 </div>
-                                            </div>
-                                            <div class="col-md-4 col-sm-4">
-                                                <button type="submit"
-                                                        class="btn btn-primary btn-lg text-white mb-0 me-0"><i
-                                                        class="mdi mdi-account-plus"></i>Dodaj gościa
-                                                </button>
-                                            </div>
-                                        </form>
+                                                <div class="col-md-4 col-sm-4">
+                                                    <button type="submit"
+                                                            class="btn btn-primary btn-lg text-white mb-0 me-0"><i
+                                                            class="mdi mdi-account-plus"></i>Dodaj gościa
+                                                    </button>
+                                                </div>
+                                            </form>
+                                        </div>
                                         <hr>
                                         <br>
                                         <div class="d-sm-flex justify-content-between align-items-start">
@@ -117,6 +119,8 @@
                                                 <thead>
                                                 <tr>
                                                     <th>Imię i Nazwisko</th>
+                                                    <th>Alergie/Uwagi</th>
+                                                    <th>Menu Vege</th>
                                                     <th>Hotel</th>
                                                     <th>Transport</th>
                                                     <th>Status</th>
@@ -133,6 +137,18 @@
                                                                     <p>{{ Str::limit($guest->allergies, 30, $end="...") }}</p>
                                                                 </div>
                                                             </div>
+                                                        </td>
+                                                        <td>
+                                                            @if ($guest->allergies !== NULL)
+                                                                <img src="{{asset('/admin/images/allergies.png')}}" alt="" style="height: 30px; width: 30px;">
+                                                            @endif
+                                                        </td>
+                                                        <td>
+                                                            @if($guest->vege == 1)
+                                                                <img src="{{asset('/admin/images/vegetable.png')}}" alt="" style="height: 30px; width: 30px;">
+                                                            @else
+{{--                                                                <img src="{{asset('/admin/images/nonvege.png')}}" alt="" style="height: 30px; width: 30px;">--}}
+                                                            @endif
                                                         </td>
                                                         <td>
                                                             @if ($guest->hotel == 1)
@@ -296,6 +312,9 @@
                                                 </tbody>
                                             </table>
                                         </div>
+                                    </div>
+                                    <div class="pagination justify-content-center">
+                                        {{ $guests->links('pagination::bootstrap-4') }}
                                     </div>
                                 </div>
                             </div>
