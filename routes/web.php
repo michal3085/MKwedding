@@ -28,7 +28,7 @@ Route::group(['middleware' => 'under-construction'], function () {
 
     Auth::routes();
 
-    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::get('/home', [MainController::class, 'index'])->name('home');
 
     Route::middleware('auth')->group(function () {
         Route::get('/panel/', [AdminsController::class, 'index'])->name('admin');
