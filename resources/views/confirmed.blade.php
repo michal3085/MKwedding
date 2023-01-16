@@ -64,12 +64,12 @@
                                 <option>Ryki</option>
                                 <option>Stalowa Wola</option>
                             @endif
-                            @if($data->trans_from == 'Ryki')
+                            @if($data->trans_from == 'Ryki' && $data->transport !== 0)
                                     <option>Nie potrzebuję</option>
                                     <option selected>Ryki</option>
                                     <option>Stalowa Wola</option>
                             @endif
-                                @if($data->trans_from == 'Stalowa Wola')
+                                @if($data->trans_from == 'Stalowa Wola' && $data->transport !== 0)
                                     <option>Nie potrzebuję</option>
                                     <option>Ryki</option>
                                     <option selected>Stalowa Wola</option>

@@ -8,23 +8,31 @@
                 <div class="d-sm-flex align-items-center justify-content-between border-bottom">
                     <ul class="nav nav-tabs" role="tablist">
                         <li class="nav-item">
-                            <a class="nav-link active ps-0" id="home-tab" data-bs-toggle="tab" href="#overview"
+                            <a @if($mode == 0) class="nav-link active ps-0" @else class="nav-link ps-0" @endif id="home-tab"  href="{{ route('admin') }}"
                                role="tab" aria-controls="overview" aria-selected="true">Wszyscy</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="profile-tab" data-bs-toggle="tab" href="#audiences" role="tab"
+                            <a @if($mode == 1) class="nav-link active" @else class="nav-link" @endif id="profile-tab" href="{{ route('filter.guests', ['filter' => 1]) }}" role="tab"
                                aria-selected="false">Potwierdzeni</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="contact-tab" data-bs-toggle="tab" href="#demographics" role="tab"
+                            <a @if($mode == 2) class="nav-link active" @else class="nav-link" @endif id="contact-tab"  href="{{ route('filter.guests', ['filter' => 2]) }}" role="tab"
                                aria-selected="false">Niepotwierdzeni</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link border-0" id="more-tab" data-bs-toggle="tab" href="#more" role="tab"
-                               aria-selected="false">Alergie/Uwagi</a>
+                            <a @if($mode == 3) class="nav-link active" @else class="nav-link" @endif id="more-tab"  href="{{ route('filter.guests', ['filter' => 3]) }}" role="tab"
+                               aria-selected="false">Transport</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link border-0" id="a-tab" data-bs-toggle="tab" href="#more" role="tab"
+                            <a @if($mode == 4) class="nav-link active" @else class="nav-link" @endif id="more-tab"  href="{{ route('filter.guests', ['filter' => 4]) }}" role="tab"
+                               aria-selected="false">Hotel</a>
+                        </li>
+                        <li class="nav-item">
+                            <a @if($mode == 6) class="nav-link active" @else class="nav-link" @endif id="profile-tab" href="{{ route('filter.guests', ['filter' => 6]) }}" role="tab"
+                               aria-selected="false">Uwagi/Alergie</a>
+                        </li>
+                        <li class="nav-item">
+                            <a @if($mode == 5) class="nav-link active border-0" @else class="nav-link border-0" @endif id="a-tab" href="{{ route('filter.guests', ['filter' => 5]) }}" role="tab"
                                aria-selected="false">Vege</a>
                         </li>
                     </ul>
@@ -54,8 +62,8 @@
                                         <h3 class="rate-percentage">{{ \App\Models\Guest::where('confirmed', 0) ->count() }}</h3>
                                     </div>
                                     <div class="d-none d-md-block">
-                                        <p class="statistics-title">Potrzebuje Transportu</p>
-                                        <h3 class="rate-percentage">{{ \App\Models\Guest::where('transport', 1)->count() }}</h3>
+                                        <p class="statistics-title">Transport / Hotel</p>
+                                        <h3 class="rate-percentage">{{ \App\Models\Guest::where('transport', 1)->count() }} / {{ \App\Models\Guest::where('hotel', 1)->count() }}</h3>
                                     </div>
                                     <div class="d-none d-md-block">
                                         <p class="statistics-title">Menu Wegańskie</p>

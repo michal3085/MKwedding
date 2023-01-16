@@ -33,6 +33,7 @@ Route::group(['middleware' => 'under-construction'], function () {
     Route::middleware('auth')->group(function () {
         Route::get('/panel/', [AdminsController::class, 'index'])->name('admin');
         Route::post('/panel/add/guest/', [AdminsController::class, 'addGuest'])->name('add.guest');
+        Route::get('/panel/guests/confirmed/{filter}', [AdminsController::class, 'filterUsers'])->name('filter.guests');
     });
 });
 

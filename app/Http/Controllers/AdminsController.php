@@ -10,15 +10,48 @@ class AdminsController extends Controller
     /*
      * Returns main admin view with all guests.
      */
-    public function index() {
+    public function index()
+    {
         $guests = Guest::latest()->paginate(20);
-        return view('admin.main')->with('guests', $guests);
+        return view('admin.main')->with([
+            'guests' => $guests,
+            'mode' => 0
+        ]);
+    }
+
+    public function filterUsers($filter)
+    {
+        switch ($filter) {
+            case 1:
+                $guests = Guest::where('confirmed', 1)->latest()->paginate(20);
+                break;
+            case 2:
+                $guests = Guest::where('confirmed', 0)->latest()->paginate(20);
+                break;
+            case 3:
+                $guests = Guest::where('transport', 1)->latest()->paginate(20);
+                break;
+            case 4:
+                $guests = Guest::where('hotel', 1)->latest()->paginate(20);
+                break;
+            case 5:
+                $guests = Guest::where('vege', 1)->latest()->paginate(20);
+                break;
+            case 6:
+                $guests = Guest::where('allergies', '!=', NULL)->latest()->paginate(20);
+                break;
+        }
+        return view('admin.main')->with([
+            'guests' => $guests,
+            'mode' => $filter
+        ]);
     }
 
     /*
      * Add new guest to guests table.
      */
-    public function addGuest(Request $request) {
+    public function addGuest(Request $request)
+    {
         $new_guest = new Guest();
 
         $new_guest->name    = $request->name;
