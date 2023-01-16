@@ -95,8 +95,8 @@
                                 <option selected>NIE</option>
                             @endif
                         @else
-                            <option value="1">TAK</option>
-                            <option value="0" selected>NIE</option>
+                            <option>TAK</option>
+                            <option selected>NIE</option>
                         @endif
                     </select>
                 </div>
