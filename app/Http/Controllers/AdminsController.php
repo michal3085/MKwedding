@@ -55,14 +55,25 @@ class AdminsController extends Controller
      */
     public function addGuest(Request $request)
     {
-        $new_guest = new Guest();
+        if (Guest::where('name', $request->name)->where('surname', $request->surname)->count() != 0) {
 
-        $new_guest->name    = $request->name;
-        $new_guest->surname = $request->surname;
-        $new_guest->confirmed = 0;
-        $new_guest->save();
+            $guests = Guest::latest()->paginate(20);
+            return redirect()->back()->with([
+                'guests' => $guests,
+                'mode' => 0,
+                'message' => 1
+            ]);
 
-        return redirect()->back();
+        } elseif (Guest::where('name', $request->name)->where('surname', $request->surname)->count() == 0) {
+            $new_guest = new Guest();
+
+            $new_guest->name = $request->name;
+            $new_guest->surname = $request->surname;
+            $new_guest->confirmed = 0;
+            $new_guest->save();
+
+            return redirect()->back();
+        }
     }
 
     public function guestProfile($id)
