@@ -133,7 +133,7 @@
                                                             <div class="d-flex ">
                                                                 <img src="{{asset('/admin/images/couple.png')}}" alt="">
                                                                 <div>
-                                                                    <h6>{{ $guest->name }} {{ $guest->surname }}</h6>
+                                                                    <h6><a href="{{ route('guest.profile', ['id' => $guest->id]) }}">{{ $guest->name }} {{ $guest->surname }}</a></h6>
                                                                     <p>{{ Str::limit($guest->allergies, 30, $end="...") }}</p>
                                                                 </div>
                                                             </div>

@@ -26,24 +26,6 @@
 </head>
 <body>
 <div class="container-scroller">
-    <div class="row p-0 m-0 proBanner" id="proBanner">
-        <div class="col-md-12 p-0 m-0">
-            <div class="card-body card-body-padding d-flex align-items-center justify-content-between">
-                <div class="ps-lg-1">
-                    <div class="d-flex align-items-center justify-content-between">
-                        <p class="mb-0 font-weight-medium me-3 buy-now-text">Free 24/7 customer support, updates, and more with this template!</p>
-                        <a href="https://www.bootstrapdash.com/product/star-admin-pro/?utm_source=organic&utm_medium=banner&admin=buynow_demo" target="_blank" class="btn me-2 buy-now-btn border-0">Get Pro</a>
-                    </div>
-                </div>
-                <div class="d-flex align-items-center justify-content-between">
-                    <a href="https://www.bootstrapdash.com/product/star-admin-pro/admins"><i class="mdi mdi-home me-3 text-white"></i></a>
-                    <button id="bannerClose" class="btn border-0 p-0">
-                        <i class="mdi mdi-close text-white me-0"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-    </div>
     <!-- partial:partials/_navbar.html -->
     <nav class="navbar default-layout col-lg-12 col-12 p-0 fixed-top d-flex align-items-top flex-row">
         <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-start">
@@ -70,36 +52,36 @@
             </ul>
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item dropdown d-none d-lg-block">
-                    <a class="nav-link dropdown-bordered dropdown-toggle dropdown-toggle-split" id="messageDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false"> Select Category </a>
+                    <a class="nav-link dropdown-bordered dropdown-toggle dropdown-toggle-split" id="messageDropdown" href="#" data-bs-toggle="dropdown" aria-expanded="false"> Idź do... </a>
                     <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0" aria-labelledby="messageDropdown">
                         <a class="dropdown-item py-3" >
-                            <p class="mb-0 font-weight-medium float-left">Select category</p>
+                            <p class="mb-0 font-weight-medium float-left">Wybierz gdzie mam Cie przenieść</p>
                         </a>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item preview-item">
+                        <a class="dropdown-item preview-item" href="{{ route('admin') }}">
                             <div class="preview-item-content flex-grow py-2">
-                                <p class="preview-subject ellipsis font-weight-medium text-dark">Bootstrap Bundle </p>
-                                <p class="fw-light small-text mb-0">This is a Bundle featuring 16 unique dashboards</p>
+                                <p class="preview-subject ellipsis font-weight-medium text-dark">Lista Gości </p>
+                                <p class="fw-light small-text mb-0">Powraca do listy wszystkich gości</p>
                             </div>
                         </a>
-                        <a class="dropdown-item preview-item">
-                            <div class="preview-item-content flex-grow py-2">
-                                <p class="preview-subject ellipsis font-weight-medium text-dark">Angular Bundle</p>
-                                <p class="fw-light small-text mb-0">Everything you’ll ever need for your Angular projects</p>
-                            </div>
-                        </a>
-                        <a class="dropdown-item preview-item">
-                            <div class="preview-item-content flex-grow py-2">
-                                <p class="preview-subject ellipsis font-weight-medium text-dark">VUE Bundle</p>
-                                <p class="fw-light small-text mb-0">Bundle of 6 Premium Vue Admin Dashboard</p>
-                            </div>
-                        </a>
-                        <a class="dropdown-item preview-item">
-                            <div class="preview-item-content flex-grow py-2">
-                                <p class="preview-subject ellipsis font-weight-medium text-dark">React Bundle</p>
-                                <p class="fw-light small-text mb-0">Bundle of 8 Premium React Admin Dashboard</p>
-                            </div>
-                        </a>
+{{--                        <a class="dropdown-item preview-item">--}}
+{{--                            <div class="preview-item-content flex-grow py-2">--}}
+{{--                                <p class="preview-subject ellipsis font-weight-medium text-dark">Angular Bundle</p>--}}
+{{--                                <p class="fw-light small-text mb-0">Everything you’ll ever need for your Angular projects</p>--}}
+{{--                            </div>--}}
+{{--                        </a>--}}
+{{--                        <a class="dropdown-item preview-item">--}}
+{{--                            <div class="preview-item-content flex-grow py-2">--}}
+{{--                                <p class="preview-subject ellipsis font-weight-medium text-dark">VUE Bundle</p>--}}
+{{--                                <p class="fw-light small-text mb-0">Bundle of 6 Premium Vue Admin Dashboard</p>--}}
+{{--                            </div>--}}
+{{--                        </a>--}}
+{{--                        <a class="dropdown-item preview-item">--}}
+{{--                            <div class="preview-item-content flex-grow py-2">--}}
+{{--                                <p class="preview-subject ellipsis font-weight-medium text-dark">React Bundle</p>--}}
+{{--                                <p class="fw-light small-text mb-0">Bundle of 8 Premium React Admin Dashboard</p>--}}
+{{--                            </div>--}}
+{{--                        </a>--}}
                     </div>
                 </li>
                 <li class="nav-item d-none d-lg-block">

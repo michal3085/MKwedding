@@ -19,6 +19,9 @@ class AdminsController extends Controller
         ]);
     }
 
+    /*
+     * Filter guests by confirmed, transport or hotel needed etc.
+     */
     public function filterUsers($filter)
     {
         switch ($filter) {
@@ -60,5 +63,11 @@ class AdminsController extends Controller
         $new_guest->save();
 
         return redirect()->back();
+    }
+
+    public function guestProfile($id)
+    {
+        $guest = Guest::where('id', $id)->first();
+        return view('admin.guest')->with(['guest' => $guest]);
     }
 }
