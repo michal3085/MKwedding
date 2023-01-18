@@ -36,6 +36,8 @@ Route::group(['middleware' => 'under-construction'], function () {
         Route::get('/panel/guests/confirmed/{filter}', [AdminsController::class, 'filterUsers'])->name('filter.guests');
         Route::get('/panel/guest/{id}', [AdminsController::class, 'guestProfile'])->name('guest.profile');
         Route::get('/panel/search/user/', [AdminsController::class, 'searchGuest'])->name('search.guest');
+        Route::get('/panel/guest/confirm/{id}', [AdminsController::class, 'addConfirmation'])->name('panel.confirm');
+        Route::get('/panel/guest/delete/confirm/{id}', [AdminsController::class, 'deleteConfirmation'])->name('panel.del.confirm');
     });
 });
 

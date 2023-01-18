@@ -108,7 +108,23 @@ class AdminsController extends Controller
                 'mode' => 0
             ]);
         }
+    }
 
+    public function addConfirmation($id)
+    {
+        $guest = Guest::where('id', $id)->first();
+        $guest->confirmed = 1;
+        $guest->save();
 
+        return redirect()->back();
+    }
+
+    public function deleteConfirmation($id)
+    {
+        $guest = Guest::where('id', $id)->first();
+        $guest->confirmed = 0;
+        $guest->save();
+
+        return redirect()->back();
     }
 }

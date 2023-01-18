@@ -17,8 +17,8 @@
                     <div class="d-flex justify-content-between align-items-center mb-3">
                         <h4 class="text-right">Informacje</h4>
                     </div>
-                    <button type="button" class="btn btn-outline-success">Potwierdź</button>
-                    <button type="button" class="btn btn-outline-danger">Anuluj potwierdzenie</button>
+                    <a href="{{ route('panel.confirm', ['id' => $guest->id]) }}" methods="GET"><button type="button" class="btn btn-outline-success">Potwierdź</button></a>
+                    <a href="{{ route('panel.del.confirm', ['id' => $guest->id]) }}" methods="GET"><button type="button" class="btn btn-outline-danger">Anuluj potwierdzenie</button></a>
                     <form action="{{ route('guest.data.save', ['id' => $guest->id]) }}">
                     <div class="row mt-2">
                         <div class="col-md-6"><label class="labels">Name</label><input type="text" class="form-control" placeholder="{{$guest->name}}" value="{{$guest->name}}"></div>
