@@ -123,6 +123,11 @@ class AdminsController extends Controller
     {
         $guest = Guest::where('id', $id)->first();
         $guest->confirmed = 0;
+        $guest->transport = 0;
+        $guest->trans_from = NULL;
+        $guest->allergies = NULL;
+        $guest->hotel = 0;
+        $guest->vege = 0;
         $guest->save();
 
         return redirect()->back();
