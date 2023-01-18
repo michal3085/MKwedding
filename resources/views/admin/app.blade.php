@@ -514,6 +514,14 @@
 <script src="{{asset('admin/js/jquery.cookie.js')}}" type="text/javascript"></script>
 <script src="{{asset('admin/js/dashboard.js')}}"></script>
 <script src="{{asset('admin/js/Chart.roundedBarCharts.js')}}"></script>
+<script type="text/javascript">
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        }
+    });
+    @yield('javascript')
+</script>
 <!-- End custom js for this page-->
 </body>
 

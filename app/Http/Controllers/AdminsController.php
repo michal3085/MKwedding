@@ -71,7 +71,11 @@ class AdminsController extends Controller
             $new_guest->confirmed = 0;
             $new_guest->save();
 
-            return redirect()->back();
+            $guests = Guest::latest()->paginate(20);
+            return view('admin.main')->with([
+                'guests' => $guests,
+                'mode' => 0
+            ]);
         }
     }
 
@@ -88,7 +92,8 @@ class AdminsController extends Controller
 
         $guest = Guest::where('name', 'LIKE', "%$name%")
             ->where('surname', 'LIKE', "%$surname%")
-            ->latest()->paginate(20);
+            ->latest()
+            ->paginate(20);
 
         if ($guest->count() == 0) {
             $guests = Guest::latest()->paginate(20);
