@@ -35,6 +35,7 @@ Route::group(['middleware' => 'under-construction'], function () {
         Route::post('/panel/add/guest/', [AdminsController::class, 'addGuest'])->name('add.guest');
         Route::get('/panel/guests/confirmed/{filter}', [AdminsController::class, 'filterUsers'])->name('filter.guests');
         Route::get('/panel/guest/{id}', [AdminsController::class, 'guestProfile'])->name('guest.profile');
+        Route::get('/panel/search/user/', [AdminsController::class, 'searchGuest'])->name('search.guest');
     });
 });
 

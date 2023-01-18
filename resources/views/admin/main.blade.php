@@ -76,6 +76,21 @@
                                 </div>
                             </div>
                         </div>
+                        @if($errors->any())
+                            <div class="alert alert-danger" role="alert">
+                                <i class="fas fa-user-check"></i>
+                                Ta osoba jest już na liście gości.
+                            </div>
+                        @endif
+                        @if (isset($search) && $search == 0)
+                            <div class="alert alert-danger" role="alert">
+                                <i class="fas fa-user-check"></i>
+                                Nie znalazłem takiej osoby.
+                            </div>
+                        @endif
+                        {{--                        <div class="alert alert-success" role="alert">--}}
+{{--                            Jegomość dodany :)--}}
+{{--                        </div>--}}
                         <div class="row flex-grow">
                             <div class="col-12 grid-margin stretch-card">
                                 <div class="card card-rounded">

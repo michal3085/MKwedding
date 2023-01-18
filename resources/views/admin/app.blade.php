@@ -93,9 +93,9 @@
                     </div>
                 </li>
                 <li class="nav-item">
-                    <form class="search-form" action="#">
+                    <form class="search-form" action="{{ route('search.guest') }}" method="GET">
                         <i class="icon-search"></i>
-                        <input type="search" class="form-control" placeholder="Search Here" title="Search here">
+                        <input type="search" class="form-control" placeholder="Search Here" name="search" id="search" title="Search here">
                     </form>
                 </li>
                 <li class="nav-item dropdown">

@@ -58,10 +58,9 @@ class AdminsController extends Controller
         if (Guest::where('name', $request->name)->where('surname', $request->surname)->count() != 0) {
 
             $guests = Guest::latest()->paginate(20);
-            return redirect()->back()->with([
-                'guests' => $guests,
-                'mode' => 0,
-                'message' => 1
+            $error = 'Ta osoba jest na liście';
+            return redirect()->back()->withErrors([
+                $error
             ]);
 
         } elseif (Guest::where('name', $request->name)->where('surname', $request->surname)->count() == 0) {
@@ -80,5 +79,31 @@ class AdminsController extends Controller
     {
         $guest = Guest::where('id', $id)->first();
         return view('admin.guest')->with(['guest' => $guest]);
+    }
+
+    public function searchGuest(Request $request)
+    {
+        $surname = substr(strstr($request->search," "), 1);
+        $name = strtok($request->search, " ");
+
+        $guest = Guest::where('name', 'LIKE', "%$name%")
+            ->where('surname', 'LIKE', "%$surname%")
+            ->latest()->paginate(20);
+
+        if ($guest->count() == 0) {
+            $guests = Guest::latest()->paginate(20);
+            return view('admin.main')->with([
+                'guests' => $guests,
+                'mode' => 0,
+                'search' => 0
+            ]);
+        } else {
+            return view('admin.main')->with([
+                'guests' => $guest,
+                'mode' => 0
+            ]);
+        }
+
+
     }
 }
