@@ -72,9 +72,10 @@ class AdminsController extends Controller
             $new_guest->save();
 
             $guests = Guest::latest()->paginate(20);
-            return view('admin.main')->with([
+            return redirect()->back()->with([
                 'guests' => $guests,
-                'mode' => 0
+                'mode' => 0,
+                'success' => 1
             ]);
         }
     }
