@@ -76,16 +76,16 @@
                                 </div>
                             </div>
                         </div>
-                        @if (isset($succes) && $succes == 1)
-                            <div class="alert alert-success" role="alert">
-                                <i class="fas fa-user-plus"></i>
-                                Gość dodany prawidłowo
-                            </div>
-                        @endif
-                        @if (isset($error) && $error == 1)
+{{--                        @if (isset($error) && $error == 1)--}}
+{{--                            <div class="alert alert-danger" role="alert">--}}
+{{--                                <i class="fas fa-user-check"></i>--}}
+{{--                                Jest już taka osoba na liście gości.--}}
+{{--                            </div>--}}
+{{--                        @endif--}}
+                        @if($errors->any())
                             <div class="alert alert-danger" role="alert">
                                 <i class="fas fa-user-check"></i>
-                                Jest już taka osoba na liście gości.
+                                Ta osoba jest już na liście gości.
                             </div>
                         @endif
                         @if (isset($search) && $search == 0)

@@ -59,14 +59,8 @@ class AdminsController extends Controller
 
             $guests = Guest::latest()->paginate(20);
             $error = 'Ta osoba jest na liście';
-//            return redirect()->back()->withErrors([
-//                $error
-//            ]);
-
-            return view('admin.main')->with([
-                'guests' => $guests,
-                'mode' => 0,
-                'error' => 1
+            return redirect()->back()->withErrors([
+                $error
             ]);
 
         } elseif (Guest::where('name', $request->name)->where('surname', $request->surname)->count() == 0) {
@@ -80,8 +74,7 @@ class AdminsController extends Controller
             $guests = Guest::latest()->paginate(20);
             return view('admin.main')->with([
                 'guests' => $guests,
-                'mode' => 0,
-                'succes' => 1
+                'mode' => 0
             ]);
         }
     }
