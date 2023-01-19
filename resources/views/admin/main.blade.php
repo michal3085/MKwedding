@@ -82,7 +82,7 @@
 {{--                                Jest już taka osoba na liście gości.--}}
 {{--                            </div>--}}
 {{--                        @endif--}}
-                        @if(isset($success) && $success == 1)
+                        @if(isset($success) && $success = 1)
                             <div class="alert alert-success" role="alert">
                                 <i class="fas fa-user-check"></i>
                                 Osoba dodana prawidłowo.
@@ -108,7 +108,7 @@
                                 <div class="card card-rounded">
                                     <div class="card-body">
                                         <div class="row">
-                                            <form action="{{ route('add.guest') }}" class="form-inline" method="GET">
+                                            <form action="{{ route('add.guest') }}" class="form-inline" method="POST">
                                                 @csrf
                                                 <div class="col-md-4 col-sm-4" style="float: left">
                                                     <div class="form-group">

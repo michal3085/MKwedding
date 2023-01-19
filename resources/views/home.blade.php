@@ -53,9 +53,9 @@
             </div>
         </div>
     </div>
-    <br>
+    <br id="confirm">
     <div id="fh5co-started" class="fh5co-bg" style="background-image:url(images/img_bg_4.jpg);">
-        <div class="overlay"></div>
+        <div class="overlay" ></div>
         <div class="container">
             <div class="row animate-box">
                 <div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
@@ -203,4 +203,24 @@
             </div>
         </div>
     </div>
+                                                                    {{-- Prezenty --}}
+.
+<div class="wrapper">
+    <div class="divider div-transparent div-dot"></div>
+</div>
+    <div id="fh5co-services" class="fh5co-section-gray" style="background-image:url('{{ asset('/images/flowers.jpg') }}'); background-size: cover;">
+        <div class="container">
+            <div class="row animate-box">
+                <div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
+                    <h2>Zamiast Kwiatów</h2>
+                    <p>Zachęcamy do wsparcia akcji "Czadowa Para", W dniu ślubu prowadzona będzie zbiórka na budowę szkoły w Czadzie.</p>
+                </div>
+            </div>
+            <div class="row">
+                <img src="{{ asset('/images/czadowa.png') }}" alt="groom" class="img-responsive" style="float: left">
+                <img src="{{ asset('/images/czadowa2.jpg') }}" alt="bride" class="img-responsive" style="float: right">
+            </div>
+        </div>
+    </div>
+
 @endsection

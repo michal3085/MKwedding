@@ -96,17 +96,18 @@ class AdminsController extends Controller
             ->latest()
             ->paginate(20);
 
-        if ($guest->count() == 0) {
+        if ($guest->count() >= 1) {
+            return view('admin.main')->with([
+                'guests' => $guest,
+                'mode' => 0,
+                'search' => 1
+            ]);
+        } elseif ($guest->count() == 0) {
             $guests = Guest::latest()->paginate(20);
             return view('admin.main')->with([
                 'guests' => $guests,
                 'mode' => 0,
                 'search' => 0
-            ]);
-        } else {
-            return view('admin.main')->with([
-                'guests' => $guest,
-                'mode' => 0
             ]);
         }
     }

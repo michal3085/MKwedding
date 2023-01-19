@@ -100,6 +100,7 @@
 {{--                            </ul>--}}
 {{--                        </li>--}}
                         <li><a href="{{ route('admin') }}">Panel</a></li>
+                        <li><a href="#confirm">Potwierdź swoja obecność</a></li>
                     </ul>
                 </div>
             </div>
