@@ -22,7 +22,7 @@
                 <div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
                     @if (isset($status) && $status == "data_saved")
                         <div class="alert alert-success" role="alert">
-                            Super! zapisaliśmy Twoje uwagi, jeżeli chcesz coś zmienić w przyszłości wypełnij formularz na stronie głównej jeszcze raz i popraw dane.
+                            Super! Zapisaliśmy Twoje uwagi, jeżeli chcesz coś zmienić w przyszłości, wypełnij formularz na stronie głównej jeszcze raz i popraw dane.
                         </div>
                     @endif
                     <h2>Dziękujemy, {{ $name }}!</h2>
@@ -50,8 +50,8 @@
                                     <option selected>NIE</option>
                                 @endif
                         @else
-                            <option value="1">TAK</option>
-                            <option value="0" selected>NIE</option>
+                            <option>TAK</option>
+                            <option selected>NIE</option>
                         @endif
                     </select>
                 </div>

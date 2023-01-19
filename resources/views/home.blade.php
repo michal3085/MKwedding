@@ -203,24 +203,34 @@
             </div>
         </div>
     </div>
-                                                                    {{-- Prezenty --}}
+{{-- Prezenty --}}
+
 .
 <div class="wrapper">
     <div class="divider div-transparent div-dot"></div>
 </div>
-    <div id="fh5co-services" class="fh5co-section-gray" style="background-image:url('{{ asset('/images/flowers.jpg') }}'); background-size: cover;">
-        <div class="container">
-            <div class="row animate-box">
-                <div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-                    <h2>Zamiast Kwiatów</h2>
-                    <p>Zachęcamy do wsparcia akcji "Czadowa Para", W dniu ślubu prowadzona będzie zbiórka na budowę szkoły w Czadzie.</p>
-                </div>
+<div id="fh5co-gallery" class="fh5co-section-gray">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
+{{--                <span>Our Memories</span>--}}
+                <h2>A zamiast kwiatów</h2>
+                <p>W dniu ślubu, prowadzona będzie zbiórka pieniędzy na fundację "Czadowa Para"</p>
             </div>
-            <div class="row">
-                <img src="{{ asset('/images/czadowa.png') }}" alt="groom" class="img-responsive" style="float: left">
-                <img src="{{ asset('/images/czadowa2.jpg') }}" alt="bride" class="img-responsive" style="float: right">
+        </div>
+        <div class="row row-bottom-padded-md">
+            <div class="col-md-12">
+                <ul id="fh5co-gallery-list">
+                    <li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url('{{ asset('/images/czadowalogo.jpg') }}'); ">
+                    </li>
+                    <li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url('{{ asset('/images/czadowa_para.jpg') }}'); ">
+                    </li>
+                    <li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url('{{ asset('/images/africa_border.jpg') }}'); ">
+                    </li>
+                </ul>
             </div>
         </div>
     </div>
+</div>
 
 @endsection
