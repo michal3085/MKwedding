@@ -41,7 +41,7 @@ class GuestsController extends Controller
     /*
      * Save data from confirmation view and form
      */
-    public function guestDataSave(Request $request, $id)
+    public function guestDataSave(Request $request, $id, $admin = NULL)
     {
         $guest = Guest::where('id', $id)->first();
         if ($request->hotel == "TAK" ) {
@@ -62,15 +62,21 @@ class GuestsController extends Controller
         } else {
             $guest->vege = 0;
         }
-        $guest->allergies = $request->allergies;
+        if (isset($request->allergies)) {
+            $guest->allergies = $request->allergies;
+        }
         $guest->save();
 
-        return view('confirmed')->with([
-            'data' => $guest,
-            'gid' => $guest->id,
-            'status' => 'data_saved',
-            'name' => $guest->name
-        ]);
+        if (isset($admin)) {
+            return view('admin.guest')->with(['guest' => $guest]);
+        } else {
+            return view('confirmed')->with([
+                'data' => $guest,
+                'gid' => $guest->id,
+                'status' => 'data_saved',
+                'name' => $guest->name
+            ]);
+        }
     }
 
     public function confirmedInfo()

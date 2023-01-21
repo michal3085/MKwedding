@@ -60,7 +60,7 @@
             <div class="row animate-box">
                 <div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
                     <h2>Będziesz?</h2>
-                    <p>Wypełnij oba pola aby potwierdzic swoją obecność na naszym weselu, później dowiesz się tu jakie masz miejsce itd.</p>
+                    <p>Wypełnij oba pola, aby potwierdzić swoją obecność na naszym weselu, później dowiesz się tu jakie masz miejsce itd.</p>
                 </div>
             </div>
             <div class="row animate-box">
@@ -213,7 +213,6 @@
     <div class="container">
         <div class="row">
             <div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
-{{--                <span>Our Memories</span>--}}
                 <h2>A zamiast kwiatów</h2>
                 <p>W dniu ślubu, prowadzona będzie zbiórka pieniędzy na fundację "Czadowa Para"</p>
             </div>
@@ -223,9 +222,9 @@
                 <ul id="fh5co-gallery-list">
                     <li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url('{{ asset('/images/czadowalogo.jpg') }}'); ">
                     </li>
+                        <li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url('{{ asset('/images/africa_border.jpg') }}'); ">
+                        </li>
                     <li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url('{{ asset('/images/czadowa_para.jpg') }}'); ">
-                    </li>
-                    <li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url('{{ asset('/images/africa_border.jpg') }}'); ">
                     </li>
                 </ul>
             </div>
