@@ -37,12 +37,18 @@
                             <div class="row mt-3">
                                 <div class="col-md-12"><label class="labels">Potrzebny HOTEL:</label>
                                     <select class="form-control" style="background-color: white; color: black;" name="hotel" id="hotel">
-                                        @if ($guest->hotel == 1)
-                                            <option selected><b>Tak</b></option>
-                                            <option>Nie</option>
-                                        @elseif ($guest->hotel == 0)
-                                            <option>Tak</option>
-                                            <option selected>Nie</option>
+                                        @if(isset($guest))
+                                            @if ($guest->hotel == 1)
+                                                <option selected>TAK</option>
+                                                <option>NIE</option>
+                                            @endif
+                                            @if ($guest->hotel == 0)
+                                                <option>TAK</option>
+                                                <option selected>NIE</option>
+                                            @endif
+                                        @else
+                                            <option>TAK</option>
+                                            <option selected>NIE</option>
                                         @endif
                                     </select>
                                 </div>
@@ -50,12 +56,18 @@
                         <div class="row mt-3">
                             <div class="col-md-12"><label class="labels">Menu Vege::</label>
                                 <select class="form-control" style="background-color: white; color: black;" name="vege" id="vege">
-                                    @if ($guest->vege == 1)
-                                        <option selected><b>Tak</b></option>
-                                        <option>Nie</option>
-                                    @elseif ($guest->vege == 0)
-                                        <option>Tak</option>
-                                        <option selected>Nie</option>
+                                    @if(isset($guest))
+                                        @if ($guest->vege == 1)
+                                            <option selected>TAK</option>
+                                            <option>NIE</option>
+                                        @endif
+                                        @if ($guest->vege == 0)
+                                            <option>TAK</option>
+                                            <option selected>NIE</option>
+                                        @endif
+                                    @else
+                                        <option>TAK</option>
+                                        <option selected>NIE</option>
                                     @endif
                                 </select>
                             </div>
@@ -63,20 +75,27 @@
                         <div class="row mt-3">
                             <div class="col-md-12"><label class="labels">Transport z:</label>
                             <select class="form-control" style="background-color: white; color: black;" name="transport" id="vege">
-                                @if ($guest->transport == 0 && $guest->trans_from == NULL)
-                                    <option selected><b>Nie potrzebuje</b></option>
-                                    <option>Ryki</option>
-                                    <option>Stalowa Wola</option>
-                                @endif
-                                @if ($guest->transport != 0 && $guest->trans_from == 'Ryki')
-                                    <option>Nie potrzebuje</option>
-                                    <option selected>Ryki</option>
-                                    <option>Stalowa Wola</option>
-                                @endif
-                                @if($guest->transport != 0 && $guest->trans_from == 'Stalowa Wola')
-                                        <option>Nie potrzebuje</option>
+                                @if(isset($guest))
+                                    @if ($guest->transport == 0)
+                                        <option selected>Nie potrzebuję</option>
+                                        <option>Ryki</option>
+                                        <option>Stalowa Wola</option>
+                                    @endif
+                                    @if($guest->trans_from == 'Ryki' && $guest->transport !== 0)
+                                        <option>Nie potrzebuję</option>
+                                        <option selected>Ryki</option>
+                                        <option>Stalowa Wola</option>
+                                    @endif
+                                    @if($guest->trans_from == 'Stalowa Wola' && $guest->transport !== 0)
+                                        <option>Nie potrzebuję</option>
                                         <option>Ryki</option>
                                         <option selected>Stalowa Wola</option>
+                                    @endif
+                                @endif
+                                @if(!isset($guest))
+                                    <option selected>Nie potrzebuję</option>
+                                    <option>Ryki</option>
+                                    <option>Stalowa Wola</option>
                                 @endif
                             </select>
                             </div>

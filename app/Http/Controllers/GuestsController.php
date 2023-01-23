@@ -51,8 +51,10 @@ class GuestsController extends Controller
         }
         if ($request->transport == "Nie potrzebuję") {
             $guest->transport = 0;
+            $guest->trans_from = NULL;
         } elseif (!isset($request->transport)) {
             $guest->transport = 0;
+            $guest->trans_from = NULL;
         } else {
             $guest->transport = 1;
             $guest->trans_from = $request->transport;
@@ -66,7 +68,7 @@ class GuestsController extends Controller
             $guest->allergies = $request->allergies;
         }
 
-        if (isset($admin)) {
+        if (isset($admin)) { // co kolwiek zapisze transport = '1', i from=niepotrzebuje
             $guest->name = $request->name;
             $guest->surname = $request->surname;
             $guest->save();
