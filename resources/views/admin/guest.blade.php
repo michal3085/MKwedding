@@ -18,9 +18,9 @@
                         <h4 class="text-right">Informacje</h4>
                     </div>
                     @if ($guest->confirmed == 0)
-                        <a href="{{ route('panel.confirm', ['id' => $guest->id]) }}" methods="GET"><button type="button" class="btn btn-outline-success">Potwierdź</button></a>
+                        <a href="{{ route('panel.confirm', ['id' => $guest->id]) }}"><button type="button" class="btn btn-outline-success">Potwierdź</button></a>
                             @else
-                        <a href="{{ route('panel.del.confirm', ['id' => $guest->id]) }}" methods="GET"><button type="button" class="btn btn-outline-danger">Anuluj potwierdzenie</button></a>
+                        <a href="{{ route('panel.del.confirm', ['id' => $guest->id]) }}"><button type="button" class="btn btn-outline-danger">Anuluj potwierdzenie</button></a>
                     @endif
                     <hr>
                     <div class="text-right">
@@ -29,8 +29,7 @@
                         {{ $guest->allergies }}
                     </div>
                     <hr>
-                    <form action="{{ route('guest.data.save', ['id' => $guest->id, 'admin' => '1']) }}" method="POST">
-                        @csrf
+                    <form action="{{ route('guest.data.save', ['id' => $guest->id, 'admin' => '1']) }}" method="GET">
                         <div class="row mt-2">
                             <div class="col-md-6"><label class="labels">Name</label><input type="text" class="form-control" placeholder="{{$guest->name}}" value="{{$guest->name}}" name="name"></div>
                             <div class="col-md-6"><label class="labels">Surname</label><input type="text" class="form-control" value="{{$guest->surname}}" placeholder="{{$guest->surname}}" name="surname"></div>
@@ -70,12 +69,12 @@
                                     <option>Stalowa Wola</option>
                                 @endif
                                 @if ($guest->transport != 0 && $guest->trans_from == 'Ryki')
-                                    <option>Tak</option>
+                                    <option>Nie potrzebuje</option>
                                     <option selected>Ryki</option>
                                     <option>Stalowa Wola</option>
                                 @endif
                                 @if($guest->transport != 0 && $guest->trans_from == 'Stalowa Wola')
-                                        <option>Tak</option>
+                                        <option>Nie potrzebuje</option>
                                         <option>Ryki</option>
                                         <option selected>Stalowa Wola</option>
                                 @endif

@@ -35,8 +35,8 @@
                 </div>
             </div>
                 <hr>
-            <form action="{{ route('guest.data.save', ['id' => $gid]) }}" method="POST">
-                @csrf
+            <form action="{{ route('guest.data.save', ['id' => $gid]) }}" method="GET">
+{{--                @csrf--}}
                 <div class="form-group">
                     <label for="exampleFormControlSelect1">Potrzebujesz noclegu?</label>
                     <select class="form-control" name="hotel" id="exampleFormControlSelect1">
@@ -76,7 +76,7 @@
                                 @endif
                         @endif
                         @if(!isset($data))
-                        <option>Nie potrzebuję</option>
+                        <option selected>Nie potrzebuję</option>
                         <option>Ryki</option>
                         <option>Stalowa Wola</option>
                             @endif
