@@ -94,7 +94,7 @@ class AdminsController extends Controller
         $guest = Guest::where('name', 'LIKE', "%$name%")
             ->where('surname', 'LIKE', "%$surname%")
             ->latest()
-            ->paginate(35);
+            ->paginate(20);
 
         if ($guest->count() >= 1) {
             return view('admin.main')->with([
