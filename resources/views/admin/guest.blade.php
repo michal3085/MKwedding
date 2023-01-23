@@ -32,8 +32,8 @@
                     <form action="{{ route('guest.data.save', ['id' => $guest->id, 'admin' => '1']) }}" method="POST">
                         @csrf
                         <div class="row mt-2">
-                            <div class="col-md-6"><label class="labels">Name</label><input type="text" class="form-control" placeholder="{{$guest->name}}" value="{{$guest->name}}"></div>
-                            <div class="col-md-6"><label class="labels">Surname</label><input type="text" class="form-control" value="{{$guest->surname}}" placeholder="{{$guest->surname}}"></div>
+                            <div class="col-md-6"><label class="labels">Name</label><input type="text" class="form-control" placeholder="{{$guest->name}}" value="{{$guest->name}}" name="name"></div>
+                            <div class="col-md-6"><label class="labels">Surname</label><input type="text" class="form-control" value="{{$guest->surname}}" placeholder="{{$guest->surname}}" name="surname"></div>
                         </div>
                             <div class="row mt-3">
                                 <div class="col-md-12"><label class="labels">Potrzebny HOTEL:</label>
@@ -92,6 +92,7 @@
                     <div class="col-md-12"><label class="labels">Experience in Designing</label><input type="text" class="form-control" placeholder="experience" value=""></div> <br>
                     <div class="col-md-12"><label class="labels">Additional Details</label><input type="text" class="form-control" placeholder="additional details" value=""></div>
                 </div>
+                Tu w przyszłości będziecie mogli wprowadzic nr stolika, hotel lub informacje o transporcie.
             </div>
         </div>
     </div>

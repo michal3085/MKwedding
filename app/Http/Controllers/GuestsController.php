@@ -65,11 +65,15 @@ class GuestsController extends Controller
         if (isset($request->allergies)) {
             $guest->allergies = $request->allergies;
         }
-        $guest->save();
 
         if (isset($admin)) {
+            $guest->name = $request->name;
+            $guest->surname = $request->surname;
+            $guest->save();
+
             return view('admin.guest')->with(['guest' => $guest]);
         } else {
+            $guest->save();
             return view('confirmed')->with([
                 'data' => $guest,
                 'gid' => $guest->id,
