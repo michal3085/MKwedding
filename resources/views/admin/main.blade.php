@@ -138,7 +138,6 @@
                                         <div class="d-sm-flex justify-content-between align-items-start">
                                             <div>
                                                 <h4 class="card-title card-title-dash">Wasi Goście:</h4>
-                                                <p class="card-subtitle card-subtitle-dash"><p class="wysiwyg-text-align-center">"Icon made by&nbsp;<a target="_blank" href="https://www.flaticon.com/authors/pixel-perfect">Pixel perfect</a>&nbsp;from&nbsp;<a target="_blank" href="http://www.flaticon.com/">www.flaticon.com</a>"</p></p>
                                             </div>
                                         </div>
                                         <div class="table-responsive  mt-1">
@@ -338,6 +337,7 @@
                                                 </tbody>
                                             </table>
                                         </div>
+                                        <p class="card-subtitle card-subtitle-dash"><p class="wysiwyg-text-align-center">"Icon made by&nbsp;<a target="_blank" href="https://www.flaticon.com/authors/pixel-perfect">Pixel perfect</a>&nbsp;from&nbsp;<a target="_blank" href="http://www.flaticon.com/">www.flaticon.com</a>"</p></p>
                                     </div>
                                     <div class="pagination justify-content-center">
                                         {{ $guests->links('pagination::bootstrap-4') }}
