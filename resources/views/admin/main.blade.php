@@ -357,6 +357,7 @@
                             <div class="col-md-6 col-lg-6 grid-margin stretch-card">
                                 <div class="card card-rounded">
                                     <div class="card-body card-rounded">
+                                        {{ \Carbon\Carbon::now() }}
                                         <h4 class="card-title  card-title-dash">Recent Events</h4>
                                         <div class="list align-items-center border-bottom py-2">
                                             <div class="wrapper w-100">
