@@ -203,6 +203,8 @@
             </div>
         </div>
     </div>
+{{--Transport info--}}
+
 {{-- Prezenty --}}
 
 .

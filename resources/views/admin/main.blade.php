@@ -62,8 +62,16 @@
                                         <h3 class="rate-percentage">{{ \App\Models\Guest::where('confirmed', 0) ->count() }}</h3>
                                     </div>
                                     <div class="d-none d-md-block">
-                                        <p class="statistics-title">Transport / Hotel</p>
-                                        <h3 class="rate-percentage">{{ \App\Models\Guest::where('transport', 1)->count() }} / {{ \App\Models\Guest::where('hotel', 1)->count() }}</h3>
+                                        <p class="statistics-title">Transport Ryki
+                                        <h3 class="rate-percentage">{{ \App\Models\Guest::where('transport', 1)->where('trans_from', 'Ryki')->count() }}</h3>
+                                    </div>
+                                    <div class="d-none d-md-block">
+                                        <p class="statistics-title">Transport Stalowa Wola
+                                        <h3 class="rate-percentage">{{ \App\Models\Guest::where('transport', 1)->where('trans_from', 'Stalowa Wola')->count() }}</h3>
+                                    </div>
+                                    <div class="d-none d-md-block">
+                                        <p class="statistics-title">Hotel
+                                        <h3 class="rate-percentage">{{ \App\Models\Guest::where('hotel', 1)->count() }}</h3>
                                     </div>
                                     <div class="d-none d-md-block">
                                         <p class="statistics-title">Menu Wegańskie</p>
@@ -113,7 +121,7 @@
                                                 <div class="col-md-4 col-sm-4" style="float: left">
                                                     <div class="form-group">
                                                         <label for="name" class="sr-only">Imię</label>
-                                                        <input class="form-control" id="name" name="name" placeholder="Imię"
+                                                        <input class="form-control" autofocus="autofocus" id="name" name="name" placeholder="Imię"
                                                                required>
                                                     </div>
                                                 </div>

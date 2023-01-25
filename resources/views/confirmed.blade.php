@@ -27,8 +27,7 @@
                     @endif
                     <h2>Dziękujemy, {{ $name }}!</h2>
                     <h3>Widzimy się 05 Sierpnia 2023 o godz. 16.00</h3>
-                    <p>Jeżeli chcesz nas poinformować o alergiach, masz jakieś uwagi</p>
-                    <p>lub potrzebujesz transportu to wypełnij poniższy formularz!</p>
+                    <p>Jeżeli chcesz nas poinformować o alergiach, masz jakieś uwagi <br> lub potrzebujesz transportu to wypełnij poniższy formularz!</p>
                 </div>
                 <div class="col-md-10 col-md-offset-1">
                     <a href="{{ route('main') }}"><button type="" class="btn btn-default btn-block">Powrót do strony głównej</button></a>

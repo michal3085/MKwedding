@@ -113,7 +113,6 @@
 
     <footer id="fh5co-footer" role="contentinfo">
         <div class="container">
-
             <div class="row copyright">
                 <div class="col-md-12 text-center">
                     <p>
@@ -129,7 +128,6 @@
                     </p>
                 </div>
             </div>
-
         </div>
     </footer>
 </div>

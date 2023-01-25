@@ -103,11 +103,20 @@ class AdminsController extends Controller
                 'search' => 1
             ]);
         } elseif ($guest->count() == 0) {
+            $search = Guest::where('surname', 'LIKE', '%' . $surname . '%')->paginate(20);
             $guests = Guest::latest()->paginate(20);
+
+            if ($search->count() >= 1) {
+                $result = $search;
+                $found = 1;
+            } elseif ($search->count() == 0) {
+                $result = $guests;
+                $found = 0;
+            }
             return view('admin.main')->with([
-                'guests' => $guests,
+                'guests' => $result,
                 'mode' => 0,
-                'search' => 0
+                'search' => $found
             ]);
         }
     }
