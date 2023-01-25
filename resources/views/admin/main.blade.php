@@ -52,7 +52,7 @@
                                     <div>
                                         <p class="statistics-title">Wszyscy Goście</p>
                                         <h3 class="rate-percentage">{{ \App\Models\Guest::all()->count() }}</h3>
-                                        <p class="text-success d-flex"><span><i class="mdi mdi-menu-swap"></i> </span></p>
+                                        <p class="text-success d-flex"><span style="color: rgba(10,6,6,0.37)"><i class="mdi mdi-menu-swap"></i>100%</span></p>
                                     </div>
                                     <div>
                                         <p class="statistics-title">Potwierdzeni Goście</p>
