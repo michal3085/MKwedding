@@ -56,14 +56,17 @@
                                     <div>
                                         <p class="statistics-title">Potwierdzeni Goście</p>
                                         <h3 class="rate-percentage">{{ \App\Models\Guest::where('confirmed', 1)->count() }}</h3>
+                                        <p class="text-success d-flex"><i class="mdi mdi-menu-up"></i><span>{{ \App\Models\Guest::confirmedPrecentage() }}%</span></p>
                                     </div>
                                     <div>
                                         <p class="statistics-title">Niepotwierdzeni</p>
                                         <h3 class="rate-percentage">{{ \App\Models\Guest::where('confirmed', 0) ->count() }}</h3>
+                                        <p class="text-danger d-flex"><i class="mdi mdi-menu-down"></i><span>{{ \App\Models\Guest::unconfirmedPrecentage() }}%</span></p>
                                     </div>
                                     <div class="d-none d-md-block">
                                         <p class="statistics-title">Transport Ryki
                                         <h3 class="rate-percentage">{{ \App\Models\Guest::where('transport', 1)->where('trans_from', 'Ryki')->count() }}</h3>
+                                        <p class="text-success d-flex"><i class="mdi mdi-menu-up"></i><span>{{ \App\Models\Guest::transportRyki() }}%</span></p>
                                     </div>
                                     <div class="d-none d-md-block">
                                         <p class="statistics-title">Transport Stalowa Wola
