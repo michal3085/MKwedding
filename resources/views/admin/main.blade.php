@@ -54,7 +54,7 @@
                             <div class="col-sm-12">
                                 <div class="statistics-details d-flex align-items-center justify-content-between">
                                     <div>
-                                        <p class="statistics-title">Wszyscy Goście</p>
+                                        <p class="statistics-title">Zaproszeni</p>
                                         <h3 class="rate-percentage">{{ \App\Models\Guest::all()->count() }}</h3>
                                         <p class="text-success d-flex"><span style="color: rgba(10,6,6,0.37)"><i class="mdi mdi-menu-swap"></i>100%</span></p>
                                     </div>

@@ -103,25 +103,6 @@
                     <label for="exampleFormControlTextarea1">Informacje o alergiach/Uwagi:</label>
                     <textarea class="form-control" name="allergies" id="exampleFormControlTextarea1" rows="3">@if (isset($data)){{ $data->allergies }}@endif</textarea>
                 </div>
-{{--                <div class="row mt-3" hidden>--}}
-{{--                    <div class="col-md-12"><label class="labels" hidden>Dziecko:</label>--}}
-{{--                        <select class="form-control" style="background-color: white; color: black;" name="child" id="child">--}}
-{{--                            @if(isset($data))--}}
-{{--                                @if ($data->child == 1)--}}
-{{--                                    <option value="1" selected>TAK</option>--}}
-{{--                                    <option value="0">NIE</option>--}}
-{{--                                @endif--}}
-{{--                                @if ($data->child == 0)--}}
-{{--                                    <option value="1">TAK</option>--}}
-{{--                                    <option value="0" selected>NIE</option>--}}
-{{--                                @endif--}}
-{{--                            @else--}}
-{{--                                <option value="1">TAK</option>--}}
-{{--                                <option value="0" selected>NIE</option>--}}
-{{--                            @endif--}}
-{{--                        </select>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
             <div class="col-md-10 col-md-offset-1">
                 <button type="" class="btn btn-default btn-block" style="background-color: #F14E95">Wyślij</button>
             </div>
