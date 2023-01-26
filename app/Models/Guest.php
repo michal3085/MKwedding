@@ -32,6 +32,7 @@ class Guest extends Model
                 break;
             case 7:
                 $needed = Guest::where('allergies', '!=', NULL)->count();
+                break;
             case 8:
                 $needed = Guest::where('child', 1)->count();
                 break;
