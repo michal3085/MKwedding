@@ -69,6 +69,7 @@ class AdminsController extends Controller
             $new_guest->name = $request->name;
             $new_guest->surname = $request->surname;
             $new_guest->confirmed = 0;
+            $new_guest->child = $request->child;
             $new_guest->save();
 
             $guests = Guest::latest()->paginate(20);

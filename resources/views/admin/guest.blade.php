@@ -73,6 +73,25 @@
                             </div>
                         </div>
                         <div class="row mt-3">
+                            <div class="col-md-12"><label class="labels">Dziecko:</label>
+                                <select class="form-control" style="background-color: white; color: black;" name="child" id="child">
+                                    @if(isset($guest))
+                                        @if ($guest->child == 1)
+                                            <option value="1" selected>TAK</option>
+                                            <option value="0">NIE</option>
+                                        @endif
+                                        @if ($guest->child == 0)
+                                            <option value="1">TAK</option>
+                                            <option value="0" selected>NIE</option>
+                                        @endif
+                                    @else
+                                        <option value="1">TAK</option>
+                                        <option value="0" selected>NIE</option>
+                                    @endif
+                                </select>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
                             <div class="col-md-12"><label class="labels">Transport z:</label>
                             <select class="form-control" style="background-color: white; color: black;" name="transport" id="vege">
                                 @if(isset($guest))

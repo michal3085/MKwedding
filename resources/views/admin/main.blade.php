@@ -70,7 +70,7 @@
                                         <p class="text-success d-flex"><i class="mdi mdi-menu-up"></i><span>{{ \App\Models\Guest::getGuestsPrecentage(3) }}%</span></p>
                                     </div>
                                     <div class="d-none d-md-block">
-                                        <p class="statistics-title">Transport Stalowa Wola
+                                        <p class="statistics-title">Stalowa Wola
                                         <h3 class="rate-percentage">{{ \App\Models\Guest::where('transport', 1)->where('trans_from', 'Stalowa Wola')->count() }}</h3>
                                         <p class="text-success d-flex"><i class="mdi mdi-menu-up"></i><span>{{ \App\Models\Guest::getGuestsPrecentage(4) }}%</span></p>
                                     </div>
@@ -88,6 +88,11 @@
                                         <p class="statistics-title">Alergie/Uwagi</p>
                                         <h3 class="rate-percentage">{{ \App\Models\Guest::where('allergies', '!=', NULL)->count() }}</h3>
                                         <p class="text-success d-flex"><i class="mdi mdi-menu-up"></i><span>{{ \App\Models\Guest::getGuestsPrecentage(7) }}%</span></p>
+                                    </div>
+                                    <div class="d-none d-md-block">
+                                        <p class="statistics-title">Dzieci</p>
+                                        <h3 class="rate-percentage">{{ \App\Models\Guest::where('child', 1)->count() }}</h3>
+                                        <p class="text-success d-flex"><i class="mdi mdi-menu-up"></i><span>{{ \App\Models\Guest::getGuestsPrecentage(8) }}%</span></p>
                                     </div>
                                 </div>
                             </div>
@@ -133,13 +138,18 @@
                                                                required>
                                                     </div>
                                                 </div>
-
                                                 <div class="col-md-4 col-sm-4" style="float: left">
                                                     <div class="form-group">
                                                         <label for="surname" class="sr-only">Nazwisko</label>
                                                         <input class="form-control" id="surname" name="surname"
                                                                placeholder="Nazwisko" required>
                                                     </div>
+                                                </div>
+                                                <div class="col-md-4 col-sm-4" style="float: left">
+                                                <select class="form-control form-control-sm" style="width: 200px; color: #0B0F32" name="child">
+                                                    <option value="0" selected>Dorosły</option>
+                                                    <option value="1">Dziecko</option>
+                                                </select>
                                                 </div>
                                                 <div class="col-md-4 col-sm-4">
                                                     <button type="submit"
@@ -161,6 +171,7 @@
                                                 <thead>
                                                 <tr>
                                                     <th>Imię i Nazwisko</th>
+                                                    <th>Dziecko</th>
                                                     <th>Alergie/Uwagi</th>
                                                     <th>Menu Vege</th>
                                                     <th>Hotel</th>
@@ -179,6 +190,11 @@
                                                                     <p>{{ Str::limit($guest->allergies, 30, $end="...") }}</p>
                                                                 </div>
                                                             </div>
+                                                        </td>
+                                                        <td>
+                                                            @if ($guest->child == 1)
+                                                                <img src="{{asset('/admin/images/playtime.png')}}" alt="" style="height: 30px; width: 30px;">
+                                                            @endif
                                                         </td>
                                                         <td>
                                                             @if ($guest->allergies !== NULL)
@@ -221,135 +237,10 @@
                                                                 </div>
                                                             </td>
                                                         @endif
-                                                </tr>
-                                                <tr>
+                                                        </tr>
+                                                    <tr>
                                                 </tr>
                                                 @endforeach
-                                                {{--                                                                        <td>--}}
-                                                {{--                                                                            <div class="d-flex">--}}
-                                                {{--                                                                                <img src="images/faces/face2.jpg" alt="">--}}
-                                                {{--                                                                                <div>--}}
-                                                {{--                                                                                    <h6>Laura Brooks</h6>--}}
-                                                {{--                                                                                    <p>Head admin</p>--}}
-                                                {{--                                                                                </div>--}}
-                                                {{--                                                                            </div>--}}
-                                                {{--                                                                        </td>--}}
-                                                {{--                                                                        <td>--}}
-                                                {{--                                                                            <h6>Company name 1</h6>--}}
-                                                {{--                                                                            <p>company type</p>--}}
-                                                {{--                                                                        </td>--}}
-                                                {{--                                                                        <td>--}}
-                                                {{--                                                                            <div>--}}
-                                                {{--                                                                                <div class="d-flex justify-content-between align-items-center mb-1 max-width-progress-wrap">--}}
-                                                {{--                                                                                    <p class="text-success">65%</p>--}}
-                                                {{--                                                                                    <p>85/162</p>--}}
-                                                {{--                                                                                </div>--}}
-                                                {{--                                                                                <div class="progress progress-md">--}}
-                                                {{--                                                                                    <div class="progress-bar bg-success" role="progressbar" style="width: 65%" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>--}}
-                                                {{--                                                                                </div>--}}
-                                                {{--                                                                            </div>--}}
-                                                {{--                                                                        </td>--}}
-                                                {{--                                                                        <td><div class="badge badge-opacity-warning">In progress</div></td>--}}
-                                                {{--                                                                    </tr>--}}
-                                                {{--                                                                    <tr>--}}
-                                                {{--                                                                        <td>--}}
-                                                {{--                                                                            <div class="form-check form-check-flat mt-0">--}}
-                                                {{--                                                                                <label class="form-check-label">--}}
-                                                {{--                                                                                    <input type="checkbox" class="form-check-input" aria-checked="false"><i class="input-helper"></i></label>--}}
-                                                {{--                                                                            </div>--}}
-                                                {{--                                                                        </td>--}}
-                                                {{--                                                                        <td>--}}
-                                                {{--                                                                            <div class="d-flex">--}}
-                                                {{--                                                                                <img src="images/faces/face3.jpg" alt="">--}}
-                                                {{--                                                                                <div>--}}
-                                                {{--                                                                                    <h6>Wayne Murphy</h6>--}}
-                                                {{--                                                                                    <p>Head admin</p>--}}
-                                                {{--                                                                                </div>--}}
-                                                {{--                                                                            </div>--}}
-                                                {{--                                                                        </td>--}}
-                                                {{--                                                                        <td>--}}
-                                                {{--                                                                            <h6>Company name 1</h6>--}}
-                                                {{--                                                                            <p>company type</p>--}}
-                                                {{--                                                                        </td>--}}
-                                                {{--                                                                        <td>--}}
-                                                {{--                                                                            <div>--}}
-                                                {{--                                                                                <div class="d-flex justify-content-between align-items-center mb-1 max-width-progress-wrap">--}}
-                                                {{--                                                                                    <p class="text-success">65%</p>--}}
-                                                {{--                                                                                    <p>85/162</p>--}}
-                                                {{--                                                                                </div>--}}
-                                                {{--                                                                                <div class="progress progress-md">--}}
-                                                {{--                                                                                    <div class="progress-bar bg-warning" role="progressbar" style="width: 38%" aria-valuenow="38" aria-valuemin="0" aria-valuemax="100"></div>--}}
-                                                {{--                                                                                </div>--}}
-                                                {{--                                                                            </div>--}}
-                                                {{--                                                                        </td>--}}
-                                                {{--                                                                        <td><div class="badge badge-opacity-warning">In progress</div></td>--}}
-                                                {{--                                                                    </tr>--}}
-                                                {{--                                                                    <tr>--}}
-                                                {{--                                                                        <td>--}}
-                                                {{--                                                                            <div class="form-check form-check-flat mt-0">--}}
-                                                {{--                                                                                <label class="form-check-label">--}}
-                                                {{--                                                                                    <input type="checkbox" class="form-check-input" aria-checked="false"><i class="input-helper"></i></label>--}}
-                                                {{--                                                                            </div>--}}
-                                                {{--                                                                        </td>--}}
-                                                {{--                                                                        <td>--}}
-                                                {{--                                                                            <div class="d-flex">--}}
-                                                {{--                                                                                <img src="images/faces/face4.jpg" alt="">--}}
-                                                {{--                                                                                <div>--}}
-                                                {{--                                                                                    <h6>Matthew Bailey</h6>--}}
-                                                {{--                                                                                    <p>Head admin</p>--}}
-                                                {{--                                                                                </div>--}}
-                                                {{--                                                                            </div>--}}
-                                                {{--                                                                        </td>--}}
-                                                {{--                                                                        <td>--}}
-                                                {{--                                                                            <h6>Company name 1</h6>--}}
-                                                {{--                                                                            <p>company type</p>--}}
-                                                {{--                                                                        </td>--}}
-                                                {{--                                                                        <td>--}}
-                                                {{--                                                                            <div>--}}
-                                                {{--                                                                                <div class="d-flex justify-content-between align-items-center mb-1 max-width-progress-wrap">--}}
-                                                {{--                                                                                    <p class="text-success">65%</p>--}}
-                                                {{--                                                                                    <p>85/162</p>--}}
-                                                {{--                                                                                </div>--}}
-                                                {{--                                                                                <div class="progress progress-md">--}}
-                                                {{--                                                                                    <div class="progress-bar bg-danger" role="progressbar" style="width: 15%" aria-valuenow="15" aria-valuemin="0" aria-valuemax="100"></div>--}}
-                                                {{--                                                                                </div>--}}
-                                                {{--                                                                            </div>--}}
-                                                {{--                                                                        </td>--}}
-                                                {{--                                                                        <td><div class="badge badge-opacity-danger">Pending</div></td>--}}
-                                                {{--                                                                    </tr>--}}
-                                                {{--                                                                    <tr>--}}
-                                                {{--                                                                        <td>--}}
-                                                {{--                                                                            <div class="form-check form-check-flat mt-0">--}}
-                                                {{--                                                                                <label class="form-check-label">--}}
-                                                {{--                                                                                    <input type="checkbox" class="form-check-input" aria-checked="false"><i class="input-helper"></i></label>--}}
-                                                {{--                                                                            </div>--}}
-                                                {{--                                                                        </td>--}}
-                                                {{--                                                                        <td>--}}
-                                                {{--                                                                            <div class="d-flex">--}}
-                                                {{--                                                                                <img src="images/faces/face5.jpg" alt="">--}}
-                                                {{--                                                                                <div>--}}
-                                                {{--                                                                                    <h6>Katherine Butler</h6>--}}
-                                                {{--                                                                                    <p>Head admin</p>--}}
-                                                {{--                                                                                </div>--}}
-                                                {{--                                                                            </div>--}}
-                                                {{--                                                                        </td>--}}
-                                                {{--                                                                        <td>--}}
-                                                {{--                                                                            <h6>Company name 1</h6>--}}
-                                                {{--                                                                            <p>company type</p>--}}
-                                                {{--                                                                        </td>--}}
-                                                {{--                                                                        <td>--}}
-                                                {{--                                                                            <div>--}}
-                                                {{--                                                                                <div class="d-flex justify-content-between align-items-center mb-1 max-width-progress-wrap">--}}
-                                                {{--                                                                                    <p class="text-success">65%</p>--}}
-                                                {{--                                                                                    <p>85/162</p>--}}
-                                                {{--                                                                                </div>--}}
-                                                {{--                                                                                <div class="progress progress-md">--}}
-                                                {{--                                                                                    <div class="progress-bar bg-success" role="progressbar" style="width: 65%" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>--}}
-                                                {{--                                                                                </div>--}}
-                                                {{--                                                                            </div>--}}
-                                                {{--                                                                        </td>--}}
-                                                {{--                                                                        <td><div class="badge badge-opacity-success">Completed</div></td>--}}
-                                                {{--                                                                    </tr>--}}
                                                 </tbody>
                                             </table>
                                         </div>
