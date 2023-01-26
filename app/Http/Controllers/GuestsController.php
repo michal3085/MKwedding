@@ -67,7 +67,12 @@ class GuestsController extends Controller
         if (isset($request->allergies)) {
             $guest->allergies = $request->allergies;
         }
-        $guest->child = $request->child;
+        if ($request->child == NULL) {
+            $request->child == $guest->child;
+        } else {
+            $guest->child = $request->child;
+        }
+
 
         if (isset($admin)) { // co kolwiek zapisze transport = '1', i from=niepotrzebuje
             $guest->name = $request->name;
