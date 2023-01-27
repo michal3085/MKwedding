@@ -70,7 +70,7 @@ class CompanionController extends Controller
                     $second_one = $companion->companion_a;
                 }
                 /*
-                 * User exists and it's yours companion, so lets update the credentials.
+                 * User exists, and it's yours companion, so lets update the credentials.
                  */
                 if (Companion::where([['companion_a', '=', $second_one], ['companion_b', '=', $id]])->orWhere([['companion_a', '=', $id], ['companion_b', '=', $second_one]])->count() == 1) {
                     $companion->confirmed = 1;

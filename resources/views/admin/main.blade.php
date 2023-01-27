@@ -191,7 +191,9 @@
                                                                 <img src="{{asset('/admin/images/couple.png')}}" alt="">
                                                                 <div>
                                                                     <h6><a href="{{ route('guest.profile', ['id' => $guest->id]) }}">{{ $guest->name }} {{ $guest->surname }}</a></h6>
-                                                                    <p>{{ Str::limit($guest->allergies, 30, $end="...") }}</p>
+                                                                    @if (\App\Models\Companion::companionExists($guest->id) == 1)
+                                                                    <p>{{ \App\Models\Companion::getNameOfCompanion($guest->id) }}</p>
+                                                                    @endif
                                                                 </div>
                                                             </div>
                                                         </td>
