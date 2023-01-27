@@ -23,6 +23,17 @@ class Companion extends Model
         }
     }
 
+    public static function getMyCompanionId($my_id)
+    {
+        $companion = Companion::where('companion_a', $my_id)->orWhere('companion_b', $my_id)->first();
+
+        if ($companion->companion_a == $my_id) {
+            return $companion->companion_b;
+        } else {
+            return $companion->companion_a;
+        }
+    }
+
     public static function getNameOfCompanion($my_id)
     {
         $companion = Companion::where('companion_a', $my_id)->orWhere('companion_b', $my_id)->first();

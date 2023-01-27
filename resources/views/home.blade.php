@@ -215,22 +215,25 @@
 <div class="wrapper">
     <div class="divider div-transparent div-dot"></div>
 </div>
-<div id="fh5co-gallery" class="fh5co-section-gray">
+{{--      background-size: cover;
+  background-repeat: no-repeat;
+  position: relative;--}}
+<div id="fh5co-gallery" class="fh5co-section-gray" style="background-image: url('/images/czad.png'); background-size: cover; background-repeat: no-repeat;">
     <div class="container">
         <div class="row">
             <div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
                 <h2>A zamiast kwiatów</h2>
-                <p>W dniu ślubu, prowadzona będzie zbiórka pieniędzy na fundację "Czadowa Para"</p>
+                <p style="color: #0b0b0b">W dniu ślubu, prowadzona będzie zbiórka pieniędzy na fundację "Czadowa Para"</p>
             </div>
         </div>
         <div class="row row-bottom-padded-md">
             <div class="col-md-12">
                 <ul id="fh5co-gallery-list">
-                    <li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url('{{ asset('/images/czadowalogo.jpg') }}'); ">
-                    </li>
-                        <li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url('{{ asset('/images/africa_border.jpg') }}'); ">
-                        </li>
-                    <li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url('{{ asset('/images/czadowa_para.jpg') }}'); ">
+{{--                    <li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url('{{ asset('/images/czadowalogo.jpg') }}'); ">--}}
+{{--                    </li>--}}
+{{--                        <li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url('{{ asset('/images/czad.jpg') }}'); ">--}}
+{{--                        </li>--}}
+                    <li class="one-third animate-box" data-animate-effect="fadeIn" style="background-image: url('{{ asset('/images/czadowa_para.jpg') }}'); width: 50%;">
                     </li>
                 </ul>
             </div>

@@ -20,6 +20,11 @@ class CompanionController extends Controller
         ]);
     }
 
+    public function showCompanionData($id)
+    {
+        //
+    }
+
     public function saveCompanion(Request $request, $id)
     {
         $data = Guest::where('id', $id)->first();

@@ -28,6 +28,7 @@ Route::group(['middleware' => 'under-construction'], function () {
     Route::get('/guest/{id}/data/save/{admin?}', [GuestsController::class, 'guestDataSave'])->name('guest.data.save');
     Route::get('/guest/companion/add/{id}', [CompanionController::class, 'addCompanion'])->name('add.companion');
     Route::get('/guest/companion/save/{id}', [CompanionController::class, 'saveCompanion'])->name('save.companion');
+    Route::get('/guest/show/companion/{id}', [CompanionController::class, 'showCompanionData'])->name('companion.data');
 
     Auth::routes();
 
