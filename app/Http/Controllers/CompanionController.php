@@ -8,14 +8,14 @@ use Illuminate\Http\Request;
 
 class CompanionController extends Controller
 {
-    public function addCompanion($name, $surname)
+    public function addCompanion($id)
     {
-        $data = Guest::where('name', $name)->where('surname', $surname)->first();
+        $data = Guest::where('id', $id)->first();
 
         return view('companion')->with([
             'data' => $data,
-            'name' => $name,
-            'surname' => $surname,
+            'name' => $data->name,
+            'surname' => $data->surname,
             'gid' => $data->id
         ]);
     }
