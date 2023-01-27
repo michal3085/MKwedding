@@ -20,7 +20,8 @@ class GuestsController extends Controller
 
             return view('confirmed')->with([
                 'gid' => $guest->id,
-                'name' => $guest->name
+                'name' => $guest->name,
+                'surname' => $guest->surname
                 ]);
 
         } elseif (Guest::where('name', $request->name)->where('surname', $request->surname)->where('confirmed', 1)->count() == 1) {
@@ -29,6 +30,7 @@ class GuestsController extends Controller
             return view('confirmed')->with([
                 'data' => $data,
                 'name' => $data->name,
+                'surname' => $data->surname,
                 'gid' => $data->id
             ]);
         } else {

@@ -25,6 +25,11 @@
                             Super! Zapisaliśmy Twoje uwagi, jeżeli chcesz coś zmienić w przyszłości, wypełnij formularz na stronie głównej jeszcze raz i popraw dane.
                         </div>
                     @endif
+                        @if (isset($status) && $status == "companion_added")
+                            <div class="alert alert-success" role="alert">
+                                Twoja osoba towarzysząca została dodana, użyj imienia i nazwiska osoby towarzyszącej w formularzu na stronie głównej, aby zmienić dane.
+                            </div>
+                        @endif
                     <h2>Dziękujemy, {{ $name }}!</h2>
                     <h3>Widzimy się 05 Sierpnia 2023 o godz. 16.00</h3>
                     <p>Jeżeli chcesz nas poinformować o alergiach, masz jakieś uwagi <br> lub potrzebujesz transportu to wypełnij poniższy formularz!</p>
@@ -33,6 +38,10 @@
                     <a href="{{ route('main') }}"><button type="" class="btn btn-default btn-block">Powrót do strony głównej</button></a>
                 </div>
             </div>
+                <hr>
+                    <div class="form-group">
+                        <a href="{{ route('add.companion', ['name' => $name, 'surname' => $surname]) }}"><button type="submit" class="btn btn-outline-success"><i class="fas fa-user-plus"></i> Dodaj osobę towarzyszącą</button></a>
+                    </div>
                 <hr>
             <form action="{{ route('guest.data.save', ['id' => $gid]) }}" method="GET">
 {{--                @csrf--}}

@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminsController;
+use App\Http\Controllers\CompanionController;
 use App\Http\Controllers\GuestsController;
 use App\Http\Controllers\MainController;
 use Illuminate\Support\Facades\App;
@@ -25,6 +26,8 @@ Route::group(['middleware' => 'under-construction'], function () {
     Route::post('/confirm/me/', [GuestsController::class, 'confirmGuest'])->name('guest.confirm');
     Route::get('/confirmed/thank/you', [GuestsController::class, 'confirmedInfo'])->name('confirmed');
     Route::get('/guest/{id}/data/save/{admin?}', [GuestsController::class, 'guestDataSave'])->name('guest.data.save');
+    Route::get('/guest/companion/add/{name}/{surname}', [CompanionController::class, 'addCompanion'])->name('add.companion');
+    Route::get('/guest/companion/save/{id}', [CompanionController::class, 'saveCompanion'])->name('save.companion');
 
     Auth::routes();
 

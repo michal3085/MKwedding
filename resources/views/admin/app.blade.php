@@ -13,6 +13,7 @@
     <link rel="stylesheet" href="{{asset('admin/vendors/typicons/typicons.css')}}">
     <link rel="stylesheet" href="{{asset('admin/vendors/simple-line-icons/css/simple-line-icons.css')}}">
     <link rel="stylesheet" href="{{asset('admin/vendors/css/vendor.bundle.base.css')}}">
+    <script src="https://kit.fontawesome.com/d10fe5dbd3.js" crossorigin="anonymous"></script>
     <!-- endinject -->
     <!-- Plugin css for this page -->
     <link rel="stylesheet" href="{{asset('admin/vendors/datatables.net-bs4/dataTables.bootstrap4.css')}}">
@@ -22,7 +23,6 @@
     <link rel="stylesheet" href="{{asset('admin/css/vertical-layout-light/style.css')}}">
     <!-- endinject -->
     <link rel="shortcut icon" href="{{asset('admin/images/favicon.png')}}" />
-    <script src="https://kit.fontawesome.com/d10fe5dbd3.js" crossorigin="anonymous"></script>
 </head>
 <body>
 <div class="container-scroller">

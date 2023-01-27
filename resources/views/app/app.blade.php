@@ -12,6 +12,7 @@
     <meta name="keywords" content="free html5, free template, free bootstrap, html5, css3, mobile first, responsive" />
     <meta name="author" content="FREEHTML5.CO" />
     <link rel="icon" type="image/x-icon" href="/images/favico.png">
+    <script src="https://kit.fontawesome.com/d10fe5dbd3.js" crossorigin="anonymous"></script>
 
     <!--
       //////////////////////////////////////////////////////

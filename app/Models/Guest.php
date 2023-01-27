@@ -9,6 +9,11 @@ class Guest extends Model
 {
     use HasFactory;
 
+    public function companion()
+    {
+        return $this->hasMany('App\Models\Guest');
+    }
+
     public static function getGuestsPrecentage($mode)
     {
         switch ($mode) {
