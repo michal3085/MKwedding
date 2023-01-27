@@ -33,25 +33,25 @@
             <div class="couple-wrap animate-box">
                 <div class="couple-half">
                     <div class="groom">
-                        <img src="images/maciej.jpg" alt="groom" class="img-responsive">
+                        <img src="images/karolinka.jpg" alt="groom" class="img-responsive">
                     </div>
                     <div class="desc-groom">
-                        <h3>Maciej Cuch</h3>
-                        <p>Brusów, Lubelskie<br>796 304 910</p>
+                        @if(\Carbon\Carbon::parse(\Carbon\Carbon::now())->lt('08/05/2023 15:30:00'))
+                            <h3>Karolina Nieradka</h3>
+                        @else
+                            <h3>Karolina Cuch</h3>
+                        @endif
+                        <p>Pysznica, Podkarpackie<br>663 618 912</p>
                     </div>
                 </div>
                 <p class="heart text-center"><i class="icon-heart2"></i></p>
                 <div class="couple-half">
                     <div class="bride">
-                        <img src="images/karolinka.jpg" alt="groom" class="img-responsive">
+                        <img src="images/maciej.jpg" alt="groom" class="img-responsive">
                     </div>
-                    <div class="desc-bride">
-                        @if(\Carbon\Carbon::parse(\Carbon\Carbon::now())->lt('08/05/2023 15:30:00'))
-                        <h3>Karolina Nieradka</h3>
-                        @else
-                            <h3>Karolina Cuch</h3>
-                        @endif
-                        <p>Pysznica, Podkarpackie<br>663 618 912</p>
+                    <div class="desc-groom">
+                        <h3>Maciej Cuch</h3>
+                        <p>Brusów, Lubelskie<br>796 304 910</p>
                     </div>
                 </div>
             </div>
