@@ -37,9 +37,9 @@
                     </div>
                     <div class="desc-groom">
                         @if(\Carbon\Carbon::parse(\Carbon\Carbon::now())->lt('08/05/2023 15:30:00'))
-                            <h3>Karolina Nieradka</h3>
+                            <h3><b>Karolina Nieradka</b></h3>
                         @else
-                            <h3>Karolina Cuch</h3>
+                            <h3><b>Karolina Cuch</b></h3>
                         @endif
                         <p>Pysznica, Podkarpackie<br>663 618 912</p>
                     </div>
@@ -50,7 +50,7 @@
                         <img src="images/maciej.jpg" alt="groom" class="img-responsive">
                     </div>
                     <div class="desc-groom">
-                        <h3>Maciej Cuch</h3>
+                        <h3><b>Maciej Cuch</b></h3>
                         <p>Brusów, Lubelskie<br>796 304 910</p>
                     </div>
                 </div>
