@@ -22,6 +22,7 @@
                             @else
                         <a href="{{ route('panel.del.confirm', ['id' => $guest->id]) }}"><button type="button" class="btn btn-outline-danger">Anuluj potwierdzenie</button></a>
                     @endif
+                    <button type="button" class="btn btn-outline-danger guest_delete">Usuń</button>
                     <hr>
                     <div class="text-right">
                         <b>Uwagi/Alergie:</b>
@@ -135,4 +136,38 @@
     </div>
     </div>
     </div>
+@endsection
+@section('javascript')
+    $( function()  {
+    $('.guest_delete').click( function () {
+    Swal.fire({
+    title: '{{ __('Napewno chcecie usunąć potęcjalną kopertę?') }}',
+    icon: 'question',
+    showCancelButton: true,
+    confirmButtonText: '{{ __('Tak') }}',
+    cancelButtonText: '{{ __('Nie') }}'
+    }).then((result) => {
+    if (result.value) {
+    $.ajax({
+    method: "DELETE",
+    url: "/comments/delete/" + $(this).data("id")
+    })
+    .done(function( response ) {
+    Swal.fire({
+    title: '{{ __('Gosco usunięty') }}',
+    icon: 'success',
+    showCancelButtonText: true,
+    confirmButtonText: 'OK'
+    }).then((result) => {
+    window.location.reload();
+    })
+
+    })
+    .fail(function( response ) {
+    Swal.fire('Ups', '{{ __('Something went wrong') }}', 'error');
+    });
+    }
+    })
+    });
+    });
 @endsection
