@@ -218,7 +218,7 @@
 {{--      background-size: cover;
   background-repeat: no-repeat;
   position: relative;--}}
-<div id="fh5co-gallery" class="fh5co-section-gray" style="background-image: url('/images/czad.png'); background-size: 130%; background-repeat: no-repeat;">
+<div id="fh5co-gallery" class="fh5co-section-gray" style="background-image: url('/images/czad.png'); background-position: center; background-size: 130%; background-repeat: no-repeat;">
     <div class="container">
         <div class="row">
             <div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
