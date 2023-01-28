@@ -224,7 +224,7 @@
         <div class="row">
             <div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
                 <h2>A zamiast kwiatów</h2>
-                <p style="color: #0b0b0b">W dniu ślubu, prowadzona będzie zbiórka pieniędzy na fundację "Czadowa Para"</p>
+                <p style="color: #0b0b0b">W dniu ślubu, prowadzona będzie zbiórka pieniędzy na fundację "Czadowa Para".</p>
             </div>
         </div>
         <div class="row row-bottom-padded-md">
