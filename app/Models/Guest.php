@@ -47,4 +47,14 @@ class Guest extends Model
         $result = $needed/$all*100;
         return intval($result);
     }
+
+    public static function guestIsAChild($id)
+    {
+        $guest = Guest::where('id', $id)->first();
+        if ($guest->child == 1) {
+            return 1;
+        } else {
+            return  0;
+        }
+    }
 }
