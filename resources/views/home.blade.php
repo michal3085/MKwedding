@@ -63,8 +63,8 @@
         <div class="container">
             <div class="row animate-box">
                 <div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
-                    <h2>Będziesz?</h2>
-                    <p>Wypełnij oba pola, aby potwierdzić swoją obecność na naszym weselu, później dowiesz się tu jakie masz miejsce itd.</p>
+                    <h2 style="color: #F14E95;">Będziesz?</h2>
+                    <p style="color: white">Wypełnij oba pola, aby potwierdzić swoją obecność na naszym weselu, później dowiesz się tu jakie masz miejsce itd.</p>
                 </div>
             </div>
             <div class="row animate-box">
@@ -102,7 +102,6 @@
             <div class="row">
                 <div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
 {{--                    <span>Our Special Events</span>--}}
-                    <h2>Ceremonia</h2>
                 </div>
             </div>
             <div class="row">
@@ -111,7 +110,8 @@
                         <div class="col-md-10 col-md-offset-1">
                             <div class="col-md-6 col-sm-6 text-center">
                                 <div class="event-wrap animate-box">
-                                    <h3>Ślub</h3>
+                                    <p style="font-family: Sacramento,serif,Arial; font-size: 35px; color: #F14E95;"><b>Ceremonia</b></p>
+                                    <hr>
                                     <div class="event-col">
                                         <i class="icon-clock"></i>
                                         <span>o godz.: 16:00</span>
@@ -186,7 +186,8 @@
 {{--                            </div>--}}
                             <div class="col-md-6 col-sm-6 text-center">
                                 <div class="event-wrap animate-box">
-                                    <h3>Wesele</h3>
+                                    <p style="font-family: Sacramento,serif,Arial; font-size: 35px; color: #F14E95;"><b>Wesele</b></p>
+                                    <hr>
                                     <div class="event-col">
                                         <i class="icon-clock"></i>
                                         <span>od godz.: 17:30</span>
