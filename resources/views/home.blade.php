@@ -10,9 +10,8 @@
                     <div class="display-t">
                         <div class="display-tc animate-box" data-animate-effect="fadeIn">
                             <h1>Karolina & Maciek</h1>
-                            <h2>Pobieramy się za:</h2>
-                            <div class="simply-countdown simply-countdown-one"></div>
-{{--                            <p><a href="#" class="btn btn-default btn-sm">Save the date</a></p>--}}
+{{--                            <div class="simply-countdown simply-countdown-one"></div>--}}
+                            <p><a href="#confirm" class="btn btn-default btn-sm"><b>Potwierdź obecność</b></a></p>
                         </div>
                     </div>
                 </div>
@@ -33,7 +32,7 @@
             <div class="couple-wrap animate-box">
                 <div class="couple-half">
                     <div class="groom">
-                        <img src="images/karolinka.jpg" alt="groom" class="img-responsive">
+                        <img src="images/k6.jpg" alt="groom" class="img-responsive">
                     </div>
                     <div class="desc-groom">
                         @if(\Carbon\Carbon::parse(\Carbon\Carbon::now())->lt('08/05/2023 15:30:00'))
@@ -47,7 +46,7 @@
                 <p class="heart text-center"><i class="icon-heart2"></i></p>
                 <div class="couple-half">
                     <div class="bride">
-                        <img src="images/maciej.jpg" alt="groom" class="img-responsive">
+                        <img src="images/m.bmp" alt="groom" class="img-responsive">
                     </div>
                     <div class="desc-groom">
                         <h3><b>Maciej Cuch</b></h3>
@@ -64,7 +63,7 @@
             <div class="row animate-box">
                 <div class="col-md-8 col-md-offset-2 text-center fh5co-heading">
                     <h2 style="color: #F14E95;">Będziesz?</h2>
-                    <p style="color: white">Wypełnij oba pola, aby potwierdzić swoją obecność na naszym weselu, później dowiesz się tu jakie masz miejsce itd.</p>
+                    <p style="color: white">Wypełnij oba pola, aby potwierdzić swoją obecność. Więcej informacji o zakwaterowaniu i transporcie znajdziesz poniżej.</p>
                 </div>
             </div>
             <div class="row animate-box">
@@ -91,6 +90,44 @@
             </div>
         </div>
     </div>
+.
+<div class="wrapper">
+    <div class="divider div-transparent div-dot"></div>
+</div>
+<div id="fh5co-services" class="fh5co-section-gray">
+    <div class="container">
+
+        <div class="row">
+            <div class="col-md-6">
+                <div class="feature-left animate-box" data-animate-effect="fadeInLeft">
+						<span class="icon">
+                            <i class="fas fa-bus"></i>
+						</span>
+                    <div class="feature-copy">
+                        <h3 style="color:  #F14E95">Transport</h3>
+                        <p>W dniu wesela będzie zorganizowany transport z: <b>Brusowa</b> i <b>Stalowej Woli</b>.<br> Organizujemy również transport powrotny. <br>Podczas potwierdzania swojej obecności prosimy zaznaczyć, że potrzebujesz transportu. Dalsze szczegóły dotyczące transportu podamy bliżej daty ślubu</p>
+                    </div>
+                </div>
+
+
+            </div>
+
+            <div class="col-md-6 animate-box">
+                <div class="feature-left animate-box" data-animate-effect="fadeInLeft">
+						<span class="icon">
+							<i class="fas fa-bed"></i>
+						</span>
+                    <div class="feature-copy">
+                        <h3 style="color:  #F14E95">Nocleg</h3>
+                        <p>Dla gości dojeżdzających z dalszych miejscowości, zapewniamy nocleg w pobliżu sali weselnej. Podczas potwierdzania swojej obecności prosimy o znaznaczenie że potrzebujesz noclegu.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </div>
+</div>
     .
     <div class="wrapper">
         <div class="divider div-transparent div-dot"></div>
@@ -219,12 +256,12 @@
 {{--      background-size: cover;
   background-repeat: no-repeat;
   position: relative;--}}
-<div id="fh5co-gallery" class="fh5co-section-gray" style="background-image: url('/images/czad.png'); background-position: center; background-size: 130%; background-repeat: no-repeat;">
+<div id="fh5co-gallery" class="fh5co-section-gray" style="">
     <div class="container">
         <div class="row">
             <div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
                 <h2>A zamiast kwiatów</h2>
-                <p style="color: #0b0b0b">W dniu ślubu, prowadzona będzie zbiórka pieniędzy na fundację "Czadowa Para".</p>
+                <p style="color: #0b0b0b">Zachęcamy do wsparcia akcji "Czadowa Para". W dniu ślubu prowadzona będzie zbiórka na budowę szkoły w Czadzie.</p>
             </div>
         </div>
         <div class="row row-bottom-padded-md">
