@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\GuestExport;
 use App\Models\Guest;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
 
 class GuestsController extends Controller
 {
@@ -38,6 +40,11 @@ class GuestsController extends Controller
                 'status' => 'no_guest'
             ]);
         }
+    }
+
+    public function exportToExcel()
+    {
+        return Excel::download(new GuestExport(), 'lista_gosci.xlsx');
     }
 
     /*

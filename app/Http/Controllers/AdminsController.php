@@ -2,8 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Exports\GuestExport;
 use App\Models\Guest;
 use Illuminate\Http\Request;
+use App\Exports\UsersExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class AdminsController extends Controller
 {

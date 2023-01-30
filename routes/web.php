@@ -35,6 +35,7 @@ Route::group(['middleware' => 'under-construction'], function () {
     Route::get('/home', [MainController::class, 'index'])->name('home');
 
     Route::middleware('auth')->group(function () {
+        Route::get('/panel/export/excel/', [GuestsController::class, 'exportToExcel'])->name('excel.export');
         Route::get('/panel/', [AdminsController::class, 'index'])->name('admin');
         Route::post('/panel/add/guest/', [AdminsController::class, 'addGuest'])->name('add.guest');
         Route::get('/panel/guests/confirmed/{filter}', [AdminsController::class, 'filterUsers'])->name('filter.guests');
