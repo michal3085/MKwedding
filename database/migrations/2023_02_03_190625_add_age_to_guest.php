@@ -13,7 +13,7 @@ class AddAgeToGuest extends Migration
      */
     public function up()
     {
-        Schema::table('guest', function (Blueprint $table) {
+        Schema::table('guests', function (Blueprint $table) {
             $table->integer('age')->after('child')->nullable();
         });
     }
@@ -25,7 +25,7 @@ class AddAgeToGuest extends Migration
      */
     public function down()
     {
-        Schema::table('guest', function (Blueprint $table) {
+        Schema::table('guests', function (Blueprint $table) {
             $table->dropColumn('age');
         });
     }
