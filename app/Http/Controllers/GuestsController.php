@@ -111,20 +111,13 @@ class GuestsController extends Controller
 
     public function deleteGuest($id)
     {
-        if (Guest::where('id', $id)->delete()) {
+            Guest::where('id', $id)->delete();
             Companion::where('companion_a', $id)->orWhere('companion_b', $id)->delete();
-            return response()->json([
-                'status' => 'success'
+
+            $guests = Guest::latest()->paginate(20);
+            return view('admin.main')->with([
+                'guests' => $guests,
+                'mode' => 0
             ]);
-        } else {
-            return response()->json([
-                'status' => 'error',
-            ])->setStatusCode(200);
-        }
-//        $guests = Guest::latest()->paginate(20);
-//        return view('admin.main')->with([
-//            'guests' => $guests,
-//            'mode' => 0
-//        ]);
     }
 }

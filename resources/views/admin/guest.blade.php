@@ -159,7 +159,7 @@
     showCancelButtonText: true,
     confirmButtonText: 'OK'
     }).then((result) => {
-    window.location.reload();
+    window.location.href = "/panel/";
     })
 
     })
