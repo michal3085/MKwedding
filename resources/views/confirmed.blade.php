@@ -44,6 +44,10 @@
                 </div>
             </div>
                 <hr>
+            <div class="form-group">
+                <label for="exampleFormControlSelect1">Dodaj dziecko: </label><br>
+                <a href="{{ route('add.children', ['id' => $gid]) }}"><button type="submit" class="btn btn-outline-success"><i class="fas fa-plus"></i> <i class="fas fa-baby"></i> Dadaj dziecko</button></a>
+                </div>
                     <div class="form-group">
                         @if (\App\Models\Guest::guestIsAChild($gid) == 0)
                             @if (\App\Models\Companion::companionExists($gid) == 1)
