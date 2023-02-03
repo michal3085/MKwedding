@@ -85,9 +85,13 @@ class GuestsController extends Controller
         } else {
             $guest->child = $request->child;
         }
+        if (isset($request->age) && $request->age <= 10) {
+            $guest->age = $request->age;
+            $guest->child = 1;
+        }
 
 
-        if (isset($admin)) { // co kolwiek zapisze transport = '1', i from=niepotrzebuje
+        if (isset($admin)) {
             $guest->name = $request->name;
             $guest->surname = $request->surname;
             $guest->save();

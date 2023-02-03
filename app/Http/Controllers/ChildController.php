@@ -6,7 +6,14 @@ use Illuminate\Http\Request;
 
 class ChildController extends Controller
 {
-    public function addChild(Request $request, $id)
+    public function addChild($id)
+    {
+        return view('children')->with([
+            'gid' => $id
+        ]);
+    }
+
+    public function saveChild(Request $request, $id)
     {
         //
     }

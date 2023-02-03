@@ -13,4 +13,17 @@ class Child extends Model
     {
         return $this->belongsTo('App\Model\Guest');
     }
+
+    public static function doIhaveAChild($id): int
+    {
+        $child = Child::where('parent', $id)->orWhere('parent_b', $id)->first();
+
+        if ($child->count() == 1) {
+            return 1;
+        } elseif ($child->count() > 1) {
+            return 2;
+        } else {
+            return 0;
+        }
+    }
 }
