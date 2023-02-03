@@ -42,6 +42,9 @@ class GuestsController extends Controller
         }
     }
 
+    /*
+     * Export all guests from data base to excel file.
+     */
     public function exportToExcel()
     {
         return Excel::download(new GuestExport(), 'lista_gosci.xlsx');

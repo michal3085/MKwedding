@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminsController;
 use App\Http\Controllers\CompanionController;
 use App\Http\Controllers\GuestsController;
 use App\Http\Controllers\MainController;
+use App\Models\Guest;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
 
@@ -43,6 +44,8 @@ Route::group(['middleware' => 'under-construction'], function () {
         Route::get('/panel/search/user/', [AdminsController::class, 'searchGuest'])->name('search.guest');
         Route::get('/panel/guest/confirm/{id}', [AdminsController::class, 'addConfirmation'])->name('panel.confirm');
         Route::get('/panel/guest/delete/confirm/{id}', [AdminsController::class, 'deleteConfirmation'])->name('panel.del.confirm');
+
+        Route::get('/panel/transport/change/to/brusow/', [Guest::class, 'changeTransportFrom']);
     });
 });
 

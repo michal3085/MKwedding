@@ -105,13 +105,10 @@
 						</span>
                     <div class="feature-copy">
                         <h3 style="color:  #F14E95">Transport</h3>
-                        <p>W dniu wesela będzie zorganizowany transport z: <b>Brusowa</b> i <b>Stalowej Woli</b>.<br> Organizujemy również transport powrotny. <br>Podczas potwierdzania swojej obecności prosimy zaznaczyć, że potrzebujesz transportu. Dalsze szczegóły dotyczące transportu podamy bliżej daty ślubu</p>
+                        <p>W dniu wesela będzie zorganizowany transport z: <b>Brusowa (i okolic)</b> i <b>Stalowej Woli</b>.<br> Zapewniamy również transport powrotny. <br>Podczas potwierdzania swojej obecności prosimy o zaznaczenie tej opcji, jeśli chcesz skorzystać z busa. Dalsze szczegóły podamy bliżej daty ślubu. </p>
                     </div>
                 </div>
-
-
             </div>
-
             <div class="col-md-6 animate-box">
                 <div class="feature-left animate-box" data-animate-effect="fadeInLeft">
 						<span class="icon">
@@ -124,8 +121,6 @@
                 </div>
             </div>
         </div>
-
-
     </div>
 </div>
     .

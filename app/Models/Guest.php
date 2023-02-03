@@ -24,7 +24,7 @@ class Guest extends Model
                 $needed = Guest::where('confirmed', 0)->count();
                 break;
             case 3:
-                $needed = Guest::where('transport', 1)->where('trans_from', 'Ryki')->count();
+                $needed = Guest::where('transport', 1)->where('trans_from', 'Brusów')->count();
                 break;
             case 4:
                 $needed = Guest::where('transport', 1)->where('trans_from', 'Stalowa Wola')->count();
@@ -56,5 +56,10 @@ class Guest extends Model
         } else {
             return  0;
         }
+    }
+
+    public function changeTransportFrom()
+    {
+        Guest::where('trans_from', 'Ryki')->update(['trans_from' => 'Brusów']);
     }
 }

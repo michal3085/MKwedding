@@ -83,23 +83,23 @@
                         @if(isset($data))
                             @if ($data->transport == 0)
                                 <option selected>Nie potrzebuję</option>
-                                <option>Ryki</option>
+                                <option>Brusów</option>
                                 <option>Stalowa Wola</option>
                             @endif
-                            @if($data->trans_from == 'Ryki' && $data->transport !== 0)
+                            @if($data->trans_from == 'Brusów' && $data->transport !== 0)
                                     <option>Nie potrzebuję</option>
-                                    <option selected>Ryki</option>
+                                    <option selected>Brusów</option>
                                     <option>Stalowa Wola</option>
                             @endif
                                 @if($data->trans_from == 'Stalowa Wola' && $data->transport !== 0)
                                     <option>Nie potrzebuję</option>
-                                    <option>Ryki</option>
+                                    <option>Brusów</option>
                                     <option selected>Stalowa Wola</option>
                                 @endif
                         @endif
                         @if(!isset($data))
                         <option selected>Nie potrzebuję</option>
-                        <option>Ryki</option>
+                        <option>Brusów</option>
                         <option>Stalowa Wola</option>
                             @endif
                     </select>

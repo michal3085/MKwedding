@@ -98,23 +98,23 @@
                                 @if(isset($guest))
                                     @if ($guest->transport == 0)
                                         <option selected>Nie potrzebuję</option>
-                                        <option>Ryki</option>
+                                        <option>Brusów</option>
                                         <option>Stalowa Wola</option>
                                     @endif
-                                    @if($guest->trans_from == 'Ryki' && $guest->transport !== 0)
+                                    @if($guest->trans_from == 'Brusów' && $guest->transport !== 0)
                                         <option>Nie potrzebuję</option>
-                                        <option selected>Ryki</option>
+                                        <option selected>Brusów</option>
                                         <option>Stalowa Wola</option>
                                     @endif
                                     @if($guest->trans_from == 'Stalowa Wola' && $guest->transport !== 0)
                                         <option>Nie potrzebuję</option>
-                                        <option>Ryki</option>
+                                        <option>Brusów</option>
                                         <option selected>Stalowa Wola</option>
                                     @endif
                                 @endif
                                 @if(!isset($guest))
                                     <option selected>Nie potrzebuję</option>
-                                    <option>Ryki</option>
+                                    <option>Brusów</option>
                                     <option>Stalowa Wola</option>
                                 @endif
                             </select>

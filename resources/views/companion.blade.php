@@ -53,7 +53,7 @@
                                 <label for="exampleFormControlSelect2">Transport z:</label>
                                 <select multiple class="form-control" name="transport" id="exampleFormControlSelect2">
                                     <option selected>Nie potrzebuję</option>
-                                    <option>Ryki</option>
+                                    <option>Brusów</option>
                                     <option>Stalowa Wola</option>
                                 </select>
                             </div>

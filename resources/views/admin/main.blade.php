@@ -69,8 +69,8 @@
                                         <p class="text-danger d-flex"><i class="mdi mdi-menu-down"></i><span>{{ \App\Models\Guest::getGuestsPrecentage(2) }}%</span></p>
                                     </div>
                                     <div class="d-none d-md-block">
-                                        <p class="statistics-title">Transport Ryki
-                                        <h3 class="rate-percentage">{{ \App\Models\Guest::where('transport', 1)->where('trans_from', 'Ryki')->count() }}</h3>
+                                        <p class="statistics-title">Transport Brusów
+                                        <h3 class="rate-percentage">{{ \App\Models\Guest::where('transport', 1)->where('trans_from', 'Brusów')->count() }}</h3>
                                         <p class="text-success d-flex"><i class="mdi mdi-menu-up"></i><span>{{ \App\Models\Guest::getGuestsPrecentage(3) }}%</span></p>
                                     </div>
                                     <div class="d-none d-md-block">
