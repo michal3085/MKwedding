@@ -141,7 +141,7 @@
     $( function()  {
     $('.guest_delete').click( function () {
     Swal.fire({
-    title: '{{ __('Napewno chcecie usunąć potęcjalną kopertę?') }}',
+    title: '{{ __('Napewno chcecie usunąć tę osobe z listy gości?') }}',
     icon: 'question',
     showCancelButton: true,
     confirmButtonText: '{{ __('Tak') }}',
