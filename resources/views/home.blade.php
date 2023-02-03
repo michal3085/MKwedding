@@ -4,13 +4,13 @@
 {{--    <header id="fh5co-header" class="fh5co-cover" role="banner" style="background-image:url({{asset('images/img_bg_2.jpg')}});" data-stellar-background-ratio="0.5">--}}
     <header id="fh5co-header" class="fh5co-cover" role="banner" style="" data-stellar-background-ratio="0.5">
         <div class="overlay"></div>
-        <div class="container">
+        <div class="container" style="margin-left: 0px;">
             <div class="row">
                 <div class="col-md-8 col-md-offset-2 text-center">
                     <div class="display-t">
                         <div class="display-tc animate-box" data-animate-effect="fadeIn">
                             <h1>Karolina & Maciek</h1>
-{{--                            <div class="simply-countdown simply-countdown-one"></div>--}}
+                            <div class="simply-countdown simply-countdown-one"></div>
                             <p><a href="#confirm" class="btn btn-default btn-sm"><b>Potwierdź obecność</b></a></p>
                         </div>
                     </div>
@@ -158,22 +158,6 @@
                                     <p><a href="https://www.google.com/maps/place/Klasztor+Zakonu+Braci+Mniejszych+Kapucyn%C3%B3w/@50.5865475,22.0463182,15z/data=!4m5!3m4!1s0x0:0xdba68f4f81b6bd20!8m2!3d50.5865319!4d22.0464231">ul. Klasztorna 27, 37-450 Stalowa Wola<br>(Kliknij aby wyświetlić mapę)<a/></p>
                                 </div>
                             </div>
-{{--                            <div class="col-md-6 col-sm-6 text-center">--}}
-{{--                                <div class="event-wrap animate-box">--}}
-{{--                                    <h3>Wesele</h3>--}}
-{{--                                    <div class="event-col">--}}
-{{--                                        <i class="icon-clock"></i>--}}
-{{--                                        <span>od godz.: 17:30</span>--}}
-{{--                                        <span>do godz.: 5:00</span>--}}
-{{--                                    </div>--}}
-{{--                                    <div class="event-col">--}}
-{{--                                        <i class="icon-calendar"></i>--}}
-{{--                                        <span>Sobota 05</span>--}}
-{{--                                        <span>Sierpnia, 2023</span>--}}
-{{--                                    </div>--}}
-{{--                                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
                         </div>
                     </div>
                 </div>

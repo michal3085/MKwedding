@@ -47,7 +47,6 @@
             <ul class="navbar-nav">
                 <li class="nav-item font-weight-semibold d-none d-lg-block ms-0">
                     <h1 class="welcome-text">Cześć, <span class="text-black fw-bold">{{\Illuminate\Support\Facades\Auth::user()->name}}</span></h1>
-{{--                    <h3 class="welcome-sub-text">Wspaniały panel do zarządzania gośćmi </h3>--}}
                 </li>
             </ul>
             <ul class="navbar-nav ms-auto">
