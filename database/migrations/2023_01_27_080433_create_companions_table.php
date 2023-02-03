@@ -32,8 +32,8 @@ class CreateCompanionsTable extends Migration
     public function down()
     {
         Schema::table('companions', function (Blueprint $table) {
-            $table->dropForeign(['picture_id']);
-            $table->dropForeign(['user_id']);
+            $table->dropForeign(['companion_a']);
+            $table->dropForeign(['companion_b']);
         });
     }
 }

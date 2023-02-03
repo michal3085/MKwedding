@@ -14,7 +14,12 @@ class Guest extends Model
         return $this->hasMany('App\Models\Guest');
     }
 
-    public static function getGuestsPrecentage($mode)
+    public function child()
+    {
+        return $this->hasMany('App\Models\Child');
+    }
+
+    public static function getGuestsPrecentage($mode): int
     {
         switch ($mode) {
             case 1:
@@ -48,7 +53,7 @@ class Guest extends Model
         return intval($result);
     }
 
-    public static function guestIsAChild($id)
+    public static function guestIsAChild($id): int
     {
         $guest = Guest::where('id', $id)->first();
         if ($guest->child == 1) {

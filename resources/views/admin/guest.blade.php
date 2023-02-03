@@ -22,7 +22,7 @@
                             @else
                         <a href="{{ route('panel.del.confirm', ['id' => $guest->id]) }}"><button type="button" class="btn btn-outline-danger">Anuluj potwierdzenie</button></a>
                     @endif
-                    <button type="button" class="btn btn-outline-danger guest_delete">Usuń</button>
+                    <button type="button" class="btn btn-outline-danger guest_delete" data-id="{{ $guest->id }}">Usuń</button>
                     <hr>
                     <div class="text-right">
                         <b>Uwagi/Alergie:</b>
@@ -150,11 +150,11 @@
     if (result.value) {
     $.ajax({
     method: "DELETE",
-    url: "/comments/delete/" + $(this).data("id")
+    url: "/panel/delete/guest/" + $(this).data("id")
     })
     .done(function( response ) {
     Swal.fire({
-    title: '{{ __('Gosco usunięty') }}',
+    title: '{{ __('Gość usunięty z listy') }}',
     icon: 'success',
     showCancelButtonText: true,
     confirmButtonText: 'OK'

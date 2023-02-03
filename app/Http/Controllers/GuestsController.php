@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Exports\GuestExport;
+use App\Models\Companion;
 use App\Models\Guest;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
@@ -106,5 +107,24 @@ class GuestsController extends Controller
     public function confirmedInfo()
     {
         return view('confirmed');
+    }
+
+    public function deleteGuest($id)
+    {
+        if (Guest::where('id', $id)->delete()) {
+            Companion::where('companion_a', $id)->orWhere('companion_b', $id)->delete();
+            return response()->json([
+                'status' => 'success'
+            ]);
+        } else {
+            return response()->json([
+                'status' => 'error',
+            ])->setStatusCode(200);
+        }
+//        $guests = Guest::latest()->paginate(20);
+//        return view('admin.main')->with([
+//            'guests' => $guests,
+//            'mode' => 0
+//        ]);
     }
 }
