@@ -2,7 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Child;
+use App\Models\Companion;
+use App\Models\Guest;
 use Illuminate\Http\Request;
+use function PHPUnit\Framework\isEmpty;
 
 class ChildController extends Controller
 {
@@ -15,6 +19,59 @@ class ChildController extends Controller
 
     public function saveChild(Request $request, $id)
     {
-        //
+        $guest = Guest::where('name', $request->name)->where('surname', $request->surname)->first();
+        /*
+         *  Guest with request credentials exist.
+         */
+        if ($guest !== NULL) {
+
+            $guest->confirmed = 1;
+            $guest->age = $request->age;
+            if ($request->age <= 10) {
+                $guest->child = 1;
+            } else {
+                $guest->child = 0;
+            }
+            $guest->age = $request->age;
+            if ($request->transport != 'Nie potrzebuję') {
+                $guest->transport  = 1;
+                $guest->trans_from = $request->trans_from;
+            } else {
+                $guest->transport  = 0;
+                $guest->trans_from = NULL;
+            }
+            $guest->allergies = $request->allergies;
+            $guest->hotel = $request->hotel;
+            $guest->vege  = $request->vege;
+            $guest->save();
+            Child::newChild($id, $guest->id);
+            /*
+             * Guest with request credentials do not exist.
+             */
+        } else {
+            $new_guest = new Guest();
+            $new_guest->name = $request->name;
+            $new_guest->surname = $request->surname;
+            $new_guest->confirmed = 1;
+
+            if ($request->age <= 10) {
+                $new_guest->child = 1;
+            } else {
+                $new_guest->child = 0;
+            }
+            $new_guest->age = $request->age;
+            if ($request->transport != 'Nie potrzebuję') {
+                $new_guest->transport  = 1;
+                $new_guest->trans_from = $request->trans_from;
+            } else {
+                $new_guest->transport  = 0;
+                $new_guest->trans_from = NULL;
+            }
+            $new_guest->allergies = $request->allergies;
+            $new_guest->hotel = $request->hotel;
+            $new_guest->vege  = $request->vege;
+            $new_guest->save();
+            Child::newChild($id, $new_guest->id);
+        }
     }
 }

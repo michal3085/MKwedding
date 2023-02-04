@@ -33,7 +33,7 @@
                             </div>
                         </div>
                         <hr>
-                        <form action="{{ route('save.companion', ['id' => $gid]) }}" method="GET">
+                        <form action="{{ route('save.child', ['id' => $gid]) }}" method="GET">
                             {{--                @csrf--}}
                             <div class="form-group">
                                 <input class="form-control" type="text" placeholder="Imię" name="name">

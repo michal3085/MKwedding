@@ -147,7 +147,6 @@
                                     <div class="event-col">
                                         <i class="icon-clock"></i>
                                         <span>o godz.: 16:00</span>
-                                        <span>do godz.: 17:00</span>
                                     </div>
                                     <div class="event-col">
                                         <i class="icon-calendar"></i>
@@ -206,8 +205,7 @@
                                     <hr>
                                     <div class="event-col">
                                         <i class="icon-clock"></i>
-                                        <span>od godz.: 17:30</span>
-                                        <span>do godz.: 5:00</span>
+                                        <span>o godz: 17:30</span>
                                     </div>
                                     <div class="event-col">
                                         <i class="icon-calendar"></i>

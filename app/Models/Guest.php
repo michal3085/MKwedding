@@ -67,4 +67,30 @@ class Guest extends Model
     {
         Guest::where('trans_from', 'Ryki')->update(['trans_from' => 'Brusów']);
     }
+
+    public function newGuest($request)
+    {
+        $new_guest = new Guest();
+        $new_guest->name = $request->name;
+        $new_guest->surname = $request->surname;
+        $new_guest->confirmed = 1;
+
+        if ($request->age <= 10) {
+            $new_guest->child = 1;
+        } else {
+            $new_guest->child = 0;
+        }
+        $new_guest->age = $request->age;
+        if ($request->transport != 'Nie potrzebuje') {
+            $new_guest->transport  = 1;
+            $new_guest->trans_from = $request->trans_from;
+        } else {
+            $new_guest->transport  = 0;
+            $new_guest->trans_from = NULL;
+        }
+        $new_guest->allergies = $request->allergies;
+        $new_guest->hotel = $request->hotel;
+        $new_guest->vege  = $request->vege;
+        $new_guest->save();
+    }
 }
