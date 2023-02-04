@@ -35,7 +35,7 @@ class ChildController extends Controller
             $guest->age = $request->age;
             if ($request->transport != 'Nie potrzebuję') {
                 $guest->transport  = 1;
-                $guest->trans_from = $request->trans_from;
+                $guest->trans_from = $request->transport;
             } else {
                 $guest->transport  = 0;
                 $guest->trans_from = NULL;
@@ -45,6 +45,15 @@ class ChildController extends Controller
             $guest->vege  = $request->vege;
             $guest->save();
             Child::newChild($id, $guest->id);
+
+            $data = Guest::where('id', $id)->first();
+            return view('confirmed')->with([
+                'data' => $data,
+                'name' => $data->name,
+                'surname' => $data->surname,
+                'gid' => $data->id,
+                'status' => 'child_added'
+            ]);
             /*
              * Guest with request credentials do not exist.
              */
@@ -62,7 +71,7 @@ class ChildController extends Controller
             $new_guest->age = $request->age;
             if ($request->transport != 'Nie potrzebuję') {
                 $new_guest->transport  = 1;
-                $new_guest->trans_from = $request->trans_from;
+                $new_guest->trans_from = $request->transport;
             } else {
                 $new_guest->transport  = 0;
                 $new_guest->trans_from = NULL;
@@ -72,6 +81,15 @@ class ChildController extends Controller
             $new_guest->vege  = $request->vege;
             $new_guest->save();
             Child::newChild($id, $new_guest->id);
+
+            $data = Guest::where('id', $id)->first();
+            return view('confirmed')->with([
+                'data' => $data,
+                'name' => $data->name,
+                'surname' => $data->surname,
+                'gid' => $data->id,
+                'status' => 'child_added'
+            ]);
         }
     }
 }

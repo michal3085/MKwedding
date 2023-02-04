@@ -30,6 +30,11 @@
                                 Twoja osoba towarzysząca została dodana, użyj imienia i nazwiska osoby towarzyszącej w formularzu na stronie głównej, aby zmienić dane.
                             </div>
                         @endif
+                        @if (isset($status) && $status == "child_added")
+                            <div class="alert alert-success" role="alert">
+                                Dziecko zostało dodane, użyj imienia i nazwiska dziecka w formularzu na stronie głównej, aby zmienić dane.
+                            </div>
+                        @endif
                         @if (isset($status) && $status == "companion_not_yours")
                             <div class="alert alert-danger" role="alert">
                                 To osoba towarzysząca innego gościa.

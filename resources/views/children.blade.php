@@ -36,13 +36,13 @@
                         <form action="{{ route('save.child', ['id' => $gid]) }}" method="GET">
                             {{--                @csrf--}}
                             <div class="form-group">
-                                <input class="form-control" type="text" placeholder="Imię" name="name">
+                                <input class="form-control" type="text" placeholder="Imię" name="name" required>
                             </div>
                             <div class="form-group">
-                                <input class="form-control" type="text" placeholder="Nazwisko" name="surname">
+                                <input class="form-control" type="text" placeholder="Nazwisko" name="surname" required>
                             </div>
                             <div class="form-group">
-                                <input class="form-control" type="number" placeholder="Wiek" name="age">
+                                <input class="form-control" type="number" placeholder="Wiek" name="age" required>
                             </div>
                             <div class="form-group">
                                 <label for="exampleFormControlSelect1">Potrzebujesz noclegu?</label>
