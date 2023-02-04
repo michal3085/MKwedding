@@ -33,7 +33,7 @@ class Child extends Model
 
     public static function doIHaveAChild($id): int
     {
-        $child = Child::where('parent', $id)->orWhere('parent_b', $id)->first();
+        $child = Child::where('parent', $id)->orWhere('parent_b', $id)->get();
 
         if ($child->count() >= 1) {
             return 1;
@@ -46,5 +46,13 @@ class Child extends Model
     {
         $childrens = Child::where('parent', $id)->orWhere('parent_b', $id)->pluck('child_id');
         return Guest::whereIn('id', $childrens)->get();
+    }
+
+    /*
+     * Checks names of children parents, used in admin panel.
+     */
+    public static function getMyParentsName($id)
+    {
+        //
     }
 }

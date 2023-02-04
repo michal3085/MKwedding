@@ -49,16 +49,6 @@
                 </div>
             </div>
                 <hr>
-            <div class="form-group">
-                <label for="exampleFormControlSelect1">Dodaj dziecko: </label><br>
-                <a href="{{ route('add.children', ['id' => $gid]) }}"><button type="submit" class="btn btn-outline-success"><i class="fas fa-plus"></i> <i class="fas fa-baby"></i> Dadaj dziecko</button></a>
-                @if (\App\Models\Child::doIHaveAChild($gid))
-                    <br>
-                    @foreach(\App\Models\Child::getChildrensData($gid) as $childs)
-                        <a href="#"><button type="submit" style="background-color: rgba(77,192,241,0.4)" class="btn btn-outline-success"><i class="fas fa-baby"></i>{{ $childs->name }} {{ $childs->surname }}</button></a>
-                    @endforeach
-                @endif
-                </div>
                     <div class="form-group">
                         @if (\App\Models\Guest::guestIsAChild($gid) == 0)
                             @if (\App\Models\Companion::companionExists($gid) == 1)
@@ -72,6 +62,18 @@
                         @endif
                     </div>
                 <hr>
+            <div class="form-group">
+                <label for="exampleFormControlSelect1">Dodaj dziecko: </label><br>
+                <a href="{{ route('add.children', ['id' => $gid]) }}"><button type="submit" class="btn btn-outline-success"><i class="fas fa-plus"></i> <i class="fas fa-baby"></i> Dadaj dziecko</button></a>
+                    <br>
+                @if (\App\Models\Child::doIHaveAChild($gid))
+                    <br>
+                    @foreach(\App\Models\Child::getChildrensData($gid) as $childs)
+                        <a href="#"><button type="submit" style="background-color: rgba(77,192,241,0.4)" class="btn btn-outline-success"><i class="fas fa-baby"></i>{{ $childs->name }} {{ $childs->surname }}</button></a>
+                    @endforeach
+                @endif
+            </div>
+            <hr>
             <form action="{{ route('guest.data.save', ['id' => $gid]) }}" method="GET">
 {{--                @csrf--}}
                 <div class="form-group">

@@ -26,7 +26,7 @@
                                     </div>
                                 @endif
                                 <h2>Dodaj dziecko</h2>
-                                <p>Wypełnij dane i dodaj swoją osobę towarzyszącą!</p>
+                                <p>Wypełnij dane i dodaj swoje dziecko do listy gości!</p>
                             </div>
                             <div class="col-md-10 col-md-offset-1">
                                 <a href="{{ route('main') }}"><button type="" class="btn btn-default btn-block">Anuluj</button></a>
