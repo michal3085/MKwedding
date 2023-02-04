@@ -69,7 +69,7 @@
                 @if (\App\Models\Child::doIHaveAChild($gid))
                     <br>
                     @foreach(\App\Models\Child::getChildrensData($gid) as $childs)
-                        <a href="#"><button type="submit" style="background-color: rgba(77,192,241,0.4)" class="btn btn-outline-success"><i class="fas fa-baby"></i>{{ $childs->name }} {{ $childs->surname }}</button></a>
+                        <a href="#"><button type="submit" style="background-color: rgba(77,192,241,0.4)" class="btn btn-outline-success"><i class="fas fa-baby"></i> {{ $childs->name }} {{ $childs->surname }}</button></a>
                     @endforeach
                 @endif
             </div>
