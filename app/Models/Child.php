@@ -31,7 +31,7 @@ class Child extends Model
         }
     }
 
-    public static function doIhaveAChild($id): int
+    public static function doIHaveAChild($id): int
     {
         $child = Child::where('parent', $id)->orWhere('parent_b', $id)->first();
 
@@ -42,8 +42,9 @@ class Child extends Model
         }
     }
 
-    public static function getChildrensNames($id)
+    public static function getChildrensData($id)
     {
-        //
+        $childrens = Child::where('parent', $id)->orWhere('parent_b', $id)->pluck('child_id');
+        return Guest::whereIn('id', $childrens)->get();
     }
 }
