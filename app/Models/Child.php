@@ -11,7 +11,7 @@ class Child extends Model
 
     public function guest()
     {
-        return $this->belongsTo('App\Model\Guest');
+        return $this->hasMany('App\Model\Guest');
     }
 
     /*
@@ -19,14 +19,21 @@ class Child extends Model
      */
     public function newChild($parent_id, $exist_guest_id = NULL)
     {
-        $child = new Child();
-        $child->child_id = $exist_guest_id;
-        $child->parent = $parent_id;
+        $check = Guest::where('id', $exist_guest_id)->first();
+        $exist_child = Child::where('child_id', $exist_guest_id)->first();
 
-        if (Companion::companionExists($parent_id)) {
-            $child->parent_b = Companion::getMyCompanionId($parent_id);
-            $child->save();
+        if ($exist_child !== NULL && $exist_child->parent_b == NULL) {
+            $exist_child->parent_b = $parent_id;
+            $exist_child->save();
+
         } else {
+            $child = new Child();
+            $child->child_id = $exist_guest_id;
+            $child->parent = $parent_id;
+
+            if (Companion::companionExists($parent_id)) {
+                $child->parent_b = Companion::getMyCompanionId($parent_id);
+            }
             $child->save();
         }
     }
