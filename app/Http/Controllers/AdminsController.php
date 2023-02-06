@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Exports\GuestExport;
+use App\Models\Child;
+use App\Models\Companion;
 use App\Models\Guest;
 use Illuminate\Http\Request;
 use App\Exports\UsersExport;
@@ -136,7 +138,7 @@ class AdminsController extends Controller
         return redirect()->back();
     }
 
-    public function deleteConfirmation($id)
+    public function deleteConfirmation($id, $with_all = NULL)
     {
         $guest = Guest::where('id', $id)->first();
         $guest->confirmed = 0;
@@ -146,6 +148,19 @@ class AdminsController extends Controller
         $guest->hotel = 0;
         $guest->vege = 0;
         $guest->save();
+
+        if (isset($with_all)) {
+            if (Companion::companionExists($id)) {
+                //$companion = Companion::where('companion_a', Companion::getMyCompanionId($id))->orWhere('companion_b', Companion::getMyCompanionId($id))->first();
+                Guest::where('id', Companion::getMyCompanionId($id))->update(['confirmed' => 0]);
+            }
+            if (Child::doIHaveAChild($id)) {
+                $childs = Child::getChildrensData($id);
+                foreach ($childs as $child) {
+                    Guest::where('id', $child->id)->update(['confirmed' => 0]);
+                }
+            }
+        }
 
         return redirect()->back();
     }
