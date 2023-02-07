@@ -90,7 +90,6 @@ class GuestsController extends Controller
             $guest->child = 1;
         }
 
-
         if (isset($admin)) {
             $guest->name = $request->name;
             $guest->surname = $request->surname;

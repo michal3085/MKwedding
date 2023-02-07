@@ -17,7 +17,7 @@ class Child extends Model
     /*
      * If child exist in Guests table, add exist_guest_id.
      */
-    public function newChild($parent_id, $exist_guest_id = NULL)
+    public static function newChild($parent_id, $exist_guest_id = NULL)
     {
         $check = Guest::where('id', $exist_guest_id)->first();
         $exist_child = Child::where('child_id', $exist_guest_id)->first();
