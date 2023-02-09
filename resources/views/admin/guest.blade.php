@@ -20,9 +20,10 @@
                                     @if($relatives->age > 10) ( {{ $relatives->age }} lat. )  @endif
                                 @if( \App\Models\Companion::getNameOfCompanion($guest->id) == $relatives->name . ' ' . $relatives->surname)
                                     <i class="far fa-kiss-wink-heart" style="color:palevioletred;"></i> @endif
-                                {{ $relatives->name }} {{ $relatives->surname }}</a><br>
+                                {{ $relatives->name }} {{ $relatives->surname }}
+                            </a><br>
                         @endforeach
-                    @elseif($guest->child == 1)
+                    @elseif($guest->child == 1 || \App\Models\Child::amIaChild($guest->id))
                         Rodzice:<br>
                         @foreach(\App\Models\Guest::myParentsData($guest->id) as $parent)
                             <a href="{{ route('guest.profile', ['id' => $parent->id]) }}">{{ $parent->name }} {{ $parent->surname }}</a><br>

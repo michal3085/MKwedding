@@ -55,6 +55,15 @@ class Child extends Model
         return Guest::whereIn('id', $childrens)->get();
     }
 
+    public static function amIaChild($id)
+    {
+        if (Child::where('child_id', $id)->count() >= 1) {
+            return 1;
+        } else {
+            return 0;
+        }
+    }
+
     /*
      * Checks names of children parents, used in admin panel.
      */
