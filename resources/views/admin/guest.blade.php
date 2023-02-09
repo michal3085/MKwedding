@@ -23,11 +23,13 @@
                                 {{ $relatives->name }} {{ $relatives->surname }}
                             </a><br>
                         @endforeach
-                    @elseif($guest->child == 1 || \App\Models\Child::amIaChild($guest->id))
-                        Rodzice:<br>
-                        @foreach(\App\Models\Guest::myParentsData($guest->id) as $parent)
-                            <a href="{{ route('guest.profile', ['id' => $parent->id]) }}">{{ $parent->name }} {{ $parent->surname }}</a><br>
-                        @endforeach
+                    <hr>
+                            @if($guest->child == 1 || \App\Models\Child::amIaChild($guest->id))
+                                Rodzice:<br>
+                                @foreach(\App\Models\Guest::myParentsData($guest->id) as $parent)
+                                    <a href="{{ route('guest.profile', ['id' => $parent->id]) }}">{{ $parent->name }} {{ $parent->surname }}</a><br>
+                                @endforeach
+                            @endif
                     @endif
                 </div>
             </div>
