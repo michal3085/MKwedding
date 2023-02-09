@@ -12,25 +12,28 @@
                     @endif
                         <br>
                     <hr>
-                    @if(\App\Models\Guest::doIHaveRelatives($guest->id) && $guest->child !== 1)
-                        Osoby powiązane:<br>
-                        @foreach(\App\Models\Guest::myRelativesData($guest->id) as $relatives)
-                            <a href="{{ route('guest.profile', ['id' => $relatives->id]) }}">
-                                @if($relatives->child == 1) <i class="fas fa-baby"></i>  @endif
-                                    @if($relatives->age > 10) ( {{ $relatives->age }} lat. )  @endif
-                                @if( \App\Models\Companion::getNameOfCompanion($guest->id) == $relatives->name . ' ' . $relatives->surname)
-                                    <i class="far fa-kiss-wink-heart" style="color:palevioletred;"></i> @endif
-                                {{ $relatives->name }} {{ $relatives->surname }}
-                            </a><br>
-                        @endforeach
-                    <hr>
-                            @if($guest->child == 1 || \App\Models\Child::amIaChild($guest->id))
-                                Rodzice:<br>
-                                @foreach(\App\Models\Guest::myParentsData($guest->id) as $parent)
-                                    <a href="{{ route('guest.profile', ['id' => $parent->id]) }}">{{ $parent->name }} {{ $parent->surname }}</a><br>
-                                @endforeach
-                            @endif
+                    @if(\App\Models\Companion::companionExists($guest->id) && $guest->child !== 1)
+                        Osoba Towarzysząca:<br>
+                        <a href="{{ route('guest.profile', ['id' => \App\Models\Companion::getMyCompanionId($guest->id)]) }}" style="color: palevioletred"><i class="far fa-kiss-wink-heart"></i> {{ \App\Models\Companion::getNameOfCompanion($guest->id) }}</a><br>
                     @endif
+                    @if(\App\Models\Child::doIHaveAChild($guest->id))
+                        <hr>
+                        Dzieci:
+                            @foreach(\App\Models\Child::getMyChildsData($guest->id) as $child)
+                            <a href="{{ route('guest.profile', ['id' => $child->id]) }}" style="color: #4848d0">
+                                @if($child->child == 1 && $child->age < 10) <i class="fas fa-baby"></i> @endif
+                                    @if($child->age > 10) ( {{ $child->age }} lat. ) @endif
+                                {{ $child->name }} {{ $child->surname }}
+                            </a><br>
+                            @endforeach
+                    @endif
+                        @if(\App\Models\Child::amIaChild($guest->id))
+                        <hr>
+                            Rodzice:<br>
+                            @foreach(\App\Models\Guest::myParentsData($guest->id) as $parent)
+                                <a href="{{ route('guest.profile', ['id' => $parent->id]) }}">{{ $parent->name }} {{ $parent->surname }}</a><br>
+                            @endforeach
+                        @endif
                 </div>
             </div>
             <div class="col-md-5 border-right">
