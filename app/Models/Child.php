@@ -67,6 +67,10 @@ class Child extends Model
     public static function getMyChildsData($id)
     {
         $children = Child::where('parent', $id)->orWhere('parent_b', $id)->pluck('child_id');
-        return Guest::where('id', $children)->get();
+        if ($children->count() > 1) {
+            return Guest::whereIn('id', $children)->get();
+        } else {
+            return Guest::where('id', $children)->get();
+        }
     }
 }
