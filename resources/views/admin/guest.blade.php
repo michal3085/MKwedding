@@ -10,6 +10,22 @@
                 @else
                     <span class="" style="color: orangered">Niepotwierdzony</span><span> </span>
                     @endif
+                        <br>
+                    <hr>
+                    @if(\App\Models\Guest::doIHaveRelatives($guest->id) && $guest->child !== 1)
+                        Osoby powiązane:<br>
+                        @foreach(\App\Models\Guest::myRelativesData($guest->id) as $relatives)
+                            <a href="{{ route('guest.profile', ['id' => $relatives->id]) }}">@if($relatives->child == 1) <i class="fas fa-baby"></i> @endif
+                                @if( \App\Models\Companion::getNameOfCompanion($guest->id) == $relatives->name . ' ' . $relatives->surname)
+                                    <i class="far fa-kiss-wink-heart"></i> @endif
+                                {{ $relatives->name }} {{ $relatives->surname }}</a><br>
+                        @endforeach
+                    @elseif($guest->child == 1)
+                        Rodzice:<br>
+                        @foreach(\App\Models\Guest::myParentsData($guest->id) as $parent)
+                            <a href="{{ route('guest.profile', ['id' => $parent->id]) }}">{{ $parent->name }} {{ $parent->surname }}</a><br>
+                        @endforeach
+                    @endif
                 </div>
             </div>
             <div class="col-md-5 border-right">

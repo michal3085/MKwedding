@@ -93,4 +93,33 @@ class Guest extends Model
         $new_guest->vege  = $request->vege;
         $new_guest->save();
     }
+
+    public static function doIHaveRelatives($id)
+    {
+        if (Companion::companionExists($id) || Child::doIHaveAChild($id)) {
+            return 1;
+        } else {
+            return 0;
+        }
+    }
+
+    public static function myRelativesData($id)
+    {
+        $companion = Companion::getMyCompanionId($id);
+        $childrens = Child::where('parent', $id)->orWhere('parent_b', $id)->pluck('child_id');
+        $data = $childrens->merge($companion);
+
+        return Guest::whereIn('id', $data)->get();
+    }
+
+    public static function myParentsData($id)
+    {
+        $child = Child::where('child_id', $id)->first();
+        $parent_a = Guest::where('id', $child->parent)->pluck('id');
+        $parent_b = Guest::where('id', $child->parent_b)->pluck('id');
+        $parents = $parent_a->merge($parent_b);
+
+        return Guest::whereIn('id', $parents)->get();
+
+    }
 }

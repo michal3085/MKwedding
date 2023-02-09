@@ -115,6 +115,7 @@ class GuestsController extends Controller
     public function deleteGuest($id)
     {
             Guest::where('id', $id)->delete();
+            // relatives check and unconfirmed.
             Companion::where('companion_a', $id)->orWhere('companion_b', $id)->delete();
 
             $guests = Guest::latest()->paginate(20);
