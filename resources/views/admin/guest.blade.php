@@ -19,7 +19,7 @@
                     @if(\App\Models\Child::doIHaveAChild($guest->id))
                         <hr>
                         Dzieci:
-                            @foreach(\App\Models\Child::getMyChildsData($guest->id) as $child)
+                            @foreach(\App\Models\Child::getChildrensData($guest->id) as $child)
                             <a href="{{ route('guest.profile', ['id' => $child->id]) }}" style="color: #4848d0">
                                 @if($child->child == 1 && $child->age < 10) <i class="fas fa-baby"></i> @endif
                                     @if($child->age > 10) ( {{ $child->age }} lat. ) @endif
