@@ -89,6 +89,9 @@ class GuestsController extends Controller
         if (isset($request->age) && $request->age <= 10) {
             $guest->age = $request->age;
             $guest->child = 1;
+        } elseif (isset($request->age) && $request->age >= 11) {
+            $guest->age = $request->age;
+            $guest->child = 0;
         }
 
         if (isset($admin)) {

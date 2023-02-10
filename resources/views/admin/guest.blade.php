@@ -4,7 +4,12 @@
     <div class="container rounded bg-white mt-5 mb-5">
         <div class="row">
             <div class="col-md-3 border-right">
-                <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="{{ asset('/admin/images/man.png') }}"><span class="font-weight-bold">{{ $guest->name }} {{ $guest->surname }}</span>
+                <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="{{ asset('/admin/images/man.png') }}">
+                    <span class="font-weight-bold">{{ $guest->name }} {{ $guest->surname }}
+                        @if (\App\Models\Child::amIaChild($guest->id) && $guest->age !== NULL)
+                            <br>({{ $guest->age }} lat)
+                        @endif
+                    </span>
                     @if ($guest->confirmed == 1)
                         <span class="" style="color: #3c763d">Potwierdzony</span><span> </span>
                 @else
@@ -119,6 +124,13 @@
                                 </select>
                             </div>
                         </div>
+                        @if (\App\Models\Child::amIaChild($guest->id))
+                            <div class="row mt-3">
+                                <div class="col-md-12"><label class="labels">Wiek:</label>
+                                    <input class="form-control" type="number" placeholder="{{ $guest->age }}" pattern="[0-30]" name="age" style="background-color: white; color: black;" required>
+                                </div>
+                            </div>
+                        @endif
                         <div class="row mt-3">
                             <div class="col-md-12"><label class="labels">Transport z:</label>
                             <select class="form-control" style="background-color: white; color: black;" name="transport" id="vege">
