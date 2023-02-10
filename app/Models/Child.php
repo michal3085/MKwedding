@@ -63,4 +63,17 @@ class Child extends Model
             return 0;
         }
     }
+
+    public static function changeAndDeleteParents($id)
+    {
+        $childs = Child::where('parent', $id)->orWhere('parent_b', $id)->get();
+
+        foreach ($childs as $child) {
+            if ($child->parent == $id) {
+                $child->parent = $child->parent_b;
+            }
+            $child->parent_b = NULL;
+            $child->save();
+        }
+    }
 }

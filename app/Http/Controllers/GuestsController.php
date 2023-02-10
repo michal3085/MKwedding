@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Exports\GuestExport;
+use App\Models\Child;
 use App\Models\Companion;
 use App\Models\Guest;
 use Illuminate\Http\Request;
@@ -112,16 +113,31 @@ class GuestsController extends Controller
         return view('confirmed');
     }
 
+    /*
+     * It removes the guest from the wedding list and cancels the confirmation of his relatives' attendance.
+     */
     public function deleteGuest($id)
     {
-            Guest::where('id', $id)->delete();
-            // relatives check and unconfirmed.
-            Companion::where('companion_a', $id)->orWhere('companion_b', $id)->delete();
+        if (Guest::doIHaveRelatives($id)) {
+            $relatives = Guest::myRelativesData($id);
+            foreach ($relatives as $relative) {
+                Guest::where('id', $relative->id)->update(['confirmed' => 0]);
+            }
+            /*
+             *  changeAndDeleteParents
+             *  A deleted user is removed from a column in the Children table
+             *  if its ID is in the parent column - the ID from paremt_b is moved
+             *  to its place and parent_b takes the result NULL.
+             */
+            Child::changeAndDeleteParents($id);
+        }
+        Companion::where('companion_a', $id)->orWhere('companion_b', $id)->delete();
+        Guest::where('id', $id)->delete();
 
-            $guests = Guest::latest()->paginate(20);
-            return view('admin.main')->with([
-                'guests' => $guests,
-                'mode' => 0
-            ]);
+        $guests = Guest::latest()->paginate(20);
+        return view('admin.main')->with([
+            'guests' => $guests,
+            'mode' => 0
+        ]);
     }
 }
