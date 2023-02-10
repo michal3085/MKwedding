@@ -44,7 +44,7 @@ class Guest extends Model
                 $needed = Guest::where('allergies', '!=', NULL)->count();
                 break;
             case 8:
-                $needed = Guest::where('child', 1)->count();
+                $needed = Guest::where('child', 1)->where('confirmed', 1)->count();
                 break;
         }
 

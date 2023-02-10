@@ -100,8 +100,8 @@
 {{--                                <li><a href="#">jQuery</a></li>--}}
 {{--                            </ul>--}}
 {{--                        </li>--}}
-                        <li><a href="{{ route('admin') }}">Panel</a></li>
-                        <li><a href="#confirm"><b>Potwierdź swoja obecność</b></a></li>
+{{--                        <li><a href="{{ route('admin') }}">Panel</a></li>--}}
+{{--                        <li><a href="#confirm"><b>Potwierdź swoja obecność</b></a></li>--}}
                     </ul>
                 </div>
             </div>

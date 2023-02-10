@@ -95,7 +95,7 @@
                                     </div>
                                     <div class="d-none d-md-block">
                                         <p class="statistics-title">Dzieci</p>
-                                        <h3 class="rate-percentage">{{ \App\Models\Guest::where('child', 1)->count() }}</h3>
+                                        <h3 class="rate-percentage">{{ \App\Models\Guest::where('child', 1)->where('confirmed', 1)->count() }}</h3>
                                         <p class="text-success d-flex"><i class="mdi mdi-menu-up"></i><span>{{ \App\Models\Guest::getGuestsPrecentage(8) }}%</span></p>
                                     </div>
                                 </div>
@@ -200,6 +200,9 @@
                                                         <td>
                                                             @if ($guest->child == 1)
                                                                 <img src="{{asset('/admin/images/playtime.png')}}" alt="" style="height: 30px; width: 30px;">
+                                                                @if(\App\Models\Child::amIaChild($guest->id) || $guest->child == 1 && $guest->age !== NULL)
+                                                                    <br>{{ $guest->age }} lat
+                                                                @endif
                                                             @endif
                                                         </td>
                                                         <td>

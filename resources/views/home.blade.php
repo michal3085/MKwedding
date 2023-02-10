@@ -4,14 +4,14 @@
 {{--    <header id="fh5co-header" class="fh5co-cover" role="banner" style="background-image:url({{asset('images/img_bg_2.jpg')}});" data-stellar-background-ratio="0.5">--}}
     <header id="fh5co-header" class="fh5co-cover" role="banner" style="" data-stellar-background-ratio="0.5">
         <div class="overlay"></div>
-        <div class="container" style="margin-left: 0px;">
+        <div class="container" style="margin-left: -10px;">
             <div class="row">
                 <div class="col-md-8 col-md-offset-2 text-center">
                     <div class="display-t">
                         <div class="display-tc animate-box" data-animate-effect="fadeIn">
                             <h1>Karolina & Maciek</h1>
                             <div class="simply-countdown simply-countdown-one"></div>
-                            <p><a href="#confirm" class="btn btn-default btn-sm"><b>Potwierdź obecność</b></a></p>
+                            <p></p><a href="#confirm" class="btn btn-default btn-sm save-date"><b>Potwierdź obecność</b></a></p>
                         </div>
                     </div>
                 </div>
