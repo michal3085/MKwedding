@@ -6,7 +6,7 @@
             <div class="col-md-3 border-right">
                 <div class="d-flex flex-column align-items-center text-center p-3 py-5"><img class="rounded-circle mt-5" width="150px" src="{{ asset('/admin/images/man.png') }}">
                     <span class="font-weight-bold">{{ $guest->name }} {{ $guest->surname }}
-                        @if (\App\Models\Child::amIaChild($guest->id) && $guest->age !== NULL)
+                        @if (\App\Models\Child::amIaChild($guest->id) || $guest->child ==1 && $guest->age !== NULL)
                             <br>({{ $guest->age }} lat)
                         @endif
                     </span>
@@ -124,7 +124,7 @@
                                 </select>
                             </div>
                         </div>
-                        @if (\App\Models\Child::amIaChild($guest->id))
+                        @if (\App\Models\Child::amIaChild($guest->id) || $guest->child == 1)
                             <div class="row mt-3">
                                 <div class="col-md-12"><label class="labels">Wiek:</label>
                                     <input class="form-control" type="number" placeholder="{{ $guest->age }}" pattern="[0-30]" name="age" style="background-color: white; color: black;" required>

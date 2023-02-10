@@ -129,7 +129,7 @@ class GuestsController extends Controller
             /*
              *  changeAndDeleteParents
              *  A deleted user is removed from a column in the Children table
-             *  if its ID is in the parent column - the ID from paremt_b is moved
+             *  if its ID is in the parent column - the ID from parent_b is moved
              *  to its place and parent_b takes the result NULL.
              */
             Child::changeAndDeleteParents($id);
