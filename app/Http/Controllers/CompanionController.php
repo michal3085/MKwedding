@@ -155,4 +155,19 @@ class CompanionController extends Controller
             }
         }
     }
+
+    /*
+     * Open confirmation view for yours companion.
+     */
+    public function showCompanion($id)
+    {
+        $companion = Guest::where('id', Companion::getMyCompanionId($id))->first();
+
+        return view('confirmed')->with([
+            'data' => $companion,
+            'name' => $companion->name,
+            'surname' => $companion->surname,
+            'gid' => $companion->id,
+        ]);
+    }
 }

@@ -54,7 +54,7 @@
                             @if (\App\Models\Companion::companionExists($gid) == 1)
                                 <label for="exampleFormControlSelect1">Osoba Towarzysząca: </label><br>
     {{--                     {{ route('companion.data', ['id' => $gid]) }}"   --}}
-                                <a href="{{ route('home') }}"><button type="submit" class="btn btn-outline-success" style="background-color: rgba(0,187,0,0.32)"><i class="far fa-kiss-wink-heart"></i> {{ \App\Models\Companion::getNameOfCompanion($gid) }}</button></a>
+                                <a href="{{ route('show.companion', ['id' => $gid]) }}"><button type="submit" class="btn btn-outline-success" style="background-color: rgba(0,187,0,0.32)"><i class="far fa-kiss-wink-heart"></i> {{ \App\Models\Companion::getNameOfCompanion($gid) }}</button></a>
                             @else
                                 <label for="exampleFormControlSelect1">Osoba Towarzysząca: </label><br>
                                 <a href="{{ route('add.companion', ['id' => $gid]) }}"><button type="submit" class="btn btn-outline-success"><i class="fas fa-user-plus"></i> Dodaj osobę towarzyszącą</button></a>

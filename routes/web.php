@@ -33,6 +33,7 @@ Route::group(['middleware' => 'under-construction'], function () {
     Route::get('/guest/show/companion/{id}', [CompanionController::class, 'showCompanionData'])->name('companion.data');
     Route::get('/guest/add/children/{id}', [ChildController::class, 'addChild'])->name('add.children');
     Route::get('/guest/children/save/{id}', [ChildController::class, 'saveChild'])->name('save.child');
+    Route::get('/guest/companion/show/{id}', [CompanionController::class, 'showCompanion'])->name('show.companion');
 
     Auth::routes();
 
