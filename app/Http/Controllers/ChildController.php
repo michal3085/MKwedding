@@ -92,4 +92,10 @@ class ChildController extends Controller
             ]);
         }
     }
+
+    public function showChildren($child_id)
+    {
+        $children = Guest::where('id', $child_id)->first();
+        //
+    }
 }
