@@ -96,6 +96,13 @@ class ChildController extends Controller
     public function showChildren($child_id)
     {
         $children = Guest::where('id', $child_id)->first();
-        //
+
+        $data = Guest::where('id', $children->id)->first();
+        return view('confirmed')->with([
+            'data' => $data,
+            'name' => $data->name,
+            'surname' => $data->surname,
+            'gid' => $data->id,
+        ]);
     }
 }

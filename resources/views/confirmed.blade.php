@@ -63,19 +63,28 @@
                     </div>
                 <hr>
             <div class="form-group">
-                <label for="exampleFormControlSelect1">Dodaj dziecko: </label><br>
-                <a href="{{ route('add.children', ['id' => $gid]) }}"><button type="submit" class="btn btn-outline-success"><i class="fas fa-plus"></i> <i class="fas fa-baby"></i> Dadaj dziecko</button></a>
-                    <br>
-                @if (\App\Models\Child::doIHaveAChild($gid))
-                    <br>
-                    @foreach(\App\Models\Child::getChildrensData($gid) as $childs)
-                        <a href="#"><button type="submit" style="background-color: rgba(77,192,241,0.4)" class="btn btn-outline-success"><i class="fas fa-baby"></i> {{ $childs->name }} {{ $childs->surname }}</button></a>
-                    @endforeach
+                @if (!\App\Models\Child::amIaChild($gid))
+                    <label for="exampleFormControlSelect1">Dodaj dziecko: </label><br>
+                    <a href="{{ route('add.children', ['id' => $gid]) }}"><button type="submit" class="btn btn-outline-success"><i class="fas fa-plus"></i> <i class="fas fa-baby"></i> Dadaj dziecko</button></a>
+                        <br>
+                    @if (\App\Models\Child::doIHaveAChild($gid))
+                        <br>
+                        @foreach(\App\Models\Child::getChildrensData($gid) as $childs)
+                            <a href="{{ route('show.children', ['id' => $childs->id]) }}"><button type="submit" style="background-color: rgba(77,192,241,0.4)" class="btn btn-outline-success"><i class="fas fa-baby"></i> {{ $childs->name }} {{ $childs->surname }}</button></a>
+                        @endforeach
+                    @endif
                 @endif
             </div>
             <hr>
             <form action="{{ route('guest.data.save', ['id' => $gid]) }}" method="GET">
 {{--                @csrf--}}
+                @if (\App\Models\Child::amIaChild($data->id) || $data->child == 1)
+                    <div class="row mt-3">
+                        <div class="col-md-12"><label class="labels">Wiek:</label>
+                            <input class="form-control" type="number" placeholder="{{ $data->age }}" pattern="[0-30]" name="age" style="background-color: white; color: black;" required>
+                        </div>
+                    </div>
+                @endif
                 <div class="form-group">
                     <label for="exampleFormControlSelect1">Potrzebujesz noclegu?</label>
                     <select class="form-control" name="hotel" id="exampleFormControlSelect1">
