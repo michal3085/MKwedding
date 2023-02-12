@@ -36,11 +36,11 @@
                     </div>
                     <div class="desc-groom">
                         @if(\Carbon\Carbon::parse(\Carbon\Carbon::now())->lt('08/05/2023 15:30:00'))
-                            <h3><b>Karolina Nieradka</b></h3>
+                            <h3><b>{{ $data->bride }}</b></h3>
                         @else
-                            <h3><b>Karolina Cuch</b></h3>
+                            <h3><b>{{ $data->bride_after }}</b></h3>
                         @endif
-                        <p>Pysznica, Podkarpackie<br>663 618 912</p>
+                        <p>{{ $data->bride_from }}<br>{{ $data->bride_phone }}</p>
                     </div>
                 </div>
                 <p class="heart text-center"><i class="icon-heart2"></i></p>
@@ -49,8 +49,8 @@
                         <img src="images/m.bmp" alt="groom" class="img-responsive">
                     </div>
                     <div class="desc-groom">
-                        <h3><b>Maciej Cuch</b></h3>
-                        <p>Brusów, Lubelskie<br>796 304 910</p>
+                        <h3><b>{{ $data->groom }}</b></h3>
+                        <p>{{ $data->groom_from }}<br>{{ $data->groom_phone }}</p>
                     </div>
                 </div>
             </div>

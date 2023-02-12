@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Exports\GuestExport;
+use App\Models\BrideAndGroom;
 use App\Models\Child;
 use App\Models\Companion;
 use App\Models\Guest;
@@ -162,6 +163,40 @@ class AdminsController extends Controller
             }
         }
 
+        return redirect()->back();
+    }
+
+    public function brideAndGroom()
+    {
+        $brideAndGroom = BrideAndGroom::first();
+
+        return view('admin.bride_and_groom')->with('data', $brideAndGroom);
+    }
+
+    public function brideAndGroomDataSave(Request $request)
+    {
+        if (BrideAndGroom::all()->count() == 0) {
+            $brideAndGroom = new BrideAndGroom();
+            $brideAndGroom->bride = $request->bride;
+            $brideAndGroom->groom = $request->groom;
+            $brideAndGroom->bride_after = $request->bride_after;
+            $brideAndGroom->bride_from = $request->bride_from;
+            $brideAndGroom->groom_from = $request->groom_from;
+            $brideAndGroom->bride_phone = $request->bride_phone;
+            $brideAndGroom->groom_phone = $request->groom_phone;
+
+            $brideAndGroom->save();
+        } else {
+            BrideAndGroom::where('bride', '!=', NULL)->update([
+                'bride' => $request->bride,
+                'groom' => $request->groom,
+                'bride_after' => $request->bride_after,
+                'bride_from' => $request->bride_from,
+                'groom_from' => $request->groom_from,
+                'bride_phone' => $request->bride_phone,
+                'groom_phone' => $request->groom_phone,
+            ]);
+        }
         return redirect()->back();
     }
 }
