@@ -149,7 +149,7 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="exampleFormControlTextarea1">Informacje o alergiach/Uwagi:</label>
+                    <label for="exampleFormControlTextarea1">Uwagi:</label>
                     <textarea class="form-control" name="allergies" id="exampleFormControlTextarea1" rows="3">@if (isset($data)){{ $data->allergies }}@endif</textarea>
                 </div>
             <div class="col-md-10 col-md-offset-1">
