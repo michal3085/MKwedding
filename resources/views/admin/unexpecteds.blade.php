@@ -69,15 +69,9 @@
                                 <p></p>
                             @endif
                         </td>
-                        @if ($guest->confirmed == 1)
+                        @if ($guest->confirmed == 0)
                             <td>
-                                <div class="badge badge-opacity-success">Potwierdzony
-                                </div>
-                            </td>
-                        @else
-                            <td>
-                                <div class="badge badge-opacity-warning">Niepotwierdzony
-                                </div>
+                                <p>{{ $guest->created_at }}</p>
                             </td>
                         @endif
                 </tr>
