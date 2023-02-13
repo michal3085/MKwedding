@@ -192,7 +192,7 @@
                                                                 <div>
                                                                     <h6><a href="{{ route('guest.profile', ['id' => $guest->id]) }}">{{ $guest->name }} {{ $guest->surname }}</a></h6>
                                                                     @if (\App\Models\Companion::companionExists($guest->id) == 1)
-                                                                    <p>{{ \App\Models\Companion::getNameOfCompanion($guest->id) }}</p>
+                                                                        <p>{{ \App\Models\Companion::getNameOfCompanion($guest->id) }}</p>
                                                                     @endif
                                                                 </div>
                                                             </div>

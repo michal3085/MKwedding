@@ -23,6 +23,7 @@ class GuestsController extends Controller
             $guest->save();
 
             return view('confirmed')->with([
+                'data' => $guest,
                 'gid' => $guest->id,
                 'name' => $guest->name,
                 'surname' => $guest->surname
