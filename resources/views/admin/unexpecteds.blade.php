@@ -27,10 +27,7 @@
                             <div class="d-flex ">
                                 <img src="{{asset('/admin/images/couple.png')}}" alt="">
                                 <div>
-                                    <h6><a href="{{ route('guest.profile', ['id' => $guest->id]) }}">{{ $guest->name }} {{ $guest->surname }}</a></h6>
-                                    @if (\App\Models\Companion::companionExists($guest->id) == 1)
-                                        <p>{{ \App\Models\Companion::getNameOfCompanion($guest->id) }}</p>
-                                    @endif
+                                    <h6><a href="">{{ $guest->name }} {{ $guest->surname }}</a></h6>
                                 </div>
                             </div>
                         </td>
