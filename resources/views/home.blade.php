@@ -35,12 +35,21 @@
                         <img src="images/k6.jpg" alt="groom" class="img-responsive">
                     </div>
                     <div class="desc-groom">
-                        @if(\Carbon\Carbon::parse(\Carbon\Carbon::now())->lt('08/05/2023 15:30:00'))
-                            <h3><b>{{ $data->bride }}</b></h3>
+                        @if (isset($data))
+                            @if(\Carbon\Carbon::parse(\Carbon\Carbon::now())->lt('08/05/2023 15:30:00'))
+                                <h3><b>{{ $data->bride }}</b></h3>
+                            @else
+                                <h3><b>{{ $data->bride_after }}</b></h3>
+                            @endif
+                            <p>{{ $data->bride_from }}<br>{{ $data->bride_phone }}</p>
                         @else
-                            <h3><b>{{ $data->bride_after }}</b></h3>
+                            @if(\Carbon\Carbon::parse(\Carbon\Carbon::now())->lt('08/05/2023 15:30:00'))
+                                <h3><b>Bride Name</b></h3>
+                            @else
+                                <h3><b>Bride Name After Ceremony</b></h3>
+                            @endif
+                            <p>Bride Come From<br>Bride Phone Number</p>
                         @endif
-                        <p>{{ $data->bride_from }}<br>{{ $data->bride_phone }}</p>
                     </div>
                 </div>
                 <p class="heart text-center"><i class="icon-heart2"></i></p>
@@ -49,8 +58,14 @@
                         <img src="images/m.bmp" alt="groom" class="img-responsive">
                     </div>
                     <div class="desc-groom">
-                        <h3><b>{{ $data->groom }}</b></h3>
-                        <p>{{ $data->groom_from }}<br>{{ $data->groom_phone }}</p>
+                        @if (isset($data))
+                            <h3><b>{{ $data->groom }}</b></h3>
+                            <p>{{ $data->groom_from }}<br>{{ $data->groom_phone }}</p>
+                        @else
+                            <h3><b>Groom Name</b></h3>
+                            <p>Groom Come From<br>Groom Phone Number</p>
+                            <a href="{{ route('bride.and.groom') }}">Go Here And Enter the Data</a>
+                        @endif
                     </div>
                 </div>
             </div>
