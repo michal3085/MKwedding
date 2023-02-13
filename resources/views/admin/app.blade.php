@@ -462,6 +462,12 @@
 {{--                </li>--}}
 {{--                <li class="nav-item nav-category">help</li>--}}
                 <li class="nav-item">
+                    <a class="nav-link" href="{{ route('unexpected.guests') }}">
+                        <i class="menu-icon mdi"><i class="fas fa-user-ninja"></i></i>
+                        <span class="menu-title">Nieoczekiwani</span>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="{{ route('main') }}">
                         <i class="menu-icon mdi"><i class="fas fa-sign-out-alt"></i></i>
                         <span class="menu-title">Wyjście</span>

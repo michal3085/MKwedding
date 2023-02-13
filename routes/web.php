@@ -52,6 +52,7 @@ Route::group(['middleware' => 'under-construction'], function () {
         Route::delete('/panel/delete/guest/{id}', [GuestsController::class, 'deleteGuest']);
         Route::get('/panel/bride/and/groom/', [AdminsController::class, 'brideAndGroom'])->name('bride.and.groom');
         Route::post('/panel/brideandgrrom/data/save/', [AdminsController::class, 'brideAndGroomDataSave'])->name('bride.data.save');
+        Route::get('/panel/unexpected/guests/', [GuestsController::class, 'unexpectedGuests'])->name('unexpected.guests');
 
         Route::get('/panel/transport/change/to/brusow/', [Guest::class, 'changeTransportFrom']);
     });

@@ -6,6 +6,7 @@ use App\Exports\GuestExport;
 use App\Models\Child;
 use App\Models\Companion;
 use App\Models\Guest;
+use App\Models\UnexpectedGuest;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
 
@@ -39,6 +40,11 @@ class GuestsController extends Controller
                 'gid' => $data->id
             ]);
         } else {
+            $unexpected = new UnexpectedGuest();
+            $unexpected->name = $request->name;
+            $unexpected->surname = $request->surname;
+            $unexpected->save();
+
             return view('confirmed')->with([
                 'status' => 'no_guest'
             ]);
@@ -115,6 +121,12 @@ class GuestsController extends Controller
     public function confirmedInfo()
     {
         return view('confirmed');
+    }
+
+    public function unexpectedGuests()
+    {
+        $data = UnexpectedGuest::latest()->paginate(20);
+        return view('admin.unexpecteds')->with('guests', $data);
     }
 
     /*
