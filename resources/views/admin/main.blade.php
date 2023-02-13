@@ -228,7 +228,7 @@
                                                         </td>
                                                         <td>
                                                             @if ($guest->transport == 1)
-                                                                <h6 style="color: #3c763d">TAK</h6>
+                                                                <i class="fas fa-bus" style="color: green; font-size: 15px;"></i>
                                                                 <p>Z: {{ $guest->trans_from }}</p>
                                                             @else
                                                                 <h6 style="color: orangered">NIE</h6>
