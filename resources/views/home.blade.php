@@ -120,7 +120,7 @@
 						</span>
                     <div class="feature-copy">
                         <h3 style="color:  #F14E95">Transport</h3>
-                        <p>W dniu wesela będzie zorganizowany transport z: <b>Brusowa (i okolic)</b> i <b>Stalowej Woli</b>.<br> Zapewniamy również transport powrotny. <br>Podczas potwierdzania swojej obecności prosimy o zaznaczenie tej opcji, jeśli chcesz skorzystać z busa. Dalsze szczegóły podamy bliżej daty ślubu. </p>
+                        <p align="justify">W dniu wesela będzie zorganizowany transport z: <b>Brusowa (i okolic)</b> i <b>Stalowej Woli</b>.<br> Zapewniamy również transport powrotny. <br>Podczas potwierdzania swojej obecności prosimy o zaznaczenie tej opcji, jeśli chcesz skorzystać z busa. Dalsze szczegóły podamy bliżej daty ślubu. </p>
                     </div>
                 </div>
             </div>
@@ -131,7 +131,7 @@
 						</span>
                     <div class="feature-copy">
                         <h3 style="color:  #F14E95">Nocleg</h3>
-                        <p>Dla gości dojeżdzających z dalszych miejscowości, zapewniamy nocleg w pobliżu sali weselnej. Podczas potwierdzania swojej obecności prosimy o znaznaczenie że potrzebujesz noclegu.</p>
+                        <p align="justify">Dla gości dojeżdzających z dalszych miejscowości, zapewniamy nocleg w pobliżu sali weselnej. Podczas potwierdzania swojej obecności prosimy o zaznaczenie, że potrzebujesz noclegu.</p>
                     </div>
                 </div>
             </div>
