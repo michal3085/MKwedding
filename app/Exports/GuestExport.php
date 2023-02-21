@@ -21,6 +21,7 @@ class GuestExport implements FromCollection, WithHeadings
             'Alergie/Uwagi',
             'Vege',
             'Dziecko',
+            'Wiek Dziecka',
             'Data utworzenia',
             'Data Edycji'
         ];
