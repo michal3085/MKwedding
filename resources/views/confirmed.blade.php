@@ -81,7 +81,7 @@
                 @if (\App\Models\Child::amIaChild($data->id) || $data->child == 1)
                     <div class="row mt-3">
                         <div class="col-md-12"><label class="labels">Wiek:</label>
-                            <input class="form-control" type="number" placeholder="{{ $data->age }}" pattern="[0-30]" name="age" style="background-color: white; color: black;" required>
+                            <input class="form-control" type="number" value="{{ $data->age }}" pattern="[0-30]" name="age" style="background-color: white; color: black;" required>
                         </div>
                     </div>
                 @endif
