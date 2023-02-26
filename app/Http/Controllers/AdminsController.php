@@ -97,13 +97,11 @@ class AdminsController extends Controller
             $new_guest->surname = $surname;
             $new_guest->confirmed = 0;
 
-            if (isset($child)) {
+            if (isset($child) && isset($age)) {
                 $new_guest->child = $child;
+                $new_guest->age = $age;
             } else {
                 $new_guest->child = 0;
-            }
-            if (isset($age)) {
-                $new_guest->age = $age;
             }
             $new_guest->save();
             return 1;
