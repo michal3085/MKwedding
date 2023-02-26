@@ -46,6 +46,14 @@
                             @foreach(\App\Models\Guest::myParentsData($guest->id) as $parent)
                                 <a href="{{ route('guest.profile', ['id' => $parent->id]) }}">{{ $parent->name }} {{ $parent->surname }}</a><br>
                             @endforeach
+                    @else
+                        <hr>
+                        Przypisz/Dodaj dziecko:
+                        <form action="{{ route('panel.add.child', ['id' => $guest->id]) }}">
+                            <input type="text" name="child" id="child" placeholder="Imie Nazwisko Wiek">
+                            <div class="mt-2 text-center"><button class="btn btn-primary profile-button" type="submit">Dodaj</button></div>
+                            <hr>
+                        </form>
                         @endif
                 </div>
             </div>

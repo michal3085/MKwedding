@@ -82,7 +82,7 @@ class AdminsController extends Controller
         redirect()->back();
     }
 
-    public function storeGuest($name, $surname, $child = NULL)
+    public function storeGuest($name, $surname, $child = NULL, $age = NULL)
     {
         if (Guest::where('name', $name)->where('surname', $surname)->count() != 0) {
 
@@ -102,9 +102,39 @@ class AdminsController extends Controller
             } else {
                 $new_guest->child = 0;
             }
+            if (isset($age)) {
+                $new_guest->age = $age;
+            }
             $new_guest->save();
             return 1;
         }
+    }
+
+    public function addChild(Request $request, $id)
+    {
+        $child = explode(" ", $request->child);
+
+        if (!Guest::guestExist($child[0], $child[1])) {
+
+            $age = (int)$child[2];
+
+            if ($age >= 15) {
+                $this->storeGuest($child[0], $child[1], 0, $age);
+            } else {
+                $this->storeGuest($child[0], $child[1], 1, $age);
+            }
+            $guest = Guest::where('name', $child[0])->where('surname', $child[1])->first();
+            Child::newChild($id, $guest->id);
+
+            return redirect()->back();
+        } else {
+
+            $guest = Guest::where('name', $child[0])->where('surname', $child[1])->first();
+            Child::newChild($id, $guest->id);
+            return redirect()->back();
+        }
+
+
     }
 
     public function guestProfile($id)
