@@ -156,6 +156,30 @@ class CompanionController extends Controller
         }
     }
 
+    public function quickCompanionStore(Request $request, $id)
+    {
+        if (Guest::guestExist($request->name, $request->surname) && !Companion::companionExists($id)) {
+
+            $guest = Guest::where('name', $request->name)->where('surname', $request->surname)->first();
+            $companion = new Companion();
+            $companion->companion_a = $id;
+            $companion->companion_b = $guest->id;
+            $companion->save();
+
+            return redirect()->back();
+
+        } elseif (!Guest::guestExist($request->name, $request->surname)) {
+            (new AdminsController)->addGuest($request->name, $request->surname);
+            $guest = Guest::where('name', $request->name)->where('surname', $request->surname)->first();
+            $companion = new Companion();
+            $companion->companion_a = $id;
+            $companion->companion_b = $guest->id;
+            $companion->save();
+
+            return redirect()->back();
+        }
+    }
+
     /*
      * Open confirmation view for yours companion.
      */

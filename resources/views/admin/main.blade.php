@@ -107,13 +107,13 @@
 {{--                                Jest już taka osoba na liście gości.--}}
 {{--                            </div>--}}
 {{--                        @endif--}}
-                        @if(isset($success) && $success = 1)
+                        @if(isset($success) && $success == 1)
                             <div class="alert alert-success" role="alert">
                                 <i class="fas fa-user-check"></i>
                                 Osoba dodana prawidłowo.
                             </div>
                         @endif
-                        @if($errors->any())
+                        @if(isset($success) && $success == 0)
                             <div class="alert alert-danger" role="alert">
                                 <i class="fas fa-user-check"></i>
                                 Ta osoba jest już na liście gości.

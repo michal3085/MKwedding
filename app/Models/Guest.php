@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use function Symfony\Component\String\s;
 
 class Guest extends Model
 {
@@ -121,5 +122,14 @@ class Guest extends Model
 
         return Guest::whereIn('id', $parents)->get();
 
+    }
+
+    public static function guestExist($name, $surname)
+    {
+        if (Guest::where('name', $name)->where('surname', $surname)->count() >= 1) {
+            return 1;
+        } else {
+            return 0;
+        }
     }
 }

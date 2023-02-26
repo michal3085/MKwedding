@@ -43,7 +43,7 @@ Route::group(['middleware' => 'under-construction'], function () {
     Route::middleware('auth')->group(function () {
         Route::get('/panel/export/excel/', [GuestsController::class, 'exportToExcel'])->name('excel.export');
         Route::get('/panel/', [AdminsController::class, 'index'])->name('admin');
-        Route::post('/panel/add/guest/', [AdminsController::class, 'addGuest'])->name('add.guest');
+        Route::post('/panel/add/guest/{name?}/{surname?}', [AdminsController::class, 'addGuest'])->name('add.guest');
         Route::get('/panel/guests/confirmed/{filter}', [AdminsController::class, 'filterUsers'])->name('filter.guests');
         Route::get('/panel/guest/{id}', [AdminsController::class, 'guestProfile'])->name('guest.profile');
         Route::get('/panel/search/user/', [AdminsController::class, 'searchGuest'])->name('search.guest');
@@ -53,6 +53,7 @@ Route::group(['middleware' => 'under-construction'], function () {
         Route::get('/panel/bride/and/groom/', [AdminsController::class, 'brideAndGroom'])->name('bride.and.groom');
         Route::post('/panel/brideandgrrom/data/save/', [AdminsController::class, 'brideAndGroomDataSave'])->name('bride.data.save');
         Route::get('/panel/unexpected/guests/', [GuestsController::class, 'unexpectedGuests'])->name('unexpected.guests');
+        Route::get('/panel/add/companion/{id}', [CompanionController::class, 'quickCompanionStore'])->name('panel.add.companion');
 
         Route::get('/panel/transport/change/to/brusow/', [Guest::class, 'changeTransportFrom']);
     });

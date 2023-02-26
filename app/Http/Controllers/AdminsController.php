@@ -59,33 +59,45 @@ class AdminsController extends Controller
     }
 
     /*
-     * Add new guest to guests table.
+     * Add new guest to guests table, and return main panel view.
      */
     public function addGuest(Request $request)
     {
-        if (Guest::where('name', $request->name)->where('surname', $request->surname)->count() != 0) {
+        $name = $request->name;
+        $surname = $request->surname;
+        $child = $request->child;
+        $status = $this->storeGuest($name, $surname, $child);
+
+        $guests = Guest::latest()->paginate(20);
+        return view('admin.main')->with([
+            'guests' => $guests,
+            'mode' => 0,
+            'success' => $status
+        ]);
+    }
+
+    public function storeGuest($name, $surname, $child = NULL)
+    {
+        if (Guest::where('name', $name)->where('surname', $surname)->count() != 0) {
 
             $guests = Guest::latest()->paginate(20);
             $error = 'Ta osoba jest na liście';
-            return redirect()->back()->withErrors([
-                $error
-            ]);
+            return 0;
 
-        } elseif (Guest::where('name', $request->name)->where('surname', $request->surname)->count() == 0) {
+        } elseif (Guest::where('name', $name)->where('surname', $surname)->count() == 0) {
             $new_guest = new Guest();
 
-            $new_guest->name = $request->name;
-            $new_guest->surname = $request->surname;
+            $new_guest->name = $name;
+            $new_guest->surname = $surname;
             $new_guest->confirmed = 0;
-            $new_guest->child = $request->child;
-            $new_guest->save();
 
-            $guests = Guest::latest()->paginate(20);
-            return redirect()->back()->with([
-                'guests' => $guests,
-                'mode' => 0,
-                'success' => 1
-            ]);
+            if (isset($child)) {
+                $new_guest->child = $child;
+            } else {
+                $new_guest->child = 0;
+            }
+            $new_guest->save();
+            return 1;
         }
     }
 
