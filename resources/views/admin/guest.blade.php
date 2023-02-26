@@ -20,7 +20,7 @@
                     @if(\App\Models\Companion::companionExists($guest->id) && $guest->child !== 1)
                         Osoba Towarzysząca:<br>
                         <a href="{{ route('guest.profile', ['id' => \App\Models\Companion::getMyCompanionId($guest->id)]) }}" style="color: palevioletred"><i class="far fa-kiss-wink-heart"></i> {{ \App\Models\Companion::getNameOfCompanion($guest->id) }}</a><br>
-                    @else
+                    @elseif ($guest->child !== 1)
                         Przypisz/Dodaj osobę tow:
                         <form action="{{ route('panel.add.companion', ['id' => $guest->id]) }}">
                             <input type="text" name="name" id="name">

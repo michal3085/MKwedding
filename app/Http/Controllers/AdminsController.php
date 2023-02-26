@@ -76,6 +76,12 @@ class AdminsController extends Controller
         ]);
     }
 
+    public function guestStoreFromPanel($name, $surname)
+    {
+        $this->storeGuest($name, $surname);
+        redirect()->back();
+    }
+
     public function storeGuest($name, $surname, $child = NULL)
     {
         if (Guest::where('name', $name)->where('surname', $surname)->count() != 0) {

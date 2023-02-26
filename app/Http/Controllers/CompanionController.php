@@ -158,9 +158,13 @@ class CompanionController extends Controller
 
     public function quickCompanionStore(Request $request, $id)
     {
+        $guest = Guest::where('name', $request->name)->where('surname', $request->surname)->first();
+        if (Guest::guestExist($request->name, $request->surname) && Companion::companionExists($guest->id)) {
+            return  redirect()->back()->with('error', 1);
+        }
+
         if (Guest::guestExist($request->name, $request->surname) && !Companion::companionExists($id)) {
 
-            $guest = Guest::where('name', $request->name)->where('surname', $request->surname)->first();
             $companion = new Companion();
             $companion->companion_a = $id;
             $companion->companion_b = $guest->id;
@@ -169,11 +173,13 @@ class CompanionController extends Controller
             return redirect()->back();
 
         } elseif (!Guest::guestExist($request->name, $request->surname)) {
-            (new AdminsController)->addGuest($request->name, $request->surname);
-            $guest = Guest::where('name', $request->name)->where('surname', $request->surname)->first();
+
+            (new AdminsController)->guestStoreFromPanel($request->name, $request->surname);
+            $new_guest = Guest::where('name', $request->name)->where('surname', $request->surname)->first();
+
             $companion = new Companion();
             $companion->companion_a = $id;
-            $companion->companion_b = $guest->id;
+            $companion->companion_b = $new_guest->id;
             $companion->save();
 
             return redirect()->back();
