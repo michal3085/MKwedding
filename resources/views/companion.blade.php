@@ -58,7 +58,7 @@
                                 </select>
                             </div>
                             <div class="form-group">
-                                <label for="exampleFormControlSelect1">Menu wegańskie?</label>
+                                <label for="exampleFormControlSelect1">Menu wegetariańskie?</label>
                                 <select class="form-control" name="vege" id="exampleFormControlSelect1">
                                     <option value="1" >TAK</option>
                                     <option value="0" selected>NIE</option>
