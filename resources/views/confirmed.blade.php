@@ -86,7 +86,8 @@
                     </div>
                 @endif
                 <div class="form-group">
-                    <label for="exampleFormControlSelect1">Potrzebujesz noclegu?</label>
+                    <label for="exampleFormControlSelect1"><b>Potrzebujesz noclegu?</b></label>
+                    <label for="exampleFormControlSelect1">(Nocleg będzie rezerwowany w Janowie lub Stalowej Woli)</label>
                     <select class="form-control" name="hotel" id="exampleFormControlSelect1">
                         @if(isset($data))
                             @if ($data->hotel == 1)
@@ -104,7 +105,7 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="exampleFormControlSelect2">Transport z:</label>
+                    <label for="exampleFormControlSelect2"><b>Transport z:</b></label>
                     <select multiple class="form-control" name="transport" id="exampleFormControlSelect2">
                         @if(isset($data))
                             @if ($data->transport == 0)
@@ -131,7 +132,7 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="exampleFormControlSelect1">Menu wegańskie?</label>
+                    <label for="exampleFormControlSelect1"><b>Menu wegetariańskie?</b></label>
                     <select class="form-control" name="vege" id="exampleFormControlSelect1">
                         @if(isset($data))
                             @if ($data->vege == 1)
@@ -149,7 +150,7 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="exampleFormControlTextarea1">Uwagi:</label>
+                    <label for="exampleFormControlTextarea1"><b>Uwagi:</b></label>
                     <textarea class="form-control" name="allergies" id="exampleFormControlTextarea1" rows="3">@if (isset($data)){{ $data->allergies }}@endif</textarea>
                 </div>
             <div class="col-md-10 col-md-offset-1">
