@@ -114,7 +114,6 @@
 </div>
 <div id="fh5co-services" class="fh5co-section-gray">
     <div class="container">
-
         <div class="row">
             <div class="col-md-6">
                 <div class="feature-left animate-box" data-animate-effect="fadeInLeft">
@@ -129,13 +128,7 @@
             </div>
             <div class="col-md-6 animate-box">
                 <div class="feature-left animate-box" data-animate-effect="fadeInLeft">
-						<span class="icon">
-							<i class="fas fa-bed"></i>
-						</span>
-                    <div class="feature-copy">
-                        <h3 style="color:  #F14E95">Nocleg</h3>
-                        <p align="justify">Dla gości dojeżdzających z dalszych miejscowości, zapewniamy nocleg w pobliżu sali weselnej. Podczas potwierdzania swojej obecności prosimy o zaznaczenie, że potrzebujesz noclegu.</p>
-                    </div>
+					<img class="img-map" src="/images/road.png">
                 </div>
             </div>
         </div>

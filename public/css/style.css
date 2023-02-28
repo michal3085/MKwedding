@@ -670,6 +670,19 @@ h1, h2, h3, h4, h5, h6, figure {
     }
 }
 
+.img-map {
+
+}
+
+@media screen and (max-width: 768px) {
+  .img-map {
+    margin-left: 10px;
+    position: center;
+    height: 300px;
+    width: 350px;
+  }
+}
+
 #fh5co-gallery-list {
   flex-wrap: wrap;
   -webkit-flex-wrap: wrap;
