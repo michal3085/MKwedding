@@ -27,6 +27,12 @@ class CompanionController extends Controller
 
     public function saveCompanion(Request $request, $id)
     {
+        $request->validate([
+            'name' => 'required|max:30',
+            'surname' => 'required|max:40',
+            'allergies' => 'max:320'
+        ]);
+
         $data = Guest::where('id', $id)->first();
 
         if (Guest::where('name', $request->name)->where('surname', $request->surname)->count() == 0) {
