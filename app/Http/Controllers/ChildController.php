@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreChildRequest;
 use App\Models\Child;
 use App\Models\Companion;
 use App\Models\Guest;
@@ -17,14 +18,13 @@ class ChildController extends Controller
         ]);
     }
 
-    public function saveChild(Request $request, $id)
+    public function saveChild(StoreChildRequest $request, $id)
     {
         $guest = Guest::where('name', $request->name)->where('surname', $request->surname)->first();
         /*
          *  Guest with request credentials exist.
          */
         if ($guest !== NULL) {
-
             $guest->confirmed = 1;
             $guest->age = $request->age;
             if ($request->age <= 10) {

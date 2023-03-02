@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Exports\GuestExport;
+use App\Http\Requests\StoreChildRequest;
 use App\Models\BrideAndGroom;
 use App\Models\Child;
 use App\Models\Companion;
@@ -114,7 +115,8 @@ class AdminsController extends Controller
 
         if (!Guest::guestExist($child[0], $child[1])) {
 
-            $age = (int)$child[2];
+//            $age = (int)$child[2];
+            $age = intval($child[2]);
 
             if ($age >= 15) {
                 $this->storeGuest($child[0], $child[1], 0, $age);

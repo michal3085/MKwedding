@@ -52,6 +52,7 @@
                         <form action="{{ route('panel.add.child', ['id' => $guest->id]) }}">
                             <input type="text" name="child" id="child" placeholder="Imie Nazwisko Wiek">
                             <div class="mt-2 text-center"><button class="btn btn-primary profile-button" type="submit">Dodaj</button></div>
+                            @if($errors->first('age')) wiek dziecka >18 lat... @endif
                             <hr>
                         </form>
                         @endif

@@ -37,12 +37,21 @@
                             {{--                @csrf--}}
                             <div class="form-group">
                                 <input class="form-control" type="text" placeholder="Imię" name="name" required>
+                                @if($errors->first('name'))
+                                    <p style="color: red"> Imię dziecka nie powinno składać się z więcej jak 30 znaków </p>
+                                @endif
                             </div>
                             <div class="form-group">
                                 <input class="form-control" type="text" placeholder="Nazwisko" name="surname" required>
+                                @if($errors->first('surname'))
+                                    <p style="color: red"> Nazwisko dziecka nie powinno składać się z więcej jak 40 znaków </p>
+                                @endif
                             </div>
                             <div class="form-group">
                                 <input class="form-control" type="number" placeholder="Wiek" name="age" required>
+                                @if($errors->first('age'))
+                                    <p style="color: red"> Dzieci powyżej 18 lat, należy potwierdzać osobno </p>
+                                @endif
                             </div>
                             <div class="form-group">
                                 <label for="exampleFormControlSelect1">Potrzebujesz noclegu?</label>
