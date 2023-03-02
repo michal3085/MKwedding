@@ -59,14 +59,6 @@ class ChildController extends Controller
             $guest->save();
             Child::newChild($id, $guest->id);
 
-            $data = Guest::where('id', $id)->first();
-            return view('confirmed')->with([
-                'data' => $data,
-                'name' => $data->name,
-                'surname' => $data->surname,
-                'gid' => $data->id,
-                'status' => 'child_added'
-            ]);
             /*
              * Guest with request credentials do not exist.
              */
@@ -95,15 +87,15 @@ class ChildController extends Controller
             $new_guest->save();
             Child::newChild($id, $new_guest->id);
 
-            $data = Guest::where('id', $id)->first();
-            return view('confirmed')->with([
-                'data' => $data,
-                'name' => $data->name,
-                'surname' => $data->surname,
-                'gid' => $data->id,
-                'status' => 'child_added'
-            ]);
         }
+        $data = Guest::where('id', $id)->first();
+        return view('confirmed')->with([
+            'data' => $data,
+            'name' => $data->name,
+            'surname' => $data->surname,
+            'gid' => $data->id,
+            'status' => 'child_added'
+        ]);
     }
 
     public function showChildren($child_id)
