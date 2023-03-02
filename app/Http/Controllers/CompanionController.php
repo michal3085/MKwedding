@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreGuestRequest;
 use App\Models\Companion;
 use App\Models\Guest;
 use Illuminate\Http\Request;
@@ -25,7 +26,7 @@ class CompanionController extends Controller
         //
     }
 
-    public function saveCompanion(Request $request, $id)
+    public function saveCompanion(StoreGuestRequest $request, $id)
     {
         $data = Guest::where('id', $id)->first();
 

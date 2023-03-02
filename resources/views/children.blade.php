@@ -20,11 +20,16 @@
                     <div class="container">
                         <div class="row">
                             <div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
-                                @if (isset($status) && $status == "data_saved")
-                                    <div class="alert alert-success" role="alert">
-                                        Super! Zapisaliśmy Twoje uwagi, jeżeli chcesz coś zmienić w przyszłości, wypełnij formularz na stronie głównej jeszcze raz i popraw dane.
+                                @if (isset($error) && $error == "child_yours_companion")
+                                    <div class="alert alert-warning" role="alert">
+                                        Wpisane dane dziecka, odpowiadają Twojej osobie Towarzyszącej.
                                     </div>
                                 @endif
+                                    @if (isset($error) && $error == "child_someone_companion")
+                                        <div class="alert alert-warning" role="alert">
+                                            Wpisane dane dziecka, odpowiadają czyjejś osobie Towarzyszącej.
+                                        </div>
+                                    @endif
                                 <h2>Dodaj dziecko</h2>
                                 <p>Wypełnij dane i dodaj swoje dziecko do listy gości!</p>
                             </div>
@@ -37,12 +42,21 @@
                             {{--                @csrf--}}
                             <div class="form-group">
                                 <input class="form-control" type="text" placeholder="Imię" name="name" required>
+                                @if($errors->first('name'))
+                                    <p style="color: red"> Imię dziecka nie powinno składać się z więcej jak 30 znaków </p>
+                                @endif
                             </div>
                             <div class="form-group">
                                 <input class="form-control" type="text" placeholder="Nazwisko" name="surname" required>
+                                @if($errors->first('surname'))
+                                    <p style="color: red"> Nazwisko dziecka nie powinno składać się z więcej jak 40 znaków </p>
+                                @endif
                             </div>
                             <div class="form-group">
                                 <input class="form-control" type="number" placeholder="Wiek" name="age" required>
+                                @if($errors->first('age'))
+                                    <p style="color: red"> Dzieci powyżej 18 lat, należy potwierdzać osobno </p>
+                                @endif
                             </div>
                             <div class="form-group">
                                 <label for="exampleFormControlSelect1">Potrzebujesz noclegu?</label>

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Exports\GuestExport;
+use App\Http\Requests\StoreGuestRequest;
 use App\Models\Child;
 use App\Models\Companion;
 use App\Models\Guest;
@@ -64,6 +65,9 @@ class GuestsController extends Controller
      */
     public function guestDataSave(Request $request, $id, $admin = NULL)
     {
+        $request->validate([
+           'allergies' => 'max:320'
+        ]);
         $guest = Guest::where('id', $id)->first();
         if ($request->hotel == "TAK" ) {
             $guest->hotel = 1;
