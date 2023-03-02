@@ -25,6 +25,19 @@ class ChildController extends Controller
          *  Guest with request credentials exist.
          */
         if ($guest !== NULL) {
+            if ( Companion::areWeCompanions($id, $guest->id) ) {
+                return view('children')->with([
+                    'gid' => $id,
+                    'error' => 'child_yours_companion'
+                ]);
+            }
+            if ( Companion::companionExists($guest->id)) {
+                return view('children')->with([
+                    'gid' => $id,
+                    'error' => 'child_someone_companion'
+                ]);
+            }
+
             $guest->confirmed = 1;
             $guest->age = $request->age;
             if ($request->age <= 10) {

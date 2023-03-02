@@ -23,6 +23,23 @@ class Companion extends Model
         }
     }
 
+    public static function areWeCompanions($my_id, $her_id)
+    {
+        $check = Companion::where([
+                ['companion_a', '=', $my_id],
+                ['companion_b', '=', $her_id]])
+            ->orWhere([
+                ['companion_a', '=', $her_id],
+                ['companion_b', '=', $my_id]])
+            ->count();
+
+        if ($check == 1) {
+            return 1;
+        } else {
+            return 0;
+        }
+    }
+
     public static function getMyCompanionId($my_id)
     {
         $companion = Companion::where('companion_a', $my_id)->orWhere('companion_b', $my_id)->first();
