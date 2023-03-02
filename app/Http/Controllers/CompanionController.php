@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreGuestRequest;
 use App\Models\Companion;
 use App\Models\Guest;
 use Illuminate\Http\Request;
@@ -25,14 +26,8 @@ class CompanionController extends Controller
         //
     }
 
-    public function saveCompanion(Request $request, $id)
+    public function saveCompanion(StoreGuestRequest $request, $id)
     {
-        $request->validate([
-            'name' => 'required|max:30',
-            'surname' => 'required|max:40',
-            'allergies' => 'max:320'
-        ]);
-
         $data = Guest::where('id', $id)->first();
 
         if (Guest::where('name', $request->name)->where('surname', $request->surname)->count() == 0) {

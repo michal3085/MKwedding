@@ -32,14 +32,14 @@
                             {{--                @csrf--}}
                             <div class="form-group">
                                 <input class="form-control" type="text" placeholder="Imię" name="name">
-                                @if($errors->first('name') !== null)
+                                @if($errors->first('name'))
                                     <p style="color: red">Imię musi składać się z maksymalnie 30 znaków...</p>
                                 @endif
                             </div>
                             <div class="form-group">
                                 <input class="form-control" type="text" placeholder="Nazwisko" name="surname">
-                                @if($errors->first('surname') !== null)
-                                    Nazwisko musi składać się z maksymalnie 40 znaków...
+                                @if($errors->first('surname'))
+                                    <p style="color: red">Nazwisko musi składać się z maksymalnie 40 znaków...</p>
                                 @endif
                             </div>
                             <div class="form-group">
@@ -66,13 +66,15 @@
                             </div>
                             <div class="form-group">
                                 <label for="exampleFormControlTextarea1">Informacje o alergiach/Uwagi:</label>
-                                @if($errors->first('allergies') !== null)
+                                @if($errors->first('allergies'))
                                     <p style="color: red">Uwagi nie mogą zawierać więcej niż 320 znaków</p>
                                 @endif
                                 <textarea class="form-control" name="allergies" id="exampleFormControlTextarea1"
-                                          rows="3">@if (isset($data))
+                                          rows="3">
+                                    @if (isset($data))
                                         {{ $data->allergies }}
-                                    @endif</textarea>
+                                    @endif
+                                </textarea>
                             </div>
                             <div class="col-md-10 col-md-offset-1">
                                 <button type="" class="btn btn-default btn-block" style="background-color: #F14E95">

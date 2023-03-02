@@ -151,6 +151,9 @@
                 </div>
                 <div class="form-group">
                     <label for="exampleFormControlTextarea1"><b>Uwagi:</b></label>
+                    @if($errors->first('allergies'))
+                        <p style="color: red">Uwagi nie mogą zawierać więcej niż 320 znaków</p>
+                    @endif
                     <textarea class="form-control" name="allergies" id="exampleFormControlTextarea1" rows="3">@if (isset($data)){{ $data->allergies }}@endif</textarea>
                 </div>
             <div class="col-md-10 col-md-offset-1">
