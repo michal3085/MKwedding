@@ -85,25 +85,27 @@
                         </div>
                     </div>
                 @endif
-                <div class="form-group">
-                    <label for="exampleFormControlSelect1"><b>Potrzebujesz noclegu?</b></label>
-                    <label for="exampleFormControlSelect1">(Nocleg będzie rezerwowany w Janowie lub Stalowej Woli)</label>
-                    <select class="form-control" name="hotel" id="exampleFormControlSelect1">
-                        @if(isset($data))
-                            @if ($data->hotel == 1)
-                                <option selected>TAK</option>
-                                <option>NIE</option>
-                            @endif
-                                @if ($data->hotel == 0)
-                                    <option>TAK</option>
-                                    <option selected>NIE</option>
-                                @endif
-                        @else
-                            <option>TAK</option>
-                            <option selected>NIE</option>
-                        @endif
-                    </select>
-                </div>
+{{--                SECTION MOVED TO BOTTOM, AND HIDDEN --}}
+
+{{--                <div class="form-group">--}}
+{{--                    <label for="exampleFormControlSelect1"><b>Potrzebujesz noclegu?</b></label>--}}
+{{--                    <label for="exampleFormControlSelect1">(Nocleg będzie rezerwowany w Janowie lub Stalowej Woli)</label>--}}
+{{--                    <select class="form-control" name="hotel" id="exampleFormControlSelect1">--}}
+{{--                        @if(isset($data))--}}
+{{--                            @if ($data->hotel == 1)--}}
+{{--                                <option selected>TAK</option>--}}
+{{--                                <option>NIE</option>--}}
+{{--                            @endif--}}
+{{--                                @if ($data->hotel == 0)--}}
+{{--                                    <option>TAK</option>--}}
+{{--                                    <option selected>NIE</option>--}}
+{{--                                @endif--}}
+{{--                        @else--}}
+{{--                            <option>TAK</option>--}}
+{{--                            <option selected>NIE</option>--}}
+{{--                        @endif--}}
+{{--                    </select>--}}
+{{--                </div>--}}
                 <div class="form-group">
                     <label for="exampleFormControlSelect2"><b>Transport z:</b></label>
                     <select multiple class="form-control" name="transport" id="exampleFormControlSelect2">
@@ -155,6 +157,12 @@
                         <p style="color: red">Uwagi nie mogą zawierać więcej niż 320 znaków</p>
                     @endif
                     <textarea class="form-control" name="allergies" id="exampleFormControlTextarea1" rows="3">@if (isset($data)){{ $data->allergies }}@endif</textarea>
+                </div>
+                <div class="form-group" hidden="hidden">
+                    <select class="form-control" name="hotel" id="exampleFormControlSelect1" hidden="hidden">
+                        <option>TAK</option>
+                        <option selected>NIE</option>
+                    </select>
                 </div>
             <div class="col-md-10 col-md-offset-1">
                 <button type="" class="btn btn-default btn-block" style="background-color: #F14E95">Wyślij</button>
