@@ -42,11 +42,16 @@
                                     <p style="color: red">Nazwisko musi składać się z maksymalnie 40 znaków...</p>
                                 @endif
                             </div>
-                            <div class="form-group">
-                                <label for="exampleFormControlSelect1">Potrzebujesz noclegu?</label>
-                                <select class="form-control" name="hotel" id="exampleFormControlSelect1">
-                                    <option value="1">TAK</option>
-                                    <option value="0" selected>NIE</option>
+{{--                            <div class="form-group">--}}
+{{--                                <label for="exampleFormControlSelect1">Potrzebujesz noclegu?</label>--}}
+{{--                                <select class="form-control" name="hotel" id="exampleFormControlSelect1">--}}
+{{--                                    <option value="1">TAK</option>--}}
+{{--                                    <option value="0" selected>NIE</option>--}}
+{{--                                </select>--}}
+{{--                            </div>--}}
+                            <div class="form-group" hidden="hidden">
+                                <select class="form-control" name="hotel" id="exampleFormControlSelect1" hidden="hidden">
+                                    <option value="0" selected>0</option>
                                 </select>
                             </div>
                             <div class="form-group">
