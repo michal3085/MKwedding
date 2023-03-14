@@ -133,7 +133,7 @@
 						</span>
                     <div class="feature-copy">
                         <h3 style="color:  #F14E95">Nocleg</h3>
-                        <p align="justify">Dla gości dojeżdzających z dalszych miejscowości, zapewniamy nocleg w pobliżu sali weselnej. Prosimy o kontakt, aby potwierdzić rezerwację pokoju.</p>
+                        <p align="justify">Dla gości z dalszych miejscowości, których nie zabierze transport z Brusowa lub Stalowej Woli zapewniamy nocleg w pobliżu sali weselnej. Prosimy o kontakt, aby potwierdzić rezerwację pokoju.</p>
                     </div>
                 </div>
             </div>
