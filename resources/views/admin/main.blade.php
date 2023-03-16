@@ -192,7 +192,15 @@
                                                                 <div>
                                                                     <h6><a href="{{ route('guest.profile', ['id' => $guest->id]) }}">{{ $guest->name }} {{ $guest->surname }}</a></h6>
                                                                     @if (\App\Models\Companion::companionExists($guest->id) == 1)
-                                                                        <p>{{ \App\Models\Companion::getNameOfCompanion($guest->id) }}</p>
+                                                                        @if ($guest->confirmed == 1 && !\App\Models\Companion::companionConfirmedCheck(\App\Models\Companion::getMyCompanionId($guest->id)))
+                                                                            <p style="color: red">{{ \App\Models\Companion::getNameOfCompanion($guest->id) }}</p>
+                                                                        @elseif($guest->confirmed == 1 && \App\Models\Companion::companionConfirmedCheck(\App\Models\Companion::getMyCompanionId($guest->id)) == 1)
+                                                                            <p style="color: forestgreen">{{ \App\Models\Companion::getNameOfCompanion($guest->id) }}</p>
+                                                                        @elseif($guest->confirmed == 0 && \App\Models\Companion::companionConfirmedCheck(\App\Models\Companion::getMyCompanionId($guest->id)) == 1)
+                                                                            <p style="color: orange">{{ \App\Models\Companion::getNameOfCompanion($guest->id) }}</p>
+                                                                        @else
+                                                                            <p>{{ \App\Models\Companion::getNameOfCompanion($guest->id) }}</p>
+                                                                        @endif
                                                                     @endif
                                                                 </div>
                                                             </div>

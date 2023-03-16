@@ -23,6 +23,19 @@ class Companion extends Model
         }
     }
 
+    /**
+     * @param $id
+     * @return int
+     */
+    public static function companionConfirmedCheck($id)
+    {
+        if (Guest::where('id', $id)->where('confirmed', 1)->count() == 1) {
+            return 1;
+        } else {
+            return 0;
+        }
+    }
+
     public static function areWeCompanions($my_id, $her_id)
     {
         $check = Companion::where([
