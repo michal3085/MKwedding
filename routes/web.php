@@ -35,6 +35,7 @@ Route::group(['middleware' => 'under-construction'], function () {
     Route::get('/guest/children/save/{id}', [ChildController::class, 'saveChild'])->name('save.child');
     Route::get('/guest/companion/show/{id}', [CompanionController::class, 'showCompanion'])->name('show.companion');
     Route::get('/guest/show/child/{id}', [ChildController::class, 'showChildren'])->name('show.children');
+    Route::get('/guest/companion/confirm/{id}', [CompanionController::class, 'confirmCompanion'])->name('companion.confirm');
 
     Auth::routes();
 

@@ -21,6 +21,12 @@ class CompanionController extends Controller
         ]);
     }
 
+    public function confirmCompanion($id)
+    {
+        Guest::where('id', $id)->update(['confirmed' => 1]);
+        return redirect()->back();
+    }
+
     public function showCompanionData($id)
     {
         //
