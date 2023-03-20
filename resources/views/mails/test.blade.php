@@ -1,2 +1,1 @@
-Hey!
-dostałeś maila?
+Cześć, {{ $name }} właśnie się potwierdził/potwierdziła :)

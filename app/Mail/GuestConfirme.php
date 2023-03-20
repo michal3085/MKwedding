@@ -11,14 +11,16 @@ class GuestConfirme extends Mailable
 {
     use Queueable, SerializesModels;
 
+    private $name;
+
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($name)
     {
-        //
+        $this->name = $name;
     }
 
     /**
@@ -28,6 +30,6 @@ class GuestConfirme extends Mailable
      */
     public function build()
     {
-        return $this->view('mails.test');
+        return $this->view('mails.test')->with(['name' => $this->name]);
     }
 }

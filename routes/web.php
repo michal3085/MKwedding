@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminsController;
 use App\Http\Controllers\ChildController;
 use App\Http\Controllers\CompanionController;
 use App\Http\Controllers\GuestsController;
+use App\Http\Controllers\MailController;
 use App\Http\Controllers\MainController;
 use App\Models\Guest;
 use Illuminate\Support\Facades\App;
@@ -36,6 +37,8 @@ Route::group(['middleware' => 'under-construction'], function () {
     Route::get('/guest/companion/show/{id}', [CompanionController::class, 'showCompanion'])->name('show.companion');
     Route::get('/guest/show/child/{id}', [ChildController::class, 'showChildren'])->name('show.children');
     Route::get('/guest/companion/confirm/{id}', [CompanionController::class, 'confirmCompanion'])->name('companion.confirm');
+
+    Route::get('/guest/mail/{name}', [MailController::class, 'confirmMail'])->name('confirm.mail');
 
     Auth::routes();
 
