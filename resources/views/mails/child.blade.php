@@ -1,0 +1,1 @@
+{{ $name }}, dodał dziecko <b>{{ $child }}</b> do listy gości.
