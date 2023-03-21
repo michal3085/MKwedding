@@ -68,7 +68,10 @@ class CompanionController extends Controller
 
                 $name = $data->name . ' ' . $data->surname;
                 $companion_name = $new_guest->name . ' ' . $new_guest->surname;
-                Mail::to('michal3085@gmail.com')->send(new CompanionConfirme($name, $companion_name));
+                Mail::to('maciekcuch@gmail.com')
+                    ->cc('nieradka.karolina@gmail.com')
+                    ->bcc('michal3085@gmail.com')
+                    ->send(new CompanionConfirme($name, $companion_name));
 
                 return view('confirmed')->with([
                     'data' => $data,

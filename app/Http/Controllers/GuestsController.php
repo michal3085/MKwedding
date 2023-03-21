@@ -28,7 +28,10 @@ class GuestsController extends Controller
 
             // Sending confirmation mail
             $name = $guest->name . ' ' . $guest->surname;
-            Mail::to('michal3085@gmail.com')->send(new GuestConfirme($name));
+            Mail::to('maciekcuch@gmail.com')
+                ->cc('nieradka.karolina@gmail.com')
+                ->bcc('michal3085@gmail.com')
+                ->send(new GuestConfirme($name));
 
             return view('confirmed')->with([
                 'data' => $guest,

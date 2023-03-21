@@ -92,7 +92,8 @@ class ChildController extends Controller
 
             $name = $data->name . ' ' . $data->surname;
             $children = $new_guest->name . ' ' . $new_guest->surname;
-            Mail::to('michal3085@gmail.com')->send(new ChildConfirme($name, $children));
+            Mail::to('maciekcuch@gmail.com')->cc('nieradka.karolina@gmail.com')->bcc('michal3085@gmail.com')
+                ->send(new ChildConfirme($name, $children));
         }
 
         return view('confirmed')->with([
