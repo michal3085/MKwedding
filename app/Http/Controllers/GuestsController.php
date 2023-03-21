@@ -78,10 +78,12 @@ class GuestsController extends Controller
            'allergies' => 'max:320'
         ]);
         $guest = Guest::where('id', $id)->first();
-        if ($request->hotel == "TAK" ) {
-            $guest->hotel = 1;
-        } else {
-            $guest->hotel = 0;
+        if (isset($request->hotel)) {
+            if ($request->hotel == "TAK" ) {
+                $guest->hotel = 1;
+            } else {
+                $guest->hotel = 0;
+            }
         }
         if ($request->transport == "Nie potrzebuję") {
             $guest->transport = 0;

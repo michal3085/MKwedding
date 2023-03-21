@@ -45,7 +45,10 @@ class CompanionController extends Controller
             $new_guest->child = 0;
             $new_guest->name = $request->name;
             $new_guest->surname = $request->surname;
-            $new_guest->hotel = $request->hotel;
+
+            if (isset($request->hotel)) {
+                $new_guest->hotel = $request->hotel;
+            }
 
             if ($request->transport == "Nie potrzebuję") {
                 $new_guest->transport = 0;

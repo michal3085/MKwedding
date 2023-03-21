@@ -57,7 +57,9 @@ class ChildController extends Controller
                 $guest->trans_from = NULL;
             }
             $guest->allergies = $request->allergies;
-            $guest->hotel = $request->hotel;
+            if (isset($request->hotel)){
+                $guest->hotel = $request->hotel;
+            }
             $guest->vege  = $request->vege;
             $guest->save();
             Child::newChild($id, $guest->id);
@@ -92,7 +94,9 @@ class ChildController extends Controller
 
             $name = $data->name . ' ' . $data->surname;
             $children = $new_guest->name . ' ' . $new_guest->surname;
-            Mail::to('maciekcuch@gmail.com')->cc('nieradka.karolina@gmail.com')->bcc('michal3085@gmail.com')
+            Mail::to('maciekcuch@gmail.com')
+                ->cc('nieradka.karolina@gmail.com')
+                ->bcc('michal3085@gmail.com')
                 ->send(new ChildConfirme($name, $children));
         }
 
