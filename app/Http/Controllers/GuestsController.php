@@ -24,9 +24,11 @@ class GuestsController extends Controller
 
             $guest = Guest::where('name', $request->name)->where('surname', $request->surname)->first();
             $guest->confirmed = 1;
+            $guest->save();
+
+            // Sending confirmation mail
             $name = $guest->name . ' ' . $guest->surname;
             Mail::to('michal3085@gmail.com')->send(new GuestConfirme($name));
-            $guest->save();
 
             return view('confirmed')->with([
                 'data' => $guest,

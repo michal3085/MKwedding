@@ -7,20 +7,22 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Mail\Mailable;
 use Illuminate\Queue\SerializesModels;
 
-class GuestConfirme extends Mailable
+class CompanionConfirme extends Mailable
 {
     use Queueable, SerializesModels;
 
     private $name;
+    private $companion;
 
     /**
      * Create a new message instance.
      *
      * @return void
      */
-    public function __construct($name)
+    public function __construct($name, $companion)
     {
         $this->name = $name;
+        $this->companion = $companion;
     }
 
     /**
@@ -30,6 +32,11 @@ class GuestConfirme extends Mailable
      */
     public function build()
     {
-        return $this->view('mails.guest')->subject('Potwierdzenie obecności')->with(['name' => $this->name]);
+        return $this->view('mails.companion')
+            ->subject('Nowa osoba towarzysząca')
+            ->with([
+            'name' => $this->name,
+            'companion' => $this->companion
+        ]);
     }
 }

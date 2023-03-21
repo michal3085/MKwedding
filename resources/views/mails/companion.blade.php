@@ -1,0 +1,1 @@
+{{ $name }}, dodał/a swoją osobę towarzyszącą: <b>{{ $companion }}</b>

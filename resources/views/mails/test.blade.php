@@ -1,1 +1,0 @@
-Cześć, {{ $name }} właśnie się potwierdził/potwierdziła :)
