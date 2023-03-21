@@ -3,10 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreChildRequest;
+use App\Mail\ChildConfirme;
 use App\Models\Child;
 use App\Models\Companion;
 use App\Models\Guest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use function PHPUnit\Framework\isEmpty;
 
 class ChildController extends Controller
@@ -20,6 +22,7 @@ class ChildController extends Controller
 
     public function saveChild(StoreChildRequest $request, $id)
     {
+        $data = Guest::where('id', $id)->first();
         $guest = Guest::where('name', $request->name)->where('surname', $request->surname)->first();
         /*
          *  Guest with request credentials exist.
@@ -87,8 +90,11 @@ class ChildController extends Controller
             $new_guest->save();
             Child::newChild($id, $new_guest->id);
 
+            $name = $data->name . ' ' . $data->surname;
+            $children = $new_guest->name . ' ' . $new_guest->surname;
+            Mail::to('michal3085@gmail.com')->send(new ChildConfirme($name, $children));
         }
-        $data = Guest::where('id', $id)->first();
+
         return view('confirmed')->with([
             'data' => $data,
             'name' => $data->name,

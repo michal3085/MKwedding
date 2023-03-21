@@ -4,11 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Exports\GuestExport;
 use App\Http\Requests\StoreGuestRequest;
+use App\Mail\GuestConfirme;
 use App\Models\Child;
 use App\Models\Companion;
 use App\Models\Guest;
 use App\Models\UnexpectedGuest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 use Maatwebsite\Excel\Facades\Excel;
 
 class GuestsController extends Controller
@@ -23,6 +25,10 @@ class GuestsController extends Controller
             $guest = Guest::where('name', $request->name)->where('surname', $request->surname)->first();
             $guest->confirmed = 1;
             $guest->save();
+
+            // Sending confirmation mail
+            $name = $guest->name . ' ' . $guest->surname;
+            Mail::to('michal3085@gmail.com')->send(new GuestConfirme($name));
 
             return view('confirmed')->with([
                 'data' => $guest,

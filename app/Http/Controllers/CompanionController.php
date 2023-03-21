@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreGuestRequest;
+use App\Mail\CompanionConfirme;
+use App\Mail\GuestConfirme;
 use App\Models\Companion;
 use App\Models\Guest;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class CompanionController extends Controller
 {
@@ -62,6 +65,10 @@ class CompanionController extends Controller
                 $companion->companion_a = $id;
                 $companion->companion_b = $new_guest->id;
                 $companion->save();
+
+                $name = $data->name . ' ' . $data->surname;
+                $companion_name = $new_guest->name . ' ' . $new_guest->surname;
+                Mail::to('michal3085@gmail.com')->send(new CompanionConfirme($name, $companion_name));
 
                 return view('confirmed')->with([
                     'data' => $data,
