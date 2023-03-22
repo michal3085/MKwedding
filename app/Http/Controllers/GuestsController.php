@@ -9,6 +9,7 @@ use App\Models\Child;
 use App\Models\Companion;
 use App\Models\Guest;
 use App\Models\UnexpectedGuest;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Maatwebsite\Excel\Facades\Excel;
@@ -27,11 +28,13 @@ class GuestsController extends Controller
             $guest->save();
 
             // Sending confirmation mail
+            $emails = User::all();
             $name = $guest->name . ' ' . $guest->surname;
-            Mail::to('maciekcuch@gmail.com')
-                ->cc('nieradka.karolina@gmail.com')
-                ->bcc('michal3085@gmail.com')
-                ->send(new GuestConfirme($name));
+
+            foreach ($emails as $email) {
+                Mail::to($email->email)
+                    ->send(new GuestConfirme($name));
+            }
 
             return view('confirmed')->with([
                 'data' => $guest,

@@ -7,6 +7,7 @@ use App\Mail\ChildConfirme;
 use App\Models\Child;
 use App\Models\Companion;
 use App\Models\Guest;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use function PHPUnit\Framework\isEmpty;
@@ -92,12 +93,15 @@ class ChildController extends Controller
             $new_guest->save();
             Child::newChild($id, $new_guest->id);
 
+            $emails = User::all();
             $name = $data->name . ' ' . $data->surname;
             $children = $new_guest->name . ' ' . $new_guest->surname;
-            Mail::to('maciekcuch@gmail.com')
-                ->cc('nieradka.karolina@gmail.com')
-                ->bcc('michal3085@gmail.com')
-                ->send(new ChildConfirme($name, $children));
+
+            foreach ($emails as $email) {
+                Mail::to($email->email)
+                    ->send(new ChildConfirme($name, $children));
+            }
+
         }
 
         return view('confirmed')->with([

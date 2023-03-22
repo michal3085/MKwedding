@@ -38,8 +38,6 @@ Route::group(['middleware' => 'under-construction'], function () {
     Route::get('/guest/show/child/{id}', [ChildController::class, 'showChildren'])->name('show.children');
     Route::get('/guest/companion/confirm/{id}', [CompanionController::class, 'confirmCompanion'])->name('companion.confirm');
 
-    Route::get('/guest/mail/{name}', [MailController::class, 'confirmMail'])->name('confirm.mail');
-
     Auth::routes();
 
     Route::get('/home', [MainController::class, 'index'])->name('home');
