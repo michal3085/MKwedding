@@ -132,4 +132,10 @@ class Guest extends Model
             return 0;
         }
     }
+
+    public static function getGuestName($id)
+    {
+        $data = Guest::where('id', $id)->first();
+        return $data->name . ' ' . $data->surname;
+    }
 }

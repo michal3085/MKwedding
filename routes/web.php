@@ -57,6 +57,7 @@ Route::group(['middleware' => 'under-construction'], function () {
         Route::get('/panel/unexpected/guests/', [GuestsController::class, 'unexpectedGuests'])->name('unexpected.guests');
         Route::get('/panel/add/companion/{id}', [CompanionController::class, 'quickCompanionStore'])->name('panel.add.companion');
         Route::get('/panel/add/child/{id}', [AdminsController::class, 'addChild'])->name('panel.add.child');
+        Route::get('/panel/companions/', [AdminsController::class, 'companionList'])->name('companion.list');
 
         Route::get('/panel/transport/change/to/brusow/', [Guest::class, 'changeTransportFrom']);
     });
