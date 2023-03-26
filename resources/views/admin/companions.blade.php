@@ -32,6 +32,13 @@
                         <img src="{{asset('/admin/images/couple.png')}}" alt="">
                         <div>
                             <h6><a href="">{{ \App\Models\Guest::getGuestName($guest) }}</a></h6>
+                            @if(!\App\Models\Companion::companionConfirmedCheck($guest))
+                                <div class="badge badge-opacity-warning">Niepotwierdzony
+                                </div>
+                            @else
+                                <div class="badge badge-opacity-success">Potwierdzony
+                                </div>
+                            @endif
                         </div>
                     </div>
                 </td>
@@ -40,6 +47,13 @@
                             <img src="{{asset('/admin/images/couple.png')}}" alt="">
                             <div>
                                 <h6><a href="">{{ \App\Models\Guest::getGuestName($companions[$key]) }} </a></h6>
+                                @if(!\App\Models\Companion::companionConfirmedCheck($companions[$key]))
+                                    <div class="badge badge-opacity-warning">Niepotwierdzony
+                                    </div>
+                                @else
+                                    <div class="badge badge-opacity-success">Potwierdzony
+                                    </div>
+                                @endif
                             </div>
                         </div>
                     </td>
