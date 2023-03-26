@@ -462,6 +462,12 @@
 {{--                </li>--}}
 {{--                <li class="nav-item nav-category">help</li>--}}
                 <li class="nav-item">
+                    <a class="nav-link" href="{{ route('companion.list') }}">
+                        <i class="menu-icon mdi"><i class="far fa-kiss-wink-heart"></i></i>
+                        <span class="menu-title">Osoby Towarzyszące</span>
+                    </a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="{{ route('unexpected.guests') }}">
                         <i class="menu-icon mdi"><i class="fas fa-user-ninja"></i></i>
                         <span class="menu-title">Nieoczekiwani</span>
