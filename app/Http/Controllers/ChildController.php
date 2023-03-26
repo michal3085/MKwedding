@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreChildRequest;
 use App\Mail\ChildConfirme;
+use App\Mail\ConfirmedBy;
 use App\Models\Child;
 use App\Models\Companion;
 use App\Models\Guest;
@@ -25,6 +26,8 @@ class ChildController extends Controller
     {
         $data = Guest::where('id', $id)->first();
         $guest = Guest::where('name', $request->name)->where('surname', $request->surname)->first();
+        $emails = User::all();
+
         /*
          *  Guest with request credentials exist.
          */
@@ -65,6 +68,13 @@ class ChildController extends Controller
             $guest->save();
             Child::newChild($id, $guest->id);
 
+            foreach ($emails as $email) Mail::to($email->email)
+                ->send(new ConfirmedBy(
+                    $guest->name . ' ' . $guest->surname,
+                    $data->name . ' ' . $data->surname,
+                    1
+                ));
+
             /*
              * Guest with request credentials do not exist.
              */
@@ -93,10 +103,8 @@ class ChildController extends Controller
             $new_guest->save();
             Child::newChild($id, $new_guest->id);
 
-            $emails = User::all();
-            $name = $data->name . ' ' . $data->surname;
             $children = $new_guest->name . ' ' . $new_guest->surname;
-
+            $name = $data->name . ' ' . $data->surname;
             foreach ($emails as $email) {
                 Mail::to($email->email)
                     ->send(new ChildConfirme($name, $children));

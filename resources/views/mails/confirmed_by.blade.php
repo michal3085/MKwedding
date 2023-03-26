@@ -1,0 +1,1 @@
+Użytkownik <b>{{ $guest }}</b>, potwierdził obecność @if($child == 1) dziecka: @elseif($child == 0) osoby towarzyszącej: @endif <b>{{ $name }}</b>.

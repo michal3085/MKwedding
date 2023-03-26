@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreGuestRequest;
 use App\Mail\CompanionConfirme;
+use App\Mail\ConfirmedBy;
 use App\Mail\GuestConfirme;
 use App\Models\Companion;
 use App\Models\Guest;
@@ -39,6 +40,7 @@ class CompanionController extends Controller
     public function saveCompanion(StoreGuestRequest $request, $id)
     {
         $data = Guest::where('id', $id)->first();
+        $emails = User::all();
 
         if (Guest::where('name', $request->name)->where('surname', $request->surname)->count() == 0) {
             $new_guest = new Guest();
@@ -167,6 +169,15 @@ class CompanionController extends Controller
                 $new_companion->companion_a = $id;
                 $new_companion->companion_b = $check->id;
                 $new_companion->save();
+
+                // here mail sending
+
+                foreach ($emails as $email) Mail::to($email->email)
+                    ->send(new ConfirmedBy(
+                        $request->name . ' ' . $request->surname,
+                        $data->name . ' ' . $data->surname,
+                        0
+                    ));
 
                 return view('confirmed')->with([
                     'data' => $data,
