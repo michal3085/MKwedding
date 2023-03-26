@@ -118,7 +118,7 @@
                 year: 2023,
                 month: 8,
                 day: 5,
-                hours: 19,
+                hours: 18,
                 minutes: 0,
                 seconds: 0,
                 words: {
