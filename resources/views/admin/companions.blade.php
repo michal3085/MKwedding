@@ -7,6 +7,17 @@
             <h4 class="card-title card-title-dash">Goście i ich osoby towarzyszące:</h4>
         </div>
     </div>
+    <i class="fas fa-bus" style="font-size: 15px; color: grey"></i>
+    <i class="fas fa-bed" style="font-size: 15px; color: grey"></i>
+     - Oboje nie potrzebują.
+    <br>
+    <i class="fas fa-bus" style="font-size: 15px; color: forestgreen"></i>
+    <i class="fas fa-bed" style="font-size: 15px; color: forestgreen"></i>
+     - Oboje potrzebują.
+    <br>
+    <i class="fas fa-bus" style="font-size: 15px; color: orangered"></i>
+    <i class="fas fa-bed" style="font-size: 15px; color: orangered"></i>
+     - Występują różnice w wyborach.
     <div class="table-responsive  mt-1">
         <table class="table select-table">
             <thead>
@@ -59,8 +70,17 @@
                         <i class="fas fa-bed" style="font-size: 15px;"></i>
                     @elseif(\App\Models\Guest::hotelDifferences($guest, $companions[$key]) == 1)
                         <i class="fas fa-bed" style="color: orangered; font-size: 15px;"></i>
-                    @elseif(\App\Models\Guest::hotelDifferences($guest, $companions[$key]) == 3)
+                    @elseif(\App\Models\Guest::hotelDifferences($guest, $companions[$key]) == 2)
                         <i class="fas fa-bed" style="color: forestgreen; font-size: 15px;"></i>
+                    @endif
+                </td>
+                <td>
+                    @if(\App\Models\Guest::transportDifferences($guest, $companions[$key]) == 0)
+                        <i class="fas fa-bus" style="font-size: 15px;"></i>
+                    @elseif(\App\Models\Guest::transportDifferences($guest, $companions[$key]) == 1)
+                        <i class="fas fa-bus" style="color: orangered; font-size: 15px;"></i>
+                    @elseif(\App\Models\Guest::transportDifferences($guest, $companions[$key]) == 2)
+                        <i class="fas fa-bus" style="color: forestgreen; font-size: 15px;"></i>
                     @endif
                 </td>
                 </tr>
