@@ -40,7 +40,7 @@
                     <div class="d-flex ">
                         <img src="{{asset('/admin/images/couple.png')}}" alt="">
                         <div>
-                            <h6><a href="">{{ \App\Models\Guest::getGuestName($guest) }}</a></h6>
+                            <h6><a href="{{ route('guest.profile', ['id' => $guest]) }}">{{ \App\Models\Guest::getGuestName($guest) }}</a></h6>
                             @if(!\App\Models\Companion::companionConfirmedCheck($guest))
                                 <div class="badge badge-opacity-warning">Niepotwierdzony
                                 </div>
@@ -55,7 +55,7 @@
                         <div class="d-flex ">
                             <img src="{{asset('/admin/images/couple.png')}}" alt="">
                             <div>
-                                <h6><a href="">{{ \App\Models\Guest::getGuestName($companions[$key]) }} </a></h6>
+                                <h6><a href="{{ route('guest.profile', ['id' => $companions[$key]]) }}">{{ \App\Models\Guest::getGuestName($companions[$key]) }} </a></h6>
                                 @if(!\App\Models\Companion::companionConfirmedCheck($companions[$key]))
                                     <div class="badge badge-opacity-warning">Niepotwierdzony
                                     </div>

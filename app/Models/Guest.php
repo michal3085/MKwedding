@@ -144,7 +144,7 @@ class Guest extends Model
      * Returns 1 if there are differences in hotel chose by companions,
      * Returns 2 if both need a hotel.
      */
-    public static function hotelDifferences($guest, $companion)
+    public static function hotelDifferences($guest, $companion): int
     {
         $data = Guest::whereIn('id', [$guest, $companion])->get();
 
@@ -160,7 +160,7 @@ class Guest extends Model
     /*
      * The same returns as hotelDifferences.
      */
-    public static function transportDifferences($guest, $companion)
+    public static function transportDifferences($guest, $companion): int
     {
         $data = Guest::whereIn('id', [$guest, $companion])->get();
 
