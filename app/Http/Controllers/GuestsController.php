@@ -28,7 +28,7 @@ class GuestsController extends Controller
             $guest->save();
 
             // Sending confirmation mail
-            $emails = User::all();
+            $emails = User::where('mail_notifications', 1)->get();
             $name = $guest->name . ' ' . $guest->surname;
 
             foreach ($emails as $email) {

@@ -21,6 +21,7 @@ class User extends Authenticatable
         'name',
         'email',
         'password',
+        'mail_notifications',
     ];
 
     /**
@@ -41,4 +42,15 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public static function emailConsent($id)
+    {
+        $user = User::where('id', $id)->first();
+
+        if ($user->mail_notifications == 1) {
+            return 1;
+        } else {
+            return 0;
+        }
+    }
 }

@@ -6,6 +6,7 @@ use App\Http\Controllers\CompanionController;
 use App\Http\Controllers\GuestsController;
 use App\Http\Controllers\MailController;
 use App\Http\Controllers\MainController;
+use App\Http\Controllers\UsersController;
 use App\Models\Guest;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Route;
@@ -58,6 +59,7 @@ Route::group(['middleware' => 'under-construction'], function () {
         Route::get('/panel/add/companion/{id}', [CompanionController::class, 'quickCompanionStore'])->name('panel.add.companion');
         Route::get('/panel/add/child/{id}', [AdminsController::class, 'addChild'])->name('panel.add.child');
         Route::get('/panel/companions/', [AdminsController::class, 'companionList'])->name('companion.list');
+        Route::get('/panel/mails/change/', [UsersController::class, 'mailNotificationsChange'])->name('mail.notifications');
 
         Route::get('/panel/test/{guest}/{companion}', [Guest::class, 'hotelDifferences']);
 

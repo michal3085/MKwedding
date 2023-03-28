@@ -26,7 +26,7 @@ class ChildController extends Controller
     {
         $data = Guest::where('id', $id)->first();
         $guest = Guest::where('name', $request->name)->where('surname', $request->surname)->first();
-        $emails = User::all();
+        $emails = User::where('mail_notifications', 1)->get();
 
         /*
          *  Guest with request credentials exist.
