@@ -99,8 +99,12 @@
                     </form>
                 </li>
                 <li class="nav-item dropdown">
-                    <a class="nav-link count-indicator" id="notificationDropdown" href="#" data-bs-toggle="dropdown">
-                        <i class="icon-mail icon-lg"></i>
+                    <a class="nav-link count-indicator" id="notificationDropdown" href="{{ route('mail.notifications') }}">
+                        @if(\App\Models\User::emailConsent(\Illuminate\Support\Facades\Auth::user()->id) == 1)
+                            <i class="icon-mail icon-lg" style="color: forestgreen"></i>
+                        @else
+                            <i class="icon-mail icon-lg" style="color: orangered"></i>
+                        @endif
                     </a>
                     <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list pb-0" aria-labelledby="notificationDropdown">
                         <a class="dropdown-item py-3 border-bottom">
@@ -461,6 +465,12 @@
 {{--                    </div>--}}
 {{--                </li>--}}
 {{--                <li class="nav-item nav-category">help</li>--}}
+                <li class="nav-item">
+                    <a class="nav-link" href="{{ route('companion.list') }}">
+                        <i class="menu-icon mdi"><i class="far fa-kiss-wink-heart"></i></i>
+                        <span class="menu-title">Osoby Towarzyszące</span>
+                    </a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{ route('unexpected.guests') }}">
                         <i class="menu-icon mdi"><i class="fas fa-user-ninja"></i></i>

@@ -40,7 +40,7 @@ class CompanionController extends Controller
     public function saveCompanion(StoreGuestRequest $request, $id)
     {
         $data = Guest::where('id', $id)->first();
-        $emails = User::all();
+        $emails = User::where('mail_notifications', 1)->get();
 
         if (Guest::where('name', $request->name)->where('surname', $request->surname)->count() == 0) {
             $new_guest = new Guest();
@@ -72,7 +72,7 @@ class CompanionController extends Controller
                 $companion->companion_b = $new_guest->id;
                 $companion->save();
 
-                $emails = User::all();
+                $emails = User::where('mail_notifications', 1)->get();
                 $name = $data->name . ' ' . $data->surname;
                 $companion_name = $new_guest->name . ' ' . $new_guest->surname;
 
@@ -170,7 +170,6 @@ class CompanionController extends Controller
                 $new_companion->companion_b = $check->id;
                 $new_companion->save();
 
-                // here mail sending
 
                 foreach ($emails as $email) Mail::to($email->email)
                     ->send(new ConfirmedBy(

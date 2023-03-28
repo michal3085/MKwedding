@@ -242,4 +242,15 @@ class AdminsController extends Controller
         }
         return redirect()->back();
     }
+
+    public function companionList()
+    {
+        $guest = Companion::all()->pluck('companion_a');
+        $companions = Companion::all()->pluck('companion_b');
+
+        return view('admin.companions')->with([
+            'guests' => $guest,
+            'companions' => $companions
+        ]);
+    }
 }
