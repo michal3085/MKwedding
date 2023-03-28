@@ -138,4 +138,26 @@ class Guest extends Model
         $data = Guest::where('id', $id)->first();
         return $data->name . ' ' . $data->surname;
     }
+
+    /*
+     * Returns 1 if there are differences in hotel choose by companions.
+     * Returns 0 if choices are the same.
+     */
+    public static function hotelDifferences($guest, $companion)
+    {
+        $data = Guest::whereIn('id', [$guest, $companion])->get();
+
+        if ($data[0]->hotel == 0 && $data[1]->hotel == NULL || $data[0]->hotel == NULL && $data[1]->hotel == 0) {
+            return 0;
+        } elseif ($data[0]->hotel !== $data[1]->hotel ) {
+            return 1;
+        } else {
+            return 3;
+        }
+    }
+
+    public static function transportDifferences($guest, $companion)
+    {
+        //
+    }
 }

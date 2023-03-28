@@ -14,16 +14,13 @@
                 <th>lp.</th>
                 <th>Gość</th>
                 <th>Osoba Towarzysząca</th>
-                <th>Alergie/Uwagi</th>
-                <th>Menu Vege</th>
                 <th>Hotel</th>
                 <th>Transport</th>
-                <th>Status</th>
             </tr>
             </thead>
             <tbody>
             <tr>
-                @foreach($guests as $key => $guest)
+            @foreach($guests as $key => $guest)
                 <td>
                     {{ 1 + $key }}
                 </td>
@@ -57,6 +54,15 @@
                             </div>
                         </div>
                     </td>
+                <td>
+                    @if(\App\Models\Guest::hotelDifferences($guest, $companions[$key]) == 0)
+                        <i class="fas fa-bed" style="font-size: 15px;"></i>
+                    @elseif(\App\Models\Guest::hotelDifferences($guest, $companions[$key]) == 1)
+                        <i class="fas fa-bed" style="color: orangered; font-size: 15px;"></i>
+                    @elseif(\App\Models\Guest::hotelDifferences($guest, $companions[$key]) == 3)
+                        <i class="fas fa-bed" style="color: forestgreen; font-size: 15px;"></i>
+                    @endif
+                </td>
                 </tr>
                 <tr>
             </tr>
