@@ -27,6 +27,7 @@
                 <th>Osoba Towarzysząca</th>
                 <th>Hotel</th>
                 <th>Transport</th>
+                <th>Napraw</th>
             </tr>
             </thead>
             <tbody>
@@ -82,6 +83,9 @@
                     @elseif(\App\Models\Guest::transportDifferences($guest, $companions[$key]) == 2)
                         <i class="fas fa-bus" style="color: forestgreen; font-size: 15px;"></i>
                     @endif
+                </td>
+                <td>
+                    <i class="fas fa-tools" style="font-size: 15px;"></i>
                 </td>
                 </tr>
                 <tr>
