@@ -169,7 +169,11 @@ class Guest extends Model
         } elseif ($data[0]->transport !== $data[1]->transport ) {
             return 1;
         } else {
-            return 2;
+            if ($data[0]->trans_from !== $data[1]->trans_from) {
+                return 1;
+            } else {
+                return 2;
+            }
         }
     }
 }
