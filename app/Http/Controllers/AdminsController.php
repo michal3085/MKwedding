@@ -253,4 +253,48 @@ class AdminsController extends Controller
             'companions' => $companions
         ]);
     }
+
+    /*
+     * Prepare data for conflicts view.
+     */
+    public function resolveConflicts($guest, $companion)
+    {
+        return view('admin.conflicts')
+            ->with([
+                'guest' => Guest::where('id', $guest)->first(),
+                'companion' => Guest::where('id', $companion)->first()
+            ]);
+    }
+
+    public function updateTransport($id, $to)
+    {
+        $guest = Guest::where('id', $id)->first();
+
+        if($to == 0) {
+            $guest->transport = 0;
+        } elseif ($to == 1) {
+            $guest->transport = 1;
+            $guest->trans_from = 'Stalowa Wola';
+        } elseif ($to == 2) {
+            $guest->transport = 1;
+            $guest->trans_from = 'Brusów';
+        }
+        $guest->save();
+
+        return redirect()->back();
+    }
+
+    public function updateHotel($id)
+    {
+        $guest = Guest::where('id', $id)->first();
+
+        if ($guest->hotel == 0) {
+            $guest->hotel = 1;
+        } elseif ($guest->hotel == 1) {
+            $guest->hotel = 0;
+        }
+        $guest->save();
+
+        return redirect()->back();
+    }
 }

@@ -60,6 +60,9 @@ Route::group(['middleware' => 'under-construction'], function () {
         Route::get('/panel/add/child/{id}', [AdminsController::class, 'addChild'])->name('panel.add.child');
         Route::get('/panel/companions/', [AdminsController::class, 'companionList'])->name('companion.list');
         Route::get('/panel/mails/change/', [UsersController::class, 'mailNotificationsChange'])->name('mail.notifications');
+        Route::get('/panel/conflicts/{guest}/{companion}', [AdminsController::class, 'resolveConflicts'])->name('resolve.conflicts');
+        Route::get('/panel/update/transport/{id}/{to}', [AdminsController::class, 'updateTransport'])->name('update.transport');
+        Route::get('/panel/update/hotel/{id}', [AdminsController::class, 'updateHotel'])->name('update.hotel');
 
         Route::get('/panel/test/{guest}/{companion}', [Guest::class, 'hotelDifferences']);
 

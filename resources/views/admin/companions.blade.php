@@ -85,7 +85,7 @@
                     @endif
                 </td>
                 <td>
-                    <i class="fas fa-tools" style="font-size: 15px;"></i>
+                   <a href="{{ route('resolve.conflicts', ['guest' => $guest, 'companion' => $companions[$key]]) }}"><i class="fas fa-tools" style="font-size: 15px;"></i></a>
                 </td>
                 </tr>
                 <tr>
