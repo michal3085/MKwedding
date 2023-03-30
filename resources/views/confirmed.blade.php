@@ -60,6 +60,9 @@
                                 @endif
                                 @if(\App\Models\Companion::companionConfirmedCheck(\App\Models\Companion::getMyCompanionId($gid)))
                                     <a href="{{ route('show.companion', ['id' => $gid]) }}"><button type="submit" class="btn btn-outline-success" style="background-color: rgba(0,187,0,0.32)"><i class="far fa-kiss-wink-heart"></i> {{ \App\Models\Companion::getNameOfCompanion($gid) }}</button></a>
+                                    @if(\App\Models\Guest::transportDifferences($gid, \App\Models\Companion::getMyCompanionId($gid)) == 1)
+                                        <p style="color: #dc3545">Twoja osoba towarzysząca ma zaznaczone inne opcje dotyczące transportu.</p>
+                                    @endif
                                 @endif
                             @else
                                 <label for="exampleFormControlSelect1">Osoba Towarzysząca: </label><br>
