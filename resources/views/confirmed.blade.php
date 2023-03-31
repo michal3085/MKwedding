@@ -83,7 +83,7 @@
                                 <button type="submit" style="@if($childs->confirmed == 0) @else background-color: rgba(77,192,241,0.4) @endif" class="btn btn-outline-success">
                                     <i class="fas fa-baby"></i> {{ $childs->name }} {{ $childs->surname }}
                                     @if($childs->confirmed == 0)
-                                        (Niepotwierdzony)
+                                        (Niepotwierdzony, kliknij aby potwierdzić)
                                     @endif
                                 </button>
                             </a>

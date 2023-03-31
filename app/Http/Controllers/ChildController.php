@@ -130,7 +130,6 @@ class ChildController extends Controller
     public function showChildren($child_id, $gid)
     {
         $children = Guest::where('id', $child_id)->first();
-
         if ($children->confirmed == 0) {
             $parent = Guest::where('id', $gid)->first();
             $children->confirmed = 1;
