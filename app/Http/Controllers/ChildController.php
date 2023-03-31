@@ -15,6 +15,13 @@ use function PHPUnit\Framework\isEmpty;
 
 class ChildController extends Controller
 {
+    private $emails;
+
+    public function __construct()
+    {
+        $this->emails = User::where('mail_notifications', 1)->get();
+    }
+
     public function addChild($id)
     {
         return view('children')->with([
@@ -26,7 +33,6 @@ class ChildController extends Controller
     {
         $data = Guest::where('id', $id)->first();
         $guest = Guest::where('name', $request->name)->where('surname', $request->surname)->first();
-        $emails = User::where('mail_notifications', 1)->get();
 
         /*
          *  Guest with request credentials exist.
@@ -68,7 +74,7 @@ class ChildController extends Controller
             $guest->save();
             Child::newChild($id, $guest->id);
 
-            foreach ($emails as $email) Mail::to($email->email)
+            foreach ($this->emails as $email) Mail::to($email->email)
                 ->send(new ConfirmedBy(
                     $guest->name . ' ' . $guest->surname,
                     $data->name . ' ' . $data->surname,
@@ -105,7 +111,7 @@ class ChildController extends Controller
 
             $children = $new_guest->name . ' ' . $new_guest->surname;
             $name = $data->name . ' ' . $data->surname;
-            foreach ($emails as $email) {
+            foreach ($this->emails as $email) {
                 Mail::to($email->email)
                     ->send(new ChildConfirme($name, $children));
             }
@@ -121,16 +127,28 @@ class ChildController extends Controller
         ]);
     }
 
-    public function showChildren($child_id)
+    public function showChildren($child_id, $gid)
     {
         $children = Guest::where('id', $child_id)->first();
 
-        $data = Guest::where('id', $children->id)->first();
+        if ($children->confirmed == 0) {
+            $parent = Guest::where('id', $gid)->first();
+            $children->confirmed = 1;
+            $children->save();
+
+            foreach ($this->emails as $email) Mail::to($email->email)
+                ->send(new ConfirmedBy(
+                    $children->name . ' ' . $children->surname,
+                    $parent->name . ' ' . $parent->surname,
+                    1
+                ));
+        }
+
         return view('confirmed')->with([
-            'data' => $data,
-            'name' => $data->name,
-            'surname' => $data->surname,
-            'gid' => $data->id,
+            'data' => $children,
+            'name' => $children->name,
+            'surname' => $children->surname,
+            'gid' => $children->id,
         ]);
     }
 }
