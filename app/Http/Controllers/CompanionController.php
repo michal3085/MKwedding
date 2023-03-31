@@ -40,20 +40,7 @@ class CompanionController extends Controller
         $guest->save();
         $mainGuest = Guest::where('id', Companion::getMyCompanionId($id))->first();
 
-        foreach ($this->emails as $email) Mail::to($email->email)
-            ->send(new ConfirmedBy(
-                $guest->name . ' ' . $guest->surname,
-                $mainGuest->name . ' ' . $mainGuest->surname,
-                0
-            ));
-
-        return view('confirmed')->with([
-            'data' => $mainGuest,
-            'name' => $mainGuest->name,
-            'surname' => $mainGuest->surname,
-            'gid' => $mainGuest->id,
-            'status' => 'companion_added'
-        ]);
+        return $this->extracted($guest, $mainGuest);
     }
 
     public function showCompanionData($id)
@@ -193,20 +180,7 @@ class CompanionController extends Controller
                 $new_companion->save();
 
 
-                foreach ($this->emails as $email) Mail::to($email->email)
-                    ->send(new ConfirmedBy(
-                        $request->name . ' ' . $request->surname,
-                        $data->name . ' ' . $data->surname,
-                        0
-                    ));
-
-                return view('confirmed')->with([
-                    'data' => $data,
-                    'name' => $data->name,
-                    'surname' => $data->surname,
-                    'gid' => $data->id,
-                    'status' => 'companion_added'
-                ]);
+                return $this->extracted($request, $data);
             }
         }
     }
@@ -253,6 +227,29 @@ class CompanionController extends Controller
             'name' => $companion->name,
             'surname' => $companion->surname,
             'gid' => $companion->id,
+        ]);
+    }
+
+    /**
+     * @param $guest
+     * @param $mainGuest
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
+     */
+    public function extracted($guest, $mainGuest)
+    {
+        foreach ($this->emails as $email) Mail::to($email->email)
+            ->send(new ConfirmedBy(
+                $guest->name . ' ' . $guest->surname,
+                $mainGuest->name . ' ' . $mainGuest->surname,
+                0
+            ));
+
+        return view('confirmed')->with([
+            'data' => $mainGuest,
+            'name' => $mainGuest->name,
+            'surname' => $mainGuest->surname,
+            'gid' => $mainGuest->id,
+            'status' => 'companion_added'
         ]);
     }
 }
