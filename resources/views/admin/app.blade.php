@@ -60,19 +60,19 @@
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item preview-item" href="{{ route('admin') }}">
                             <div class="preview-item-content flex-grow py-2">
-                                <p class="preview-subject ellipsis font-weight-medium text-dark">Lista Gości </p>
+                                <p class="preview-subject ellipsis font-weight-medium text-dark"><b>Lista Gości</b></p>
                                 <p class="fw-light small-text mb-0">Powraca do listy wszystkich gości</p>
                             </div>
                         </a>
                         <a class="dropdown-item preview-item" href="{{ route('companion.list') }}">
                             <div class="preview-item-content flex-grow py-2">
-                                <p class="preview-subject ellipsis font-weight-medium text-dark">Osoby Towarzyszące </p>
+                                <p class="preview-subject ellipsis font-weight-medium text-dark"><b>Osoby Towarzyszące</b></p>
                                 <p class="fw-light small-text mb-0">Wyświetla listę powiązanych ze sobą gości.</p>
                             </div>
                         </a>
                         <a class="dropdown-item preview-item" href="{{ route('unexpected.guests') }}">
                             <div class="preview-item-content flex-grow py-2">
-                                <p class="preview-subject ellipsis font-weight-medium text-dark">Osoby Nieoczekiwane </p>
+                                <p class="preview-subject ellipsis font-weight-medium text-dark"><b>Osoby Nieoczekiwane</b></p>
                                 <p class="fw-light small-text mb-0">Wyświetla listę osób, które próbowały się potwierdzić, ale nie było ich na liście gości.</p>
                             </div>
                         </a>
