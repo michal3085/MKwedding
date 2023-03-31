@@ -79,7 +79,14 @@
                     @if (\App\Models\Child::doIHaveAChild($gid))
                         <br>
                         @foreach(\App\Models\Child::getChildrensData($gid) as $childs)
-                            <a href="{{ route('show.children', ['id' => $childs->id]) }}"><button type="submit" style="background-color: rgba(77,192,241,0.4)" class="btn btn-outline-success"><i class="fas fa-baby"></i> {{ $childs->name }} {{ $childs->surname }}</button></a>
+                            <a href="{{ route('show.children', ['id' => $childs->id, 'gid' => $gid]) }}">
+                                <button type="submit" style="@if($childs->confirmed == 0) @else background-color: rgba(77,192,241,0.4) @endif" class="btn btn-outline-success">
+                                    <i class="fas fa-baby"></i> {{ $childs->name }} {{ $childs->surname }}
+                                    @if($childs->confirmed == 0)
+                                        (Niepotwierdzony)
+                                    @endif
+                                </button>
+                            </a>
                         @endforeach
                     @endif
                 @endif
