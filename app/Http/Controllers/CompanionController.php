@@ -14,6 +14,13 @@ use Illuminate\Support\Facades\Mail;
 
 class CompanionController extends Controller
 {
+    private $emails;
+
+    public function __construct()
+    {
+        $this->emails = User::where('mail_notifications', 1)->get();
+    }
+
     public function addCompanion($id)
     {
         $data = Guest::where('id', $id)->first();
@@ -28,8 +35,25 @@ class CompanionController extends Controller
 
     public function confirmCompanion($id)
     {
-        Guest::where('id', $id)->update(['confirmed' => 1]);
-        return redirect()->back();
+        $guest = Guest::where('id', $id)->first();
+        $guest->confirmed = 1;
+        $guest->save();
+        $mainGuest = Guest::where('id', Companion::getMyCompanionId($id))->first();
+
+        foreach ($this->emails as $email) Mail::to($email->email)
+            ->send(new ConfirmedBy(
+                $guest->name . ' ' . $guest->surname,
+                $mainGuest->name . ' ' . $mainGuest->surname,
+                0
+            ));
+
+        return view('confirmed')->with([
+            'data' => $mainGuest,
+            'name' => $mainGuest->name,
+            'surname' => $mainGuest->surname,
+            'gid' => $mainGuest->id,
+            'status' => 'companion_added'
+        ]);
     }
 
     public function showCompanionData($id)
@@ -40,7 +64,6 @@ class CompanionController extends Controller
     public function saveCompanion(StoreGuestRequest $request, $id)
     {
         $data = Guest::where('id', $id)->first();
-        $emails = User::where('mail_notifications', 1)->get();
 
         if (Guest::where('name', $request->name)->where('surname', $request->surname)->count() == 0) {
             $new_guest = new Guest();
@@ -72,11 +95,10 @@ class CompanionController extends Controller
                 $companion->companion_b = $new_guest->id;
                 $companion->save();
 
-                $emails = User::where('mail_notifications', 1)->get();
                 $name = $data->name . ' ' . $data->surname;
                 $companion_name = $new_guest->name . ' ' . $new_guest->surname;
 
-                foreach ($emails as $email) {
+                foreach ($this->emails as $email) {
                     Mail::to($email->email)
                         ->send(new CompanionConfirme($name, $companion_name));
                 }
@@ -171,7 +193,7 @@ class CompanionController extends Controller
                 $new_companion->save();
 
 
-                foreach ($emails as $email) Mail::to($email->email)
+                foreach ($this->emails as $email) Mail::to($email->email)
                     ->send(new ConfirmedBy(
                         $request->name . ' ' . $request->surname,
                         $data->name . ' ' . $data->surname,
