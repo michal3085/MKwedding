@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Exports\GuestExport;
-use App\Http\Requests\StoreGuestRequest;
 use App\Mail\GuestConfirme;
 use App\Models\Child;
 use App\Models\Companion;
@@ -80,6 +79,7 @@ class GuestsController extends Controller
         $request->validate([
            'allergies' => 'max:320'
         ]);
+
         $guest = Guest::where('id', $id)->first();
         if (isset($request->hotel)) {
             if ($request->hotel == "TAK" ) {
@@ -126,7 +126,9 @@ class GuestsController extends Controller
 
             return view('admin.guest')->with(['guest' => $guest]);
         } else {
+
             $guest->save();
+
             return view('confirmed')->with([
                 'data' => $guest,
                 'gid' => $guest->id,

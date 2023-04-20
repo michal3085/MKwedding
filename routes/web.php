@@ -63,6 +63,8 @@ Route::group(['middleware' => 'under-construction'], function () {
         Route::get('/panel/conflicts/{guest}/{companion}', [AdminsController::class, 'resolveConflicts'])->name('resolve.conflicts');
         Route::get('/panel/update/transport/{id}/{to}', [AdminsController::class, 'updateTransport'])->name('update.transport');
         Route::get('/panel/update/hotel/{id}', [AdminsController::class, 'updateHotel'])->name('update.hotel');
+        Route::get('/panel/guest/refusal/{id}', [AdminsController::class, 'guestRefusal'])->name('guest.refusal');
+        Route::get('/panel/cancel/refusal/{id}', [AdminsController::class, 'cancelRefusal'])->name('cancel.refusal');
 
         Route::get('/panel/test/{guest}/{companion}', [Guest::class, 'hotelDifferences']);
 

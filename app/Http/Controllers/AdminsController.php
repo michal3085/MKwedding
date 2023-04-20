@@ -266,6 +266,20 @@ class AdminsController extends Controller
             ]);
     }
 
+    public function guestRefusal($id)
+    {
+        Guest::where('id', $id)->update(['confirmed' => 2]);
+
+        return redirect()->back();
+    }
+
+    public function cancelRefusal($id)
+    {
+        Guest::where('id', $id)->update(['confirmed' => 0]);
+
+        return redirect()->back();
+    }
+
     public function updateTransport($id, $to)
     {
         $guest = Guest::where('id', $id)->first();
