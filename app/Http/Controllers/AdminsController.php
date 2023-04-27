@@ -52,6 +52,9 @@ class AdminsController extends Controller
                 break;
             case 7:
                 $guests = Guest::where('child', 1)->latest()->paginate(20);
+                break;
+            case 8:
+                $guests = Guest::where('confirmed', 2)->latest()->paginate(20);
         }
         return view('admin.main')->with([
             'guests' => $guests,
@@ -264,6 +267,20 @@ class AdminsController extends Controller
                 'guest' => Guest::where('id', $guest)->first(),
                 'companion' => Guest::where('id', $companion)->first()
             ]);
+    }
+
+    public function guestRefusal($id)
+    {
+        Guest::where('id', $id)->update(['confirmed' => 2]);
+
+        return redirect()->back();
+    }
+
+    public function cancelRefusal($id)
+    {
+        Guest::where('id', $id)->update(['confirmed' => 0]);
+
+        return redirect()->back();
     }
 
     public function updateTransport($id, $to)

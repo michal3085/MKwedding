@@ -65,11 +65,16 @@
                     </div>
                     @if ($guest->confirmed == 0)
                         <a href="{{ route('panel.confirm', ['id' => $guest->id]) }}"><button type="button" class="btn btn-outline-success">Potwierdź</button></a>
-                            @else
+                            @elseif($guest->confirmed == 1)
                         <a href="{{ route('panel.del.confirm', ['id' => $guest->id]) }}"><button type="button" class="btn btn-outline-danger">Anuluj potwierdzenie</button></a>
                         @if (\App\Models\Companion::companionExists($guest->id) || \App\Models\Child::doIHaveAChild($guest->id))
                             <a href="{{ route('panel.del.confirm', ['id' => $guest->id, 'with_all' => 1]) }}"><button type="button" class="btn btn-outline-danger">Anuluj potwierdzenie z powiązanymi</button></a><br><br>
                         @endif
+                    @endif
+                    @if($guest->confirmed == 2)
+                        <a href="{{ route('cancel.refusal', ['id' => $guest->id]) }}"><button type="button" class="btn btn-danger">Odmowa</button></a>
+                    @else
+                        <a href="{{ route('guest.refusal', ['id' => $guest->id]) }}"><button type="button" class="btn btn-outline-danger">Odmowa</button></a>
                     @endif
                     <button type="button" class="btn btn-outline-danger guest_delete" data-id="{{ $guest->id }}">Usuń</button>
                     <hr>

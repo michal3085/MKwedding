@@ -32,12 +32,16 @@
                                aria-selected="false">Uwagi/Alergie</a>
                         </li>
                         <li class="nav-item">
-                            <a @if($mode == 5) class="nav-link active border-0" @else class="nav-link" @endif id="a-tab" href="{{ route('filter.guests', ['filter' => 5]) }}" role="tab"
+                            <a @if($mode == 5) class="nav-link active" @else class="nav-link" @endif id="a-tab" href="{{ route('filter.guests', ['filter' => 5]) }}" role="tab"
                                aria-selected="false">Vege</a>
                         </li>
                         <li class="nav-item">
-                            <a @if($mode == 7) class="nav-link active border-0" @else class="nav-link border-0" @endif id="a-tab" href="{{ route('filter.guests', ['filter' => 7]) }}" role="tab"
+                            <a @if($mode == 7) class="nav-link active" @else class="nav-link" @endif id="a-tab" href="{{ route('filter.guests', ['filter' => 7]) }}" role="tab"
                                aria-selected="false">Dzieci</a>
+                        </li>
+                        <li class="nav-item">
+                            <a @if($mode == 7) class="nav-link active border-0" @else class="nav-link border-0" @endif id="a-tab" href="{{ route('filter.guests', ['filter' => 8]) }}" role="tab"
+                               aria-selected="false">Odmowa</a>
                         </li>
                     </ul>
                     <div>
@@ -190,7 +194,11 @@
                                                             <div class="d-flex ">
                                                                 <img src="{{asset('/admin/images/couple.png')}}" alt="">
                                                                 <div>
-                                                                    <h6><a href="{{ route('guest.profile', ['id' => $guest->id]) }}">{{ $guest->name }} {{ $guest->surname }}</a></h6>
+                                                                    @if($guest->confirmed == 2)
+                                                                        <h6><a href="{{ route('guest.profile', ['id' => $guest->id]) }}" style="color: red">{{ $guest->name }} {{ $guest->surname }}</a></h6>
+                                                                    @else
+                                                                        <h6><a href="{{ route('guest.profile', ['id' => $guest->id]) }}">{{ $guest->name }} {{ $guest->surname }}</a></h6>
+                                                                    @endif
                                                                     @if (\App\Models\Companion::companionExists($guest->id) == 1)
                                                                         @if ($guest->confirmed == 1 && !\App\Models\Companion::companionConfirmedCheck(\App\Models\Companion::getMyCompanionId($guest->id)))
                                                                             <p style="color: red">{{ \App\Models\Companion::getNameOfCompanion($guest->id) }}</p>
@@ -247,6 +255,10 @@
                                                             <td>
                                                                 <div class="badge badge-opacity-success">Potwierdzony
                                                                 </div>
+                                                            </td>
+                                                        @elseif($guest->confirmed == 2)
+                                                            <td>
+                                                                <div class="badge badge-opacity-danger">Odmowa</div>
                                                             </td>
                                                         @else
                                                             <td>
