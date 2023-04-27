@@ -52,6 +52,9 @@ class AdminsController extends Controller
                 break;
             case 7:
                 $guests = Guest::where('child', 1)->latest()->paginate(20);
+                break;
+            case 8:
+                $guests = Guest::where('confirmed', 2)->latest()->paginate(20);
         }
         return view('admin.main')->with([
             'guests' => $guests,

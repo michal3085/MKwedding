@@ -32,12 +32,16 @@
                                aria-selected="false">Uwagi/Alergie</a>
                         </li>
                         <li class="nav-item">
-                            <a @if($mode == 5) class="nav-link active border-0" @else class="nav-link" @endif id="a-tab" href="{{ route('filter.guests', ['filter' => 5]) }}" role="tab"
+                            <a @if($mode == 5) class="nav-link active" @else class="nav-link" @endif id="a-tab" href="{{ route('filter.guests', ['filter' => 5]) }}" role="tab"
                                aria-selected="false">Vege</a>
                         </li>
                         <li class="nav-item">
-                            <a @if($mode == 7) class="nav-link active border-0" @else class="nav-link border-0" @endif id="a-tab" href="{{ route('filter.guests', ['filter' => 7]) }}" role="tab"
+                            <a @if($mode == 7) class="nav-link active" @else class="nav-link" @endif id="a-tab" href="{{ route('filter.guests', ['filter' => 7]) }}" role="tab"
                                aria-selected="false">Dzieci</a>
+                        </li>
+                        <li class="nav-item">
+                            <a @if($mode == 7) class="nav-link active border-0" @else class="nav-link border-0" @endif id="a-tab" href="{{ route('filter.guests', ['filter' => 8]) }}" role="tab"
+                               aria-selected="false">Odmowa</a>
                         </li>
                     </ul>
                     <div>
