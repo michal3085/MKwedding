@@ -9,6 +9,7 @@ use App\Mail\GuestConfirme;
 use App\Models\Companion;
 use App\Models\Guest;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 
@@ -18,6 +19,8 @@ class CompanionController extends Controller
 
     public function __construct()
     {
+        parent::__construct();
+
         $this->emails = User::where('mail_notifications', 1)->get();
     }
 
@@ -36,8 +39,12 @@ class CompanionController extends Controller
     public function confirmCompanion($id)
     {
         $guest = Guest::where('id', $id)->first();
-        $guest->confirmed = 1;
-        $guest->save();
+
+        if ($this->confirmation_time === true) {
+            $guest->confirmed = 1;
+            $guest->save();
+        }
+
         $mainGuest = Guest::where('id', Companion::getMyCompanionId($id))->first();
 
         return $this->extracted($guest, $mainGuest);
@@ -222,11 +229,19 @@ class CompanionController extends Controller
     {
         $companion = Guest::where('id', Companion::getMyCompanionId($id))->first();
 
+        if($this->confirmation_time === false) {
+            $status = 'after_confirmation_time';
+        } else {
+            $status = 'companion_added';
+        }
+
+
         return view('confirmed')->with([
             'data' => $companion,
             'name' => $companion->name,
             'surname' => $companion->surname,
             'gid' => $companion->id,
+            'status' => $status,
         ]);
     }
 
@@ -244,12 +259,18 @@ class CompanionController extends Controller
                 0
             ));
 
+        if($this->confirmation_time === false) {
+            $status = 'after_confirmation_time';
+        } else {
+            $status = 'companion_added';
+        }
+
         return view('confirmed')->with([
             'data' => $mainGuest,
             'name' => $mainGuest->name,
             'surname' => $mainGuest->surname,
             'gid' => $mainGuest->id,
-            'status' => 'companion_added'
+            'status' => $status,
         ]);
     }
 }
