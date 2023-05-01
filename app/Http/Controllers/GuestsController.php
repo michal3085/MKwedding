@@ -18,21 +18,32 @@ use Maatwebsite\Excel\Facades\Excel;
 class GuestsController extends Controller
 {
     /*
-     * Prepare data for confirmation view
+     * Guest confirmation
      */
     public function confirmGuest(Request $request, ConfirmService $service)
     {
-        $guest = $service->doService($request);
+        if(Carbon::now()->gt('06/20/2023')) {
+            $guest = Guest::where('name', $request->name)->where('surname', $request->surname)->first();
 
-        if(Carbon::now()->lessThan('06/01/2023')) {
-            return view('confirmed')->with([
-                'data' => $guest,
-                'gid' => $guest->id,
-                'name' => $guest->name,
-                'surname' => $guest->surname,
-                'status' => 'after_confirmation_time',
-            ]);
+            if ($guest->count() != 0) {
+                return view('confirmed')->with([
+                    'data' => $guest,
+                    'gid' => $guest->id,
+                    'name' => $guest->name,
+                    'surname' => $guest->surname,
+                    'status' => 'after_confirmation_time',
+                ]);
+            } else {
+                return view('confirmed')->with([
+                    'status' => 'no_guest'
+                ]);
+            }
         }
+
+        /*
+         * Confirm if not confirmed, or get guest data.
+         */
+        $guest = $service->doService($request);
 
         if ($guest === 0) {
             return view('confirmed')->with([
