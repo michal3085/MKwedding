@@ -27,7 +27,7 @@ class GuestsController extends Controller
         if($this->confirmation_time === false) {
             $guest = Guest::where('name', $request->name)->where('surname', $request->surname)->first();
 
-            if ($guest->count() !== 0) {
+            if ($guest !== null) {
                 return view('confirmed')->with([
                     'data' => $guest,
                     'gid' => $guest->id,
