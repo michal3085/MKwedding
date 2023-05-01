@@ -14,12 +14,17 @@ use Maatwebsite\Excel\Facades\Excel;
 
 class GuestsController extends Controller
 {
+    public function __construct()
+    {
+        parent::__construct();
+    }
+
     /*
      * Guest confirmation
      */
     public function confirmGuest(Request $request, ConfirmService $service)
     {
-        if(Carbon::now()->gte('01/20/2023')) {
+        if($this->confirmation_time === false) {
             $guest = Guest::where('name', $request->name)->where('surname', $request->surname)->first();
 
             if ($guest->count() !== 0) {

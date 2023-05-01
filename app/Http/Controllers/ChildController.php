@@ -9,6 +9,7 @@ use App\Models\Child;
 use App\Models\Companion;
 use App\Models\Guest;
 use App\Models\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use function PHPUnit\Framework\isEmpty;
@@ -19,6 +20,8 @@ class ChildController extends Controller
 
     public function __construct()
     {
+        parent::__construct();
+
         $this->emails = User::where('mail_notifications', 1)->get();
     }
 
@@ -130,10 +133,14 @@ class ChildController extends Controller
     public function showChildren($child_id, $gid)
     {
         $children = Guest::where('id', $child_id)->first();
+
         if ($children->confirmed == 0) {
             $parent = Guest::where('id', $gid)->first();
-            $children->confirmed = 1;
-            $children->save();
+
+            if($this->confirmation_time === true) {
+                $children->confirmed = 1;
+                $children->save();
+            }
 
             foreach ($this->emails as $email) Mail::to($email->email)
                 ->send(new ConfirmedBy(
@@ -143,11 +150,18 @@ class ChildController extends Controller
                 ));
         }
 
+        if($this->confirmation_time === false) {
+            $status = 'after_confirmation_time';
+        } else {
+            $status = 'child_added';
+        }
+
         return view('confirmed')->with([
             'data' => $children,
             'name' => $children->name,
             'surname' => $children->surname,
             'gid' => $children->id,
+            'status' => $status,
         ]);
     }
 }
