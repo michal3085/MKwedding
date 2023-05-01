@@ -22,7 +22,7 @@ class GuestsController extends Controller
         if(Carbon::now()->gte('01/20/2023')) {
             $guest = Guest::where('name', $request->name)->where('surname', $request->surname)->first();
 
-            if ($guest->count() != 0) {
+            if ($guest->count() !== 0) {
                 return view('confirmed')->with([
                     'data' => $guest,
                     'gid' => $guest->id,
