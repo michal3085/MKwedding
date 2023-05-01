@@ -3,16 +3,13 @@
 namespace App\Http\Controllers;
 
 use App\Exports\GuestExport;
-use App\Mail\GuestConfirme;
 use App\Models\Child;
 use App\Models\Companion;
 use App\Models\Guest;
 use App\Models\UnexpectedGuest;
-use App\Models\User;
 use App\Services\Guest\ConfirmService;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Mail;
 use Maatwebsite\Excel\Facades\Excel;
 
 class GuestsController extends Controller
@@ -22,7 +19,7 @@ class GuestsController extends Controller
      */
     public function confirmGuest(Request $request, ConfirmService $service)
     {
-        if(Carbon::now()->gt('06/20/2023')) {
+        if(Carbon::now()->gte('01/20/2023')) {
             $guest = Guest::where('name', $request->name)->where('surname', $request->surname)->first();
 
             if ($guest->count() != 0) {

@@ -4,6 +4,7 @@
     <div id="fh5co-started" class="fh5co-bg" style="background-image:url({{asset('images/karolina_pierscien.jpg')}});">
     </div>
     <div id="fh5co-couple">
+
         @if (isset($status) && $status == "no_guest")
             <div class="container">
                 <div class="row">
@@ -16,7 +17,64 @@
                         <a href="{{ route('main') }}"><button type="" class="btn btn-default btn-block">Powrót do strony głównej</button></a>
                     </div>
                 </div>
-            @else
+
+                @elseif(isset($status) && $status == "after_confirmation_time")
+                    @if($data->confirmed == 0)
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
+                                <h2>Termin potwierdzania obecności minął...</h2>
+                                <h3>Twoja obecność na weselu jest <b style="color: #a92222">nie potwierdzona</b>,</h3>
+                                <p>Jeżeli chcesz potwierdzić swoją obecność, skontaktuj się z Karoliną lub Maćkiem.</p>
+                            </div>
+                            <div class="col-md-10 col-md-offset-1">
+                                <a href="{{ route('main') }}"><button type="" class="btn btn-default btn-block">Powrót do strony głównej</button></a>
+                            </div>
+                        </div>
+                    </div>
+                        @endif
+
+                        @if($data->confirmed == 1)
+                            <div class="container">
+                                <div class="row">
+                                    <div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
+                                        <h2>{{ $data->name }} {{ $data->surname }}</h2>
+                                        <p style="color: #00bb00">Twoja obecność na naszym weselu jest potwierdzona.</p>
+                                        <hr>
+
+                                        @if (\App\Models\Companion::companionExists($gid) == 1)
+                                            <p>Osoba Towarzysząca: <a href="{{ route('show.companion', ['id' => $gid]) }}">{{\App\Models\Companion::getNameOfCompanion($gid)}}</a></p>
+                                        @endif
+
+                                        @if (\App\Models\Child::doIHaveAChild($gid))
+                                            <br>
+                                        <p>Dzieci: </p>
+                                            @foreach(\App\Models\Child::getChildrensData($gid) as $childs)
+                                                <a href="{{ route('show.children', ['id' => $childs->id, 'gid' => $gid]) }}">
+                                                    {{$childs->name}} {{$childs->surname}}
+                                                </a>
+                                                @if($childs->confirmed == 0)
+                                                     (Niepotwierdzony)
+                                                @endif
+                                                |
+                                            @endforeach
+                                        @endif
+                                        <br>
+                                        <hr>
+                                        <div class="panel panel-default">
+                                            <div class="panel-heading">Hotel i Transport</div>
+                                            <div class="panel-body">Panel Content</div>
+                                        </div>
+
+                                    </div>
+                                    <div class="col-md-10 col-md-offset-1">
+                                        <a href="{{ route('main') }}"><button type="" class="btn btn-default btn-block">Powrót do strony głównej</button></a>
+                                    </div>
+                                </div>
+                            </div>
+                        @endif
+        @else
+
         <div class="container">
             <div class="row">
                 <div class="col-md-8 col-md-offset-2 text-center fh5co-heading animate-box">
