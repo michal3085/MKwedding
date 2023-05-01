@@ -9,6 +9,8 @@ use App\Models\Companion;
 use App\Models\Guest;
 use App\Models\UnexpectedGuest;
 use App\Models\User;
+use App\Services\Guest\ConfirmService;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Maatwebsite\Excel\Facades\Excel;
@@ -18,49 +20,32 @@ class GuestsController extends Controller
     /*
      * Prepare data for confirmation view
      */
-    public function confirmGuest(Request $request)
+    public function confirmGuest(Request $request, ConfirmService $service)
     {
-        if (Guest::where('name', $request->name)->where('surname', $request->surname)->where('confirmed', '!=', 1)->count() == 1) {
+        $guest = $service->doService($request);
 
-            $guest = Guest::where('name', $request->name)->where('surname', $request->surname)->first();
-            $guest->confirmed = 1;
-            $guest->save();
-
-            // Sending confirmation mail
-            $emails = User::where('mail_notifications', 1)->get();
-            $name = $guest->name . ' ' . $guest->surname;
-
-            foreach ($emails as $email) {
-                Mail::to($email->email)
-                    ->send(new GuestConfirme($name));
-            }
-
+        if(Carbon::now()->lessThan('06/01/2023')) {
             return view('confirmed')->with([
                 'data' => $guest,
                 'gid' => $guest->id,
                 'name' => $guest->name,
-                'surname' => $guest->surname
-                ]);
-
-        } elseif (Guest::where('name', $request->name)->where('surname', $request->surname)->where('confirmed', 1)->count() == 1) {
-
-            $data = Guest::where('name', $request->name)->where('surname', $request->surname)->first();
-            return view('confirmed')->with([
-                'data' => $data,
-                'name' => $data->name,
-                'surname' => $data->surname,
-                'gid' => $data->id
+                'surname' => $guest->surname,
+                'status' => 'after_confirmation_time',
             ]);
-        } else {
-            $unexpected = new UnexpectedGuest();
-            $unexpected->name = $request->name;
-            $unexpected->surname = $request->surname;
-            $unexpected->save();
+        }
 
+        if ($guest === 0) {
             return view('confirmed')->with([
                 'status' => 'no_guest'
             ]);
         }
+
+        return view('confirmed')->with([
+            'data' => $guest,
+            'gid' => $guest->id,
+            'name' => $guest->name,
+            'surname' => $guest->surname,
+        ]);
     }
 
     /*
