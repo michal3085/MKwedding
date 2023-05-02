@@ -30,14 +30,19 @@ class ChildController extends Controller
 
     public function saveChild(StoreChildRequest $request, StoreService $service, $id)
     {
-        $data = $service->doService($request, $id);
+        if ($this->confirmation_time === true) {
+            $data = $service->doService($request, $id);
+            $status = 'child_added';
+        } else {
+            $status = 'after_confirmation_time';
+        }
 
         return view('confirmed')->with([
             'data' => $data,
             'name' => $data->name,
             'surname' => $data->surname,
             'gid' => $data->id,
-            'status' => 'child_added'
+            'status' => $status,
         ]);
     }
 
