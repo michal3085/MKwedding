@@ -7,7 +7,7 @@ use App\Mail\ConfirmedBy;
 use App\Models\Guest;
 use App\Models\User;
 use App\Services\Child\StoreService;
-use mysql_xdevapi\Exception;
+use Illuminate\Support\Facades\Mail;
 
 
 class ChildController extends Controller
