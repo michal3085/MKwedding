@@ -9,10 +9,7 @@ use App\Models\Child;
 use App\Models\Companion;
 use App\Models\Guest;
 use App\Models\User;
-use Carbon\Carbon;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
-use function PHPUnit\Framework\isEmpty;
 
 class ChildController extends Controller
 {
@@ -44,13 +41,13 @@ class ChildController extends Controller
             if ( Companion::areWeCompanions($id, $guest->id) ) {
                 return view('children')->with([
                     'gid' => $id,
-                    'error' => 'child_yours_companion'
+                    'error' => 'child_yours_companion',
                 ]);
             }
             if ( Companion::companionExists($guest->id)) {
                 return view('children')->with([
                     'gid' => $id,
-                    'error' => 'child_someone_companion'
+                    'error' => 'child_someone_companion',
                 ]);
             }
 
@@ -153,7 +150,7 @@ class ChildController extends Controller
         if($this->confirmation_time === false) {
             $status = 'after_confirmation_time';
         } else {
-            $status = 'child_added';
+            $status = 'none';
         }
 
         return view('confirmed')->with([
