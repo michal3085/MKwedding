@@ -9,10 +9,7 @@ use App\Models\Child;
 use App\Models\Companion;
 use App\Models\Guest;
 use App\Models\User;
-use Carbon\Carbon;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
-use function PHPUnit\Framework\isEmpty;
 
 class ChildController extends Controller
 {
@@ -44,13 +41,13 @@ class ChildController extends Controller
             if ( Companion::areWeCompanions($id, $guest->id) ) {
                 return view('children')->with([
                     'gid' => $id,
-                    'error' => 'child_yours_companion'
+                    'error' => 'child_yours_companion',
                 ]);
             }
             if ( Companion::companionExists($guest->id)) {
                 return view('children')->with([
                     'gid' => $id,
-                    'error' => 'child_someone_companion'
+                    'error' => 'child_someone_companion',
                 ]);
             }
 
@@ -133,27 +130,25 @@ class ChildController extends Controller
     public function showChildren($child_id, $gid)
     {
         $children = Guest::where('id', $child_id)->first();
+        $status = 'none';
 
-        if ($children->confirmed == 0) {
-            $parent = Guest::where('id', $gid)->first();
+        if ($this->confirmation_time === true) {
+            if ($children->confirmed == 0) {
+                $parent = Guest::where('id', $gid)->first();
 
-            if($this->confirmation_time === true) {
                 $children->confirmed = 1;
                 $children->save();
+                $status = 'child_add';
+
+                foreach ($this->emails as $email) Mail::to($email->email)
+                    ->send(new ConfirmedBy(
+                        $children->name . ' ' . $children->surname,
+                        $parent->name . ' ' . $parent->surname,
+                        1
+                    ));
             }
-
-            foreach ($this->emails as $email) Mail::to($email->email)
-                ->send(new ConfirmedBy(
-                    $children->name . ' ' . $children->surname,
-                    $parent->name . ' ' . $parent->surname,
-                    1
-                ));
-        }
-
-        if($this->confirmation_time === false) {
-            $status = 'after_confirmation_time';
         } else {
-            $status = 'child_added';
+            $status = 'after_confirmation_time';
         }
 
         return view('confirmed')->with([
