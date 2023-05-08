@@ -117,7 +117,7 @@
                                 <label for="exampleFormControlSelect1">Dodaj dziecko: </label><br>
                                 <a href="{{ route('add.children', ['id' => $gid]) }}">
                                     <button type="submit" class="btn btn-outline-success"><i class="fas fa-plus"></i> <i
-                                            class="fas fa-baby"></i> Dadaj dziecko
+                                            class="fas fa-baby"></i> Dodaj dziecko
                                     </button>
                                 </a>
                                 <br>
