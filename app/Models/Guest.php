@@ -50,7 +50,9 @@ class Guest extends Model
         }
 
         $all = Guest::all()->count();
-        $result = $needed/$all*100;
+
+        $result = $all >= 1 ? $needed / $all * 100 : 0;
+
         return intval($result);
     }
 

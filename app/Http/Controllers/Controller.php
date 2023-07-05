@@ -16,7 +16,7 @@ class Controller extends BaseController
 
     public function __construct()
     {
-        if(Carbon::now()->gte('07/01/2023')) {
+        if(Carbon::now()->gte('07/19/2023')) {
             return $this->confirmation_time = false;
         } else {
             return $this->confirmation_time = true;
