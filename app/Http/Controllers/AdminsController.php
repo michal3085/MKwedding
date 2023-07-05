@@ -124,6 +124,7 @@ class AdminsController extends Controller
             } else {
                 $this->storeGuest($child[0], $child[1], 1, $age);
             }
+
             $guest = Guest::where('name', $child[0])->where('surname', $child[1])->first();
             Child::newChild($id, $guest->id);
 
@@ -159,12 +160,12 @@ class AdminsController extends Controller
             ]);
         } elseif ($guest->count() == 0) {
             $search = Guest::where('surname', 'LIKE', '%' . $surname . '%')->paginate(20);
-            $guests = Guest::latest()->paginate(20);
 
             if ($search->count() >= 1) {
                 $result = $search;
                 $found = 1;
             } elseif ($search->count() == 0) {
+                $guests = Guest::latest()->paginate(20);
                 $result = $guests;
                 $found = 0;
             }
